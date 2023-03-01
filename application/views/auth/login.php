@@ -1,35 +1,31 @@
-<div class="authincation h-100">
-    <div class="container h-100">
-        <div class="row justify-content-center h-100 align-items-center">
-            <div class="col-md-6">
-                <div class="authincation-content">
-                    <div class="row no-gutters">
-                        <div class="col-xl-12">
-                            <div class="auth-form">
-
-                                <h4 class="text-center mb-4">L O G I N</h4>
-                                <?= $this->session->flashdata('message'); ?>
-                                <form method="post" action="<?= base_url('auth'); ?>">
-                                    <div class="mb-3">
-                                        <label class="mb-1"><strong>Username</strong></label>
-                                        <input type="text" name="email" class="form-control" placeholder="NISN">
-                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="mb-1"><strong>Password</strong></label>
-                                        <input type="password" class="form-control" name="password">
-                                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                    </div>
-                                </form>
-                                <div class="new-account mt-3">
-                                    <p>Belum Punya Akun? Daftar <a class="text-primary" href="<?= base_url('auth/registration'); ?>">disini</a></p>
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+        <div class="container ">
+            <div class="loginbox">
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <h1>Login</h1>
+                        <p class="account-subtitle">PPDB MAN 2 Kota Cirebon</p>
+                        <?= $this->session->flashdata('message'); ?>
+                        <form method="post" action="<?= base_url('auth'); ?>">
+                            <div class="form-group">
+                                <label class="form-control-label">NISN</label>
+                                <input type="text" name="email" class="form-control">
+                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Password</label>
+                                <div class="pass-group">
+                                    <input type="password" name="password" class="form-control pass-input">
+                                    <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
-                        </div>
+
+                            <button class="btn btn-sm mt-3 btn-block btn-primary w-100" type="submit">Login</button>
+
+
+                            <div class="text-center dont-have">Don't have an account yet? <a href="register.html">Register</a></div>
+                        </form>
                     </div>
                 </div>
             </div>
