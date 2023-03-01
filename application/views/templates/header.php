@@ -10,8 +10,7 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome/css/all.min.css">
+    <script src='https://kit.fontawesome.com/76a945766d.js' crossorigin='anonymous'></script>
 
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style.css">
 </head>
