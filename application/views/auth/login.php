@@ -24,7 +24,7 @@
                             <button class="btn btn-sm mt-3 btn-block btn-primary w-100" type="submit">Login</button>
 
 
-                            <div class="text-center dont-have">Don't have an account yet? <a href="register.html">Register</a></div>
+                            <div class="text-center dont-have">Don't have an account yet? <a href="<?= base_url('auth/registration'); ?>">Register</a></div>
                         </form>
                     </div>
                 </div>

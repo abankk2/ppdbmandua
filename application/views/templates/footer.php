@@ -12,6 +12,9 @@
 
            <script src="<?= base_url('assets/'); ?>plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
+           <script src="<?= base_url('assets/'); ?>plugins/timeline/horizontal-timeline.js"></script>
+
+
            <script src="<?= base_url('assets/'); ?>js/script.js"></script>
 
            <script>

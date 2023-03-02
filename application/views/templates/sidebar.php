@@ -41,8 +41,8 @@
                     <span><?= $user['name']; ?></span>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i data-feather="user" class="me-1"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i data-feather="settings" class="me-1"></i> Settings</a>
+                    <a class="dropdown-item" href="#"><i data-feather="user" class="me-1"></i> Biodata</a>
+                    <a class="dropdown-item" href="#"><i data-feather="settings" class="me-1"></i> Edit Biodata</a>
                     <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>"><i data-feather="log-out" class="me-1"></i> Logout</a>
                 </div>
             </li>
@@ -126,7 +126,7 @@
                     <div class="col-sm-12">
                         <h3 class="page-title">Selamat Datang !!</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><?= $user['name']; ?></li>
+                            <li class="breadcrumb-item"><?= $user['name']; ?> | <?= $user['email']; ?></li>
                         </ul>
                     </div>
                 </div>

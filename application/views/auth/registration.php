@@ -1,21 +1,21 @@
-<div class="container">
-
-    <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-                <div class="col-lg">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="loginbox">
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <div class="text-center mb-4">
+                            <img src="<?= base_url('assets/img'); ?>/icon.png" class="img-fluid" alt="logo MAN 2" style="max-width: 40%;">
+                            <h1 class="h4 text-gray-900">Membuat Akun Pendaftaran</h1>
+                            <p>PPDB MAN 2 Kota Cirebon</p>
                         </div>
                         <form class="user" method="post" action="<?= base_url('auth/registration'); ?>">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full name" value="<?= set_value('name'); ?>">
+                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
+                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="NISN" value="<?= set_value('email'); ?>">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group row">
@@ -27,16 +27,17 @@
                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Register Account
-                            </button>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-user" type="submit">Buat Akun Pendaftaran</button>
+                            </div>
+
                         </form>
                         <hr>
-                        <div class="text-center">
+                        <!-- <div class="text-center">
                             <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
-                        </div>
+                        </div> -->
                         <div class="text-center">
-                            <a class="small" href="<?= base_url('auth'); ?>">Already have an account? Login!</a>
+                            Sudah Mempunyai Akun? Login<a class="small" href="<?= base_url('auth'); ?>"> disini</a>
                         </div>
                     </div>
                 </div>
@@ -44,4 +45,4 @@
         </div>
     </div>
 
-</div> 
+</div>

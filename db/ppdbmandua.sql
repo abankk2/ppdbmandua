@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 02, 2023 at 07:09 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Host: localhost
+-- Generation Time: Mar 02, 2023 at 04:10 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -130,7 +130,7 @@ CREATE TABLE `detail_siswa` (
   `foto` varchar(128) DEFAULT NULL,
   `jurusan` varchar(256) DEFAULT NULL,
   `file_kip` varchar(256) DEFAULT NULL,
-  `file_ktp` text DEFAULT NULL,
+  `file_ktp` varchar(250) DEFAULT NULL,
   `file_kk` varchar(256) DEFAULT NULL,
   `file_ijazah` varchar(256) DEFAULT NULL,
   `file_akte` varchar(256) DEFAULT NULL,
@@ -155,14 +155,15 @@ CREATE TABLE `detail_siswa` (
   `no_ijazahalumni` varchar(128) DEFAULT NULL,
   `golongandarah` text DEFAULT NULL,
   `penyakit` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `detail_siswa`
 --
 
 INSERT INTO `detail_siswa` (`id`, `nis`, `no_daftar`, `kelas`, `nama_siswa`, `nisn`, `warga_siswa`, `nik`, `tempat_lahir`, `tgl_lahir`, `jk`, `anak_ke`, `saudara`, `agama`, `cita`, `no_hp`, `emails`, `hobi`, `status_tinggal_siswa`, `prov`, `kab`, `kec`, `desa`, `alamat_siswa`, `kordinat`, `kodepos_siswa`, `transportasi`, `jarak`, `waktu`, `biaya_sekolah`, `keb_khusus`, `keb_disabilitas`, `tk`, `paud`, `hepatitis`, `polio`, `bcg`, `campak`, `dpt`, `covid`, `no_kip`, `no_kks`, `no_pkh`, `no_kk`, `kepala_keluarga`, `nama_ayah`, `status_ayah`, `warga_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `domisili_ayah`, `status_tmp_tinggal_ayah`, `prov_ayah`, `kab_ayah`, `kec_ayah`, `desa_ayah`, `alamat_ayah`, `kodepos_ayah`, `nama_ibu`, `status_ibu`, `warga_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `status_tinggal_ibu`, `domisili_ibu`, `status_tmp_tinggal_ibu`, `prov_ibu`, `kab_ibu`, `kec_ibu`, `desa_ibu`, `alamat_ibu`, `kodepos_ibu`, `status_wali`, `nama_wali`, `warga_wali`, `nik_wali`, `tempat_lahir_wali`, `tgl_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `domisili_wali`, `prov_wali`, `kab_wali`, `kec_wali`, `desa_wali`, `alamat_wali`, `kodepos_wali`, `foto`, `jurusan`, `file_kip`, `file_ktp`, `file_kk`, `file_ijazah`, `file_akte`, `file_shun`, `tgl_mutasi`, `surat_masuk`, `alasan_mutasi`, `asal_sekolah`, `npsn_sekolah`, `seri_ijazah`, `sekolah_mutasi`, `level`, `aktif`, `status`, `tgl_siswa`, `online`, `password`, `jenis`, `kelasmutasi`, `konfirmasi`, `tahun_lulus`, `no_ijazahalumni`, `golongandarah`, `penyakit`) VALUES
-(1, '123456789', 'PPDB2023-001', '1', 'Siswa PPDB 2023', '123456789', 'Indonesia', '123456', 'Majalengka', '2023-03-01', '1', 2, 1, 'Islam', 'Presiden', '089660642666', 'abank@kaduacompany.or.id', 'Petualang', 'Orang tua', 'Jawa Barat', 'Kota Cirebon', 'Harjamukti', 'Kecapi', 'Jl. Cirebon Permai III No. 370 Dukuh Semar', '43235252', '41142', 'Gojek', '2 KM', '15 Menit', 'Mandiri', '-', '-', '1', '1', '0', '0', '0', '0', '0', '0', '098765432', '098765432', 'AngHTRbt', '12345668969643', 'Ayahanda', 'Ayahanda', 'Hidup', 'Indonesia', '2464663753783', 'Majalengka', '2023-03-01', 'S1', 'Petani', '500.000', '08912345678', '????', 'Sendiri', 'Jawa Barat', 'Kab. Majalengka', 'Jatitujuh', 'Panyingkiran', 'Gg. Desa no 13', '45458', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, '123456789', 'PPDB2023-001', '1', 'Siswa PPDB 2023', '123456789', 'Indonesia', '123456', 'Majalengka', '2023-03-01', '1', 2, 1, 'Islam', 'Presiden', '089660642666', 'abank@kaduacompany.or.id', 'Petualang', 'Orang tua', 'Jawa Barat', 'Kota Cirebon', 'Harjamukti', 'Kecapi', 'Jl. Cirebon Permai III No. 370 Dukuh Semar', '43235252', '41142', 'Gojek', '2 KM', '15 Menit', 'Mandiri', '-', '-', '1', '1', '0', '0', '0', '0', '0', '0', '098765432', '098765432', 'AngHTRbt', '12345668969643', 'Ayahanda', 'Ayahanda', 'Hidup', 'Indonesia', '2464663753783', 'Majalengka', '2023-03-01', 'S1', 'Petani', '500.000', '08912345678', '????', 'Sendiri', 'Jawa Barat', 'Kab. Majalengka', 'Jatitujuh', 'Panyingkiran', 'Gg. Desa no 13', '45458', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '4663463634', 'PPDB2023-002', NULL, 'Siswa PPDB II', '123456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,6 @@ INSERT INTO `detail_siswa` (`id`, `nis`, `no_daftar`, `kelas`, `nama_siswa`, `ni
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `id_siswa` varchar(100) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
@@ -180,15 +180,16 @@ CREATE TABLE `user` (
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `id_siswa`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(6, '', 'Ade Hamiludin', '089660642666', 'default.jpg', '$2y$10$EhccWtjGg.JIpwySYGJ3TOxTfsxcl.ImB8j5YacAzjq/oxcouNJnK', 1, 1, 1552285263),
-(12, '123456', 'Siswa PPDB 2023', '123456789', 'avatar-051.jpg', '$2y$10$A/Xe7kP9LXuy4pqggyfTNOPzx98f/uDZW8xxtq67.R2erMlAJ/nVi', 2, 1, 1677724494);
+INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(6, 'Ade Hamiludin', '089660642666', 'default.jpg', '$2y$10$EhccWtjGg.JIpwySYGJ3TOxTfsxcl.ImB8j5YacAzjq/oxcouNJnK', 1, 1, 1552285263),
+(12, 'Siswa PPDB 2023', '123456789', 'avatar-051.jpg', '$2y$10$xfmZcMDof2CKyspt/KYheetN2F3okA8JZa5Nvx97JE1IuchLfWehm', 2, 1, 1677724494),
+(18, 'Siswa PPDB II', '123456', 'default.jpg', '$2y$10$soEzvMewtHySxkPCeQTVMetguwTNfMbKsyFqNwKomrQmQWl9vz6k.', 2, 1, 1677762503);
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,7 @@ CREATE TABLE `user_access_menu` (
   `id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_access_menu`
@@ -221,7 +222,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL,
   `menu` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_menu`
@@ -241,7 +242,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
   `role` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_role`
@@ -264,7 +265,7 @@ CREATE TABLE `user_sub_menu` (
   `url` varchar(128) NOT NULL,
   `icon` varchar(128) NOT NULL,
   `is_active` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_sub_menu`
@@ -277,8 +278,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
 (7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 0),
-(22, 2, 'My Profile', 'user', 'fas fa-fw fa-user', 1),
-(23, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1);
+(22, 2, 'Biodata', 'user', 'fas fa-fw fa-user', 1),
+(23, 2, 'Edit Biodata', 'user/edit', 'fas fa-fw fa-user-edit', 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +292,7 @@ CREATE TABLE `user_token` (
   `email` varchar(128) NOT NULL,
   `token` varchar(128) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_token`
@@ -354,13 +355,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `detail_siswa`
 --
 ALTER TABLE `detail_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`

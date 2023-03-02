@@ -11,11 +11,11 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'My Profile';
+        $data['title'] = 'Biodata';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['siswa']          = $this->M_Siswa->detail($kode['id_siswa'])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -24,9 +24,9 @@ class User extends CI_Controller
     }
 
 
-    public function edit()
+    public function edit2()
     {
-        $data['title'] = 'Edit Profile';
+        $data['title'] = 'Edit Biodata';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
@@ -44,16 +44,16 @@ class User extends CI_Controller
             $upload_image = $_FILES['image']['name'];
 
             if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/profiles/';
+                $config['allowed_types']    = 'gif|jpg|png|jpeg';
+                $config['max_size']         = '2048';
+                $config['upload_path']      = './assets/img/profiles/';
 
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('image')) {
                     $old_image = $data['user']['image'];
                     if ($old_image != 'default.jpg') {
-                        unlink(FCPATH . 'assets/img/profile/' . $old_image);
+                        unlink(FCPATH . 'assets/img/profiles/' . $old_image);
                     }
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
@@ -119,6 +119,20 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/info', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/index', $data);
         $this->load->view('templates/footer');
     }
 }
