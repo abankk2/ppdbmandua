@@ -3,13 +3,13 @@
     <div class="header header-one">
 
         <div class="header-left header-left-one">
-            <a href="index.html" class="logo">
+            <a href="<?= base_url('user'); ?>" class="logo">
                 PPDB MAN 2 Kota Cirebon
             </a>
-            <a href="index.html" class="white-logo">
+            <a href="<?= base_url('user'); ?>" class="white-logo">
                 <img src="<?= base_url('assets/'); ?>img/icon.png" alt="Logo">
             </a>
-            <a href="index.html" class="logo logo-small">
+            <a href="<?= base_url('user'); ?>" class="logo logo-small">
                 <img src="<?= base_url('assets/'); ?>img/icon.png" alt="Logo" width="30" height="30">
             </a>
         </div>
@@ -104,10 +104,13 @@
                                 </li>
                             <?php endforeach; ?>
 
-                            <hr class="sidebar-divider mt-3">
 
                         <?php endforeach; ?>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                                <i class="fas fa-fw fa-sign-out-alt"></i>
+                                <span>Logout</span></a>
+                        </li>
 
                 </ul>
             </div>

@@ -14,6 +14,9 @@ class User extends CI_Controller
         $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['id_siswa'])->row_array();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/index', $data);
@@ -43,7 +46,7 @@ class User extends CI_Controller
             if ($upload_image) {
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/profile/';
+                $config['upload_path'] = './assets/img/profiles/';
 
                 $this->load->library('upload', $config);
 
@@ -106,5 +109,16 @@ class User extends CI_Controller
                 }
             }
         }
+    }
+
+    public function info()
+    {
+        $data['title'] = 'Informasi';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/info', $data);
+        $this->load->view('templates/footer');
     }
 }
