@@ -310,6 +310,354 @@
                                 <div class="form-control">: <?= $siswa['no_pkh']; ?></div>
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-4 col-form-label">No. KK</label>
+                            <div class="col-8">
+                                <div class="form-control">: <?= $siswa['no_kk']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-4 col-form-label">Kep. Keluarga</label>
+                            <div class="col-8">
+                                <div class="form-control">: <?= $siswa['kepala_keluarga']; ?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orangtua Ayah-->
+            <h4>Data Keluarga</h4>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Data Ayah</h5>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Nama</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nama_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Status</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['status_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">NIK Ayah</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nik_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tempat Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tempat_lahir_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tgl. Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= date('d F Y', strtotime($siswa['tgl_lahir_ayah'])); ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pendidikan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pendidikan_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pekerjaan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pekerjaan_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Penghasilan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['penghasilan_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. Hp</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['no_hp_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Domisisli</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['domisili_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Provinsi</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['prov_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kab./Kota</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kab_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kecamatan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kec_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kel./Desa</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['desa_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Alamat</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['alamat_ayah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kode POS</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kodepos_ayah']; ?></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ibu -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Data Ibu</h5>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Nama</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nama_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Status</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['status_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">NIK Ayah</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nik_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tempat Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tempat_lahir_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tgl. Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= date('d F Y', strtotime($siswa['tgl_lahir_ibu'])); ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pendidikan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pendidikan_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pekerjaan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pekerjaan_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Penghasilan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['penghasilan_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. Hp</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['no_hp_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Domisisli</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['domisili_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Provinsi</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['prov_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kab./Kota</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kab_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kecamatan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kec_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kel./Desa</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['desa_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Alamat</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['alamat_ibu']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kode POS</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kodepos_ibu']; ?></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wali -->
+            <div class="col-md-6">
+                <h4>Data Wali</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Nama</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nama_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Status</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['status_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">NIK Ayah</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nik_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tempat Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tempat_lahir_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tgl. Lahir</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= date('d F Y', strtotime($siswa['tgl_lahir_wali'])); ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pendidikan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pendidikan_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Pekerjaan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['pekerjaan_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Penghasilan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['penghasilan_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. Hp</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['no_hp_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Domisisli</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['domisili_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Provinsi</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['prov_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kab./Kota</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kab_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kecamatan</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kec_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kel./Desa</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['desa_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Alamat</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['alamat_wali']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Kode POS</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['kodepos_wali']; ?></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sekolah Asal -->
+            <!-- Wali -->
+            <div class="col-md-6">
+                <h4>Data Sekolah Asal</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Nama</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['nama_wali']; ?></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
