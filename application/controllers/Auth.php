@@ -112,7 +112,7 @@ class Auth extends CI_Controller
             $this->db->insert('detail_siswa', $data2);
 
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please activate your account</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran Berhasil' . '<br>Username Anda : ' . $email . '</div>');
             redirect('auth');
         }
     }

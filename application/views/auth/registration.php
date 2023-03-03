@@ -39,6 +39,8 @@
                         <div class="text-center">
                             Sudah Mempunyai Akun? Login<a class="small" href="<?= base_url('auth'); ?>"> disini</a>
                         </div>
+                        <div class="text-center mt-1"><a href="<?= base_url('/'); ?>">Kembali Ke Halaman Utama</a></div>
+
                     </div>
                 </div>
             </div>
