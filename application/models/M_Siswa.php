@@ -32,4 +32,57 @@ class M_Siswa extends CI_Model
         $kodejadi = "PPDB2023-" . $kodemax;    // hasilnya PPDB2023-0001 dst.
         return $kodejadi;
     }
+
+
+    public function get_prov($prov)
+    {
+        $hasil = $this->db->query("SELECT * FROM wilayah_provinsi WHERE id ='$prov'");
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $data) {
+                $hasil = array(
+                    'provinsi'  => $data->provinsi,
+                );
+            }
+        }
+        return $hasil;
+    }
+
+    public function get_kab($kab)
+    {
+        $hasil = $this->db->query("SELECT * FROM wilayah_kabupaten WHERE id ='$kab'");
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $data) {
+                $hasil = array(
+                    'kabupaten'  => $data->kabupaten,
+                );
+            }
+        }
+        return $hasil;
+    }
+
+    public function get_kec($kec)
+    {
+        $hasil = $this->db->query("SELECT * FROM wilayah_kecamatan WHERE id ='$kec'");
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $data) {
+                $hasil = array(
+                    'kecamatan'  => $data->kecamatan,
+                );
+            }
+        }
+        return $hasil;
+    }
+
+    public function get_des($des)
+    {
+        $hasil = $this->db->query("SELECT * FROM wilayah_desa WHERE id ='$des'");
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $data) {
+                $hasil = array(
+                    'desa'  => $data->desa,
+                );
+            }
+        }
+        return $hasil;
+    }
 }

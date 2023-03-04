@@ -105,7 +105,7 @@ class Auth extends CI_Controller
 
             $data2 = [
                 'nama_siswa'    => htmlspecialchars($this->input->post('name', true)),
-                'nis'           => htmlspecialchars($email),
+                'nisn'           => htmlspecialchars($email),
                 'no_daftar'     => $this->M_Siswa->buat_kode(),
 
             ];

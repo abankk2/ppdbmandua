@@ -91,11 +91,11 @@
                                 <label class="form-label">Gol Darah</label>
                                 <select class="form-select" name="golongandarah" required>
                                     <option value="<?= $siswa['golongandarah']; ?>" selected disabled><?= $siswa['golongandarah']; ?></option>
-                                    <option value="1">A</option>
-                                    <option value="2">AB</option>
-                                    <option value="3">B</option>
-                                    <option value="4">O</option>
-                                    <option value="5">Belum di Cek</option>
+                                    <option value="A">A</option>
+                                    <option value="B">AB</option>
+                                    <option value="AB">B</option>
+                                    <option value="O">O</option>
+                                    <option value="Belum di Cek">Belum di Cek</option>
                                 </select>
                             </div>
                         </div>
@@ -128,11 +128,16 @@
                                 <label class="form-label">Cita - Cita</label>
                                 <select class="form-select" name="cita" required>
                                     <option value="<?= $siswa['cita']; ?>" selected disabled><?= $siswa['cita']; ?></option>
-                                    <option value="1">A</option>
-                                    <option value="2">AB</option>
-                                    <option value="3">B</option>
-                                    <option value="4">O</option>
-                                    <option value="5">Belum di Cek</option>
+                                    <option value="PNS">PNS</option>
+                                    <option value="TNI/Porli">TNI/Porli</option>
+                                    <option value="Guru/Dosen">Guru/Dosen</option>
+                                    <option value="Dokter">Dokter</option>
+                                    <option value="Politikus">Politikus</option>
+                                    <option value="Wiraswasta">Wiraswasta</option>
+                                    <option value="Seniman/Artis">Seniman/Artis</option>
+                                    <option value="Ilmuan">Ilmuan</option>
+                                    <option value="Agamawan">Agamawan</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
                         </div>
@@ -141,11 +146,12 @@
                                 <label class="form-label">Hobi</label>
                                 <select class="form-select" name="cita" required>
                                     <option value="<?= $siswa['hobi']; ?>" selected disabled><?= $siswa['hobi']; ?></option>
-                                    <option value="1">A</option>
-                                    <option value="2">AB</option>
-                                    <option value="3">B</option>
-                                    <option value="4">O</option>
-                                    <option value="5">Belum di Cek</option>
+                                    <option value="Kesenian">Kesenian</option>
+                                    <option value="Olahraga">Olahraga</option>
+                                    <option value="Membaca">Membaca</option>
+                                    <option value="Menulis">Menulis</option>
+                                    <option value="Jalan - Jalan">Jalan - Jalan</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
                         </div>

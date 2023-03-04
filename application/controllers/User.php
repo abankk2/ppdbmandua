@@ -144,6 +144,9 @@ class User extends CI_Controller
         $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
 
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/biodata/tinggal', $data);
@@ -204,5 +207,64 @@ class User extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/biodata/dok', $data);
         $this->load->view('templates/footer');
+    }
+
+
+    function add_ajax_kab($id_prov)
+    {
+        $query = $this->db->get_where('wilayah_kabupaten', array('provinsi_id' => $id_prov));
+        $data = "<option value=''>- Select Kabupaten -</option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->kabupaten . "</option>";
+        }
+        echo $data;
+    }
+
+    function add_ajax_kec($id_kab)
+    {
+        $query = $this->db->get_where('wilayah_kecamatan', array('kabupaten_id' => $id_kab));
+        $data = "<option value=''> - Pilih Kecamatan - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->kecamatan . "</option>";
+        }
+        echo $data;
+    }
+
+    function add_ajax_des($id_kec)
+    {
+        $query = $this->db->get_where('wilayah_desa', array('kecamatan_id' => $id_kec));
+        $data = "<option value=''> - Pilih Desa - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->desa . "</option>";
+        }
+        echo $data;
+    }
+
+    function get_prov() // Get Data prov
+    {
+        $prov  = $this->input->post('provinsi');
+        $data   = $this->M_Siswa->get_prov($prov);
+        echo json_encode($data);
+    }
+
+    function get_kab() // Get Data kab
+    {
+        $kab  = $this->input->post('kabupaten');
+        $data   = $this->M_Siswa->get_kab($kab);
+        echo json_encode($data);
+    }
+
+    function get_kec() // Get Data kec
+    {
+        $kec  = $this->input->post('kecamatan');
+        $data   = $this->M_Siswa->get_kec($kec);
+        echo json_encode($data);
+    }
+
+    function get_des() // Get Data kec
+    {
+        $des  = $this->input->post('desa');
+        $data   = $this->M_Siswa->get_des($des);
+        echo json_encode($data);
     }
 }
