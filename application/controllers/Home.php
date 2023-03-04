@@ -8,9 +8,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'PPDB | MAN 2 Kota Cirebon';
 
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/home_header', $data);
         $this->load->view('home/index', $data);
-        // $this->load->view('templates/footer');
+        $this->load->view('templates/home_footer');
     }
 }

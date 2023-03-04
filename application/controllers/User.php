@@ -135,4 +135,74 @@ class User extends CI_Controller
         $this->load->view('user/biodata/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function edit_tinggal()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/tinggal', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_ortu()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/ortu', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_wali()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/wali', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_skolah()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/sekolah', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_dok()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/dok', $data);
+        $this->load->view('templates/footer');
+    }
 }

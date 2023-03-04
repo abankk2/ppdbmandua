@@ -8,8 +8,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('user/edit'); ?>" class="nav-link">
-                        <i class="far fa-user"></i> <span>Biodata</span>
+                    <a href="<?= base_url('user/edit_tinggal'); ?>" class="nav-link">
+                        <i class="fa-solid fa-house"></i> <span>Tempat Tinggal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
+                        <i class="fa-solid fa-users-gear"></i> <span>Orang Tua</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_wali'); ?>" class="nav-link">
+                        <i class="fa-solid fa-user-tie"></i> <span>Wali Siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_skolah'); ?>" class="nav-link">
+                        <i class="fa-solid fa-school"></i> <span>Sekolah Asal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
+                        <i class="fa-solid fa-file-pdf"></i> <span>Dokumen</span>
                     </a>
                 </li>
 
@@ -70,7 +90,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Gol Darah</label>
                                 <select class="form-select" name="golongandarah" required>
-                                    <option selected disabled></option>
+                                    <option value="<?= $siswa['golongandarah']; ?>" selected disabled><?= $siswa['golongandarah']; ?></option>
                                     <option value="1">A</option>
                                     <option value="2">AB</option>
                                     <option value="3">B</option>
@@ -81,21 +101,71 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
+                                <label class="form-label">NIK</label>
+                                <input type="number" name="nik" value="<?= $siswa['nik']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
                                 <label class="form-label">Agama</label>
                                 <input type="text" name="agama" value="Islam" class="form-control" readonly required>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Anak ke</label>
+                                <input type="number" name="anak_ke" value="<?= $siswa['anak_ke']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Jml. Saudara</label>
+                                <input type="number" name="saudara" value="<?= $siswa['saudara']; ?>" class="form-control" required>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">NIK</label>
-                                <input type="number" name="nik" class="form-control" required>
+                                <label class="form-label">Cita - Cita</label>
+                                <select class="form-select" name="cita" required>
+                                    <option value="<?= $siswa['cita']; ?>" selected disabled><?= $siswa['cita']; ?></option>
+                                    <option value="1">A</option>
+                                    <option value="2">AB</option>
+                                    <option value="3">B</option>
+                                    <option value="4">O</option>
+                                    <option value="5">Belum di Cek</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Hobi</label>
+                                <select class="form-select" name="cita" required>
+                                    <option value="<?= $siswa['hobi']; ?>" selected disabled><?= $siswa['hobi']; ?></option>
+                                    <option value="1">A</option>
+                                    <option value="2">AB</option>
+                                    <option value="3">B</option>
+                                    <option value="4">O</option>
+                                    <option value="5">Belum di Cek</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">No. Whatsapp</label>
+                                <input type="number" name="no_hp" value="<?= $siswa['no_hp']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="text" name="emails" value="<?= $siswa['emails']; ?> " class="form-control" required>
                             </div>
                         </div>
                     </div>
-
-                    <div class=" text-end">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-block btn-primary">Simpan</button>
                     </div>
+
                 </form>
 
             </div>

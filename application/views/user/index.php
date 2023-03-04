@@ -77,6 +77,8 @@
                                     <div class="form-control">: Laki - Laki</div>
                                 <?php } else if ($siswa['jk'] == 2) { ?>
                                     <div class="form-control">: Perempuan</div>
+                                <?php } else if ($siswa['jk'] == NULL) { ?>
+                                    <div class="form-control">: </div>
                                 <?php } ?>
                             </div>
                         </div>
