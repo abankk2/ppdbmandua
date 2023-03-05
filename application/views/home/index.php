@@ -1,3 +1,4 @@
+
 <section id="hero">
     <div class="container pt-3">
         <div class="row">
@@ -5,10 +6,15 @@
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text>
-                            </svg>
+                            <div class="slidd">
+                                <h4>Selamat Datang Di Web PPDB MAN 2 Kota Cirebon</h4>
+                                <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Aplikasi Penerimaan Peserta didik baru Tahun Pelajaran 2023/2024
+                        <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Pendaftaran Siswa dan Siswi Baru Tahun 2023/2024 ini telah dibuka. <br> Silahkan Segera Daftar dan lengkapi Formulir
+
+</li>
+                    </ul>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
