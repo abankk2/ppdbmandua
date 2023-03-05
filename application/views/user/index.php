@@ -601,9 +601,9 @@
                             </div>
                         </div>
                         <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Domisisli</label>
+                            <label class="col-5 col-form-label">Status Tempat Tinggal</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['domisili_wali']; ?></div>
+                                <div class="form-control">: <?= $siswa['status_tmp_tinggal_wali']; ?></div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">

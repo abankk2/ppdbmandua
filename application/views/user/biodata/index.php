@@ -14,7 +14,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
-                        <i class="fa-solid fa-users-gear"></i> <span>Orang Tua</span>
+                        <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link">
+                        <i class="fa-regular fa-address-book"></i> <span>Identitas Ibu</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -44,7 +49,7 @@
             </div>
             <div class="card-body">
 
-                <form>
+                <form method="post" action="<?= base_url('user/upbiodata'); ?>">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -127,7 +132,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Cita - Cita</label>
                                 <select class="form-select" name="cita" required>
-                                    <option value="<?= $siswa['cita']; ?>" selected disabled><?= $siswa['cita']; ?></option>
+                                    <option value="<?= $siswa['cita']; ?>" selected><?= $siswa['cita']; ?></option>
                                     <option value="PNS">PNS</option>
                                     <option value="TNI/Porli">TNI/Porli</option>
                                     <option value="Guru/Dosen">Guru/Dosen</option>
@@ -144,8 +149,8 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Hobi</label>
-                                <select class="form-select" name="cita" required>
-                                    <option value="<?= $siswa['hobi']; ?>" selected disabled><?= $siswa['hobi']; ?></option>
+                                <select class="form-select" name="hobi" required>
+                                    <option value="<?= $siswa['hobi']; ?>" selected><?= $siswa['hobi']; ?></option>
                                     <option value="Kesenian">Kesenian</option>
                                     <option value="Olahraga">Olahraga</option>
                                     <option value="Membaca">Membaca</option>

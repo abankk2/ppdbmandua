@@ -38,7 +38,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
-                        <i class="fa-solid fa-users-gear"></i> <span>Orang Tua</span>
+                        <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link">
+                        <i class="fa-regular fa-address-book"></i> <span>Identitas Ibu</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -62,19 +67,20 @@
 
     </div>
     <div class="col-xl-9 col-md-8">
+        <?= $this->session->flashdata('message'); ?>
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">Tempat Tinggal</h5>
             </div>
             <div class="card-body">
-
-                <form>
+                <form method="post" action="<?= base_url('user/uptinggal'); ?>">
+                    <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control d-none" readonly>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Status Tinggal</label>
                                 <select class="form-select" name="status_tinggal_siswa" required>
-                                    <option value="<?= $siswa['status_tinggal_siswa']; ?>" selected disabled><?= $siswa['status_tinggal_siswa']; ?></option>
+                                    <option value="<?= $siswa['status_tinggal_siswa']; ?>" selected><?= $siswa['status_tinggal_siswa']; ?></option>
                                     <option value="Dengan Ayah Kandung">Dengan Ayah Kandung</option>
                                     <option value="Dengan Ibu Kandung">Dengan Ibu Kandung</option>
                                     <option value="Dengan Wali">Dengan Wali</option>
@@ -92,6 +98,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Provinsi</label>
                                 <select name="provinsi" class="form-select form-select" id="provinsi">
+                                    <option><?= $siswa['prov']; ?></option>
                                     <option>- Pilih Provinsi -</option>
                                     <?php
                                     foreach ($provinsi as $prov) {
@@ -105,6 +112,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kab./Kota</label>
                                 <select name="kabupaten" class="form-select form-select" id="kabupaten">
+                                    <option><?= $siswa['kab']; ?></option>
                                     <option value=''>Pilih Kabupaten</option>
                                 </select>
                             </div>
@@ -113,6 +121,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kecamatan</label>
                                 <select name="kecamatan" class="form-select form-select" id="kecamatan">
+                                    <option><?= $siswa['kec']; ?></option>
                                     <option>Pilih Kecamatan</option>
                                 </select>
                             </div>
@@ -121,6 +130,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kel./Desa</label>
                                 <select name="des" class="form-select form-select" id="desa">
+                                    <option><?= $siswa['desa']; ?></option>
                                     <option>Pilih Desa</option>
                                 </select>
                             </div>
@@ -128,13 +138,13 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Kode POS</label>
-                                <input type="number" name="kodepos_siswa" class="form-control" required>
+                                <input type="number" name="kodepos_siswa" value="<?= $siswa['kodepos_siswa']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label">Detail Alamat</label>
-                                <textarea class="form-control" value="Hallo" name="alamat_siswa" rows="2" required><?= $siswa['alamat_siswa']; ?></textarea>
+                                <textarea class="form-control" name="alamat_siswa" rows="2" required><?= $siswa['alamat_siswa']; ?></textarea>
                                 <div id="emailHelp" class="form-text">Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03</div>
                             </div>
                         </div>
@@ -146,10 +156,10 @@
                             </div>
                         </div>
                     </div>
-                    <input type="text" name="prov" class="form-control d-none" required>
-                    <input type="text" name="kab" class="form-control d-none" required>
-                    <input type="text" name="kec" class="form-control d-none" required>
-                    <input type="text" name="desa" class="form-control d-none" required>
+                    <input type="text" name="prov" value="<?= $siswa['prov']; ?>" class="form-control d-none" required>
+                    <input type="text" name="kab" value="<?= $siswa['kab']; ?>" class="form-control d-none" required>
+                    <input type="text" name="kec" value="<?= $siswa['kec']; ?>" class="form-control d-none" required>
+                    <input type="text" name="desa" value="<?= $siswa['desa']; ?>" class="form-control d-none" required>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-block btn-primary">Simpan</button>
                     </div>

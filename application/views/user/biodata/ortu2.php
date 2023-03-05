@@ -38,12 +38,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link active">
+                    <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
                         <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link">
+                    <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link active">
                         <i class="fa-regular fa-address-book"></i> <span>Identitas Ibu</span>
                     </a>
                 </li>
@@ -71,42 +71,43 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Identitas Ayah</h5>
+                <h5 class="card-title">Identitas Ibu</h5>
             </div>
             <div class="card-body">
 
-                <form method="post" action="<?= base_url('user/uportu'); ?>">
+                <form method="post" action="<?= base_url('user/uportu2'); ?>">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">No. Kartu Keluarga</label>
-                                <input type="number" name="no_kk" value="<?= $siswa['no_kk']; ?>" class="form-control" required>
+                                <input type="number" name="no_kk" value="<?= $siswa['no_kk']; ?>" class="form-control" readonly>
+                                <div id="emailHelp" class="form-text">Diisi di Menu Edit Identitas Ayah</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Kepala Keluarga</label>
-                                <input type="text" name="kepala_keluarga" value="<?= $siswa['kepala_keluarga']; ?>" class="form-control" required>
+                                <input type="text" name="kepala_keluarga" value="<?= $siswa['kepala_keluarga']; ?>" class="form-control" readonly>
+                                <div id="emailHelp" class="form-text">Diisi di Menu Edit Identitas Ayah</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">NIK Ayah</label>
-                                <input type="text" name="nik_ayah" value="<?= $siswa['nik_ayah']; ?>" class="form-control" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">Nama Ayah</label>
-                                <input type="text" name="nama_ayah" value="<?= $siswa['nama_ayah']; ?>" class="form-control" required>
+                                <label class="form-label">NIK Ibu</label>
+                                <input type="text" name="nik_ibu" value="<?= $siswa['nik_ibu']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">Status Ayah</label>
-                                <select class="form-select" name="status_ayah" required>
-                                    <option value="<?= $siswa['status_ayah']; ?>" selected><?= $siswa['status_ayah']; ?></option>
+                                <label class="form-label">Nama Ibu</label>
+                                <input type="text" name="nama_ibu" value="<?= $siswa['nama_ibu']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Status Ibu</label>
+                                <select class="form-select" name="status_ibu" required>
+                                    <option value="<?= $siswa['status_ibu']; ?>" selected><?= $siswa['status_ibu']; ?></option>
                                     <option value="Masih Hidup">Masih Hidup</option>
                                     <option value="Sudah Meninggal">Sudah Meninggal</option>
                                     <option value="Tidak Diketahui">Tidak Diketahui</option>
@@ -116,8 +117,8 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Kewarganegaraan</label>
-                                <select class="form-select" name="warga_ayah" required>
-                                    <option value="<?= $siswa['warga_ayah']; ?>" selected><?= $siswa['warga_ayah']; ?></option>
+                                <select class="form-select" name="warga_ibu" required>
+                                    <option value="<?= $siswa['warga_ibu']; ?>" selected><?= $siswa['warga_ibu']; ?></option>
                                     <option value="Warga Negara Indonesia">Warga Negara Indonesia</option>
                                     <option value="Warga Negara Asing">Warga Negara Asing</option>
                                 </select>
@@ -126,20 +127,20 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Tempat Lahir</label>
-                                <input type="text" name="tempat_lahir_ayah" value="<?= $siswa['tempat_lahir_ayah']; ?>" class="form-control" required>
+                                <input type="text" name="tempat_lahir_ibu" value="<?= $siswa['tempat_lahir_ibu']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Tgl. Lahir</label>
-                                <input type="date" name="tgl_lahir_ayah" value="<?= $siswa['tgl_lahir_ayah']; ?>" class="form-control" required>
+                                <input type="date" name="tgl_lahir_ibu" value="<?= $siswa['tgl_lahir_ibu']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">Pendidikan Ayah</label>
-                                <select class="form-select" name="pendidikan_ayah" required>
-                                    <option value="<?= $siswa['pendidikan_ayah']; ?>" selected><?= $siswa['pendidikan_ayah']; ?></option>
+                                <label class="form-label">Pendidikan Ibu</label>
+                                <select class="form-select" name="pendidikan_ibu" required>
+                                    <option value="<?= $siswa['pendidikan_ibu']; ?>" selected><?= $siswa['pendidikan_ibu']; ?></option>
                                     <option value="SMP/Sederajat">SMP/Sederajat</option>
                                     <option value="SMA/Sederajat">SMA/Sederajat</option>
                                     <option value="D1">D1</option>
@@ -154,9 +155,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">Pekerjaan Ayah</label>
-                                <select class="form-select" name="pekerjaan_ayah" required>
-                                    <option value="<?= $siswa['pekerjaan_ayah']; ?>" selected><?= $siswa['pekerjaan_ayah']; ?></option>
+                                <label class="form-label">Pekerjaan Ibu</label>
+                                <select class="form-select" name="pekerjaan_ibu" required>
+                                    <option value="<?= $siswa['pekerjaan_ibu']; ?>" selected><?= $siswa['pekerjaan_ibu']; ?></option>
                                     <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Pensiunan">Pensiunan</option>
                                     <option value="PNS">PNS</option>
@@ -180,9 +181,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">Penghasilan Ayah</label>
-                                <select class="form-select" name="penghasilan_ayah" required>
-                                    <option value="<?= $siswa['penghasilan_ayah']; ?>" selected><?= $siswa['penghasilan_ayah']; ?></option>
+                                <label class="form-label">Penghasilan Ibu</label>
+                                <select class="form-select" name="penghasilan_ibu" required>
+                                    <option value="<?= $siswa['penghasilan_ibu']; ?>" selected><?= $siswa['penghasilan_ibu']; ?></option>
                                     <option value="Kurang dari 500.000">Kurang dari 500.000</option>
                                     <option value="500.000 - 1.000.000">500.000 - 1.000.000</option>
                                     <option value="1.000.001 - 2.000.000">1.000.001 - 2.000.000</option>
@@ -196,8 +197,8 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Status Kepemilikan Rumah</label>
-                                <select class="form-select" name="status_tmp_tinggal_ayah" required>
-                                    <option value="<?= $siswa['status_tmp_tinggal_ayah']; ?>" selected><?= $siswa['status_tmp_tinggal_ayah']; ?></option>
+                                <select class="form-select" name="status_tmp_tinggal_ibu" required>
+                                    <option value="<?= $siswa['status_tmp_tinggal_ibu']; ?>" selected><?= $siswa['status_tmp_tinggal_ibu']; ?></option>
                                     <option value="Milik Sendiri">Milik Sendiri</option>
                                     <option value="Rumah Orang Tua">Rumah Orang Tua</option>
                                     <option value="Rumah Saudara/kerabat">Rumah Saudara/kerabat</option>
@@ -212,7 +213,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Provinsi</label>
                                 <select name="provinsi" class="form-select form-select" id="provinsi">
-                                    <option><?= $siswa['prov_ayah']; ?></option>
+                                    <option><?= $siswa['prov_ibu']; ?></option>
                                     <option>- Pilih Provinsi -</option>
                                     <?php
                                     foreach ($provinsi as $prov) {
@@ -226,7 +227,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kab./Kota</label>
                                 <select name="kabupaten" class="form-select form-select" id="kabupaten">
-                                    <option><?= $siswa['kab_ayah']; ?></option>
+                                    <option><?= $siswa['kab_ibu']; ?></option>
                                     <option value=''>Pilih Kabupaten</option>
                                 </select>
                             </div>
@@ -235,7 +236,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kecamatan</label>
                                 <select name="kecamatan" class="form-select form-select" id="kecamatan">
-                                    <option><?= $siswa['kec_ayah']; ?></option>
+                                    <option><?= $siswa['kec_ibu']; ?></option>
                                     <option>Pilih Kecamatan</option>
                                 </select>
                             </div>
@@ -244,7 +245,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Kel./Desa</label>
                                 <select name="des" class="form-select form-select" id="desa">
-                                    <option><?= $siswa['desa_ayah']; ?></option>
+                                    <option><?= $siswa['desa_ibu']; ?></option>
                                     <option>Pilih Desa</option>
                                 </select>
                             </div>
@@ -252,22 +253,22 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Kode POS</label>
-                                <input type="number" name="kodepos_ayah" value="<?= $siswa['kodepos_ayah']; ?>" class="form-control" required>
+                                <input type="number" name="kodepos_ibu" value="<?= $siswa['kodepos_ibu']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label">Detail Alamat</label>
-                                <textarea class="form-control" name="alamat_ayah" rows="2" required><?= $siswa['alamat_ayah']; ?></textarea>
+                                <textarea class="form-control" name="alamat_ibu" rows="2" required><?= $siswa['alamat_ibu']; ?></textarea>
                                 <div id="emailHelp" class="form-text">Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03</div>
                             </div>
                         </div>
                     </div>
-                    <input type="text" name="prov" value="<?= $siswa['prov_ayah']; ?>" class="form-control d-none" required>
-                    <input type="text" name="kab" value="<?= $siswa['kab_ayah']; ?>" class=" form-control d-none" required>
-                    <input type=" text" name="kec" value="<?= $siswa['kec_ayah']; ?>" class=" form-control d-none" required>
-                    <input type=" text" name="desa" value="<?= $siswa['desa_ayah']; ?>" class=" form-control d-none" required>
-                    <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control d-none" required>
+                    <input type="text" name="prov" value="<?= $siswa['prov_ibu']; ?>" class="form-control d-none" required>
+                    <input type="text" name="kab" value="<?= $siswa['kab_ibu']; ?>" class=" form-control d-none" required>
+                    <input type=" text" name="kec" value="<?= $siswa['kec_ibu']; ?>" class=" form-control d-none" required>
+                    <input type=" text" name="desa" value="<?= $siswa['desa_ibu']; ?>" class=" form-control d-none" required>
+                    <input type=" text" name="nisn" value="<?= $siswa['nisn']; ?>" class=" form-control d-none" required>
                     <div class=" d-grid gap-2">
                         <button type="submit" class="btn btn-block btn-primary">Simpan</button>
                     </div>
@@ -278,6 +279,7 @@
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 

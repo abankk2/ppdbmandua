@@ -28,7 +28,6 @@ S3
 Tidak Bersekolah
 
 
-
 Kurang dari 500.000
 500.000 - 1.000.000
 1.000.001 - 2.000.000
@@ -36,3 +35,10 @@ Kurang dari 500.000
 3.000.001 - 5.000.000
 Lebih dari 5.000.000
 Tidak ada
+
+Milik Sendiri
+Rumah Orang Tua
+Rumah Saudara/kerabat
+Rumah Dinas
+Sewa/kontrak
+Lainnya

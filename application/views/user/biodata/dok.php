@@ -13,8 +13,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link ">
-                        <i class="fa-solid fa-users-gear"></i> <span>Orang Tua</span>
+                    <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
+                        <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link">
+                        <i class="fa-regular fa-address-book"></i> <span>Identitas Ibu</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -46,7 +51,8 @@
 
                 <form>
                     <div class="row">
-                        <div class="col-md-4">
+                        <h5>Halaman ini Masih dalam Perbaikan</h5>
+                        <!-- <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Status Tinggal</label>
                                 <select class="form-select" name="status_tinggal_siswa" required>
@@ -58,7 +64,7 @@
                                     <option value="5">Belum di Cek</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="d-grid gap-2">

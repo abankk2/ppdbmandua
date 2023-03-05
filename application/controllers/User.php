@@ -161,9 +161,29 @@ class User extends CI_Controller
         $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
 
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/biodata/ortu', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_ortu2()
+    {
+        $data['title'] = 'Edit Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/ortu2', $data);
         $this->load->view('templates/footer');
     }
 
@@ -174,6 +194,9 @@ class User extends CI_Controller
 
         $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -208,6 +231,240 @@ class User extends CI_Controller
         $this->load->view('user/biodata/dok', $data);
         $this->load->view('templates/footer');
     }
+
+    // Aksi Edit Perubahan Data siswa
+
+    public function upbiodata() // Update Data Biodata
+    {
+        $nisn               = $this->input->post('nisn');
+        $tempat_lahir       = $this->input->post('tempat_lahir');
+        $tgl_lahir          = $this->input->post('tgl_lahir');
+        $jk                 = $this->input->post('jk');
+        $golongandarah      = $this->input->post('golongandarah');
+        $nik                = $this->input->post('nik');
+        $agama              = $this->input->post('agama');
+        $anak_ke            = $this->input->post('anak_ke');
+        $saudara            = $this->input->post('saudara');
+        $cita               = $this->input->post('cita');
+        $hobi               = $this->input->post('hobi');
+        $no_hp              = $this->input->post('no_hp');
+        $emails             = $this->input->post('emails');
+
+
+        $data = array(
+            'nisn'          => $nisn,
+            'tempat_lahir'  => $tempat_lahir,
+            'tgl_lahir'     => $tgl_lahir,
+            'jk'            => $jk,
+            'golongandarah' => $golongandarah,
+            'nik'           => $nik,
+            'agama'         => $agama,
+            'anak_ke'       => $anak_ke,
+            'saudara'       => $saudara,
+            'cita'          => $cita,
+            'hobi'          => $hobi,
+            'no_hp'         => $no_hp,
+            'emails'        => $emails,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Data Tempat Tinggal Siswa </div>');
+        redirect('user/edit_tinggal');
+    }
+
+    public function uptinggal() // Update Data Tinggal
+    {
+        $nisn                   = $this->input->post('nisn');
+        $status_tinggal_siswa   = $this->input->post('status_tinggal_siswa');
+        $prov                   = $this->input->post('prov');
+        $kab                    = $this->input->post('kab');
+        $kec                    = $this->input->post('kec');
+        $desa                   = $this->input->post('desa');
+        $kodepos_siswa          = $this->input->post('kodepos_siswa');
+        $alamat_siswa           = $this->input->post('alamat_siswa');
+        $kordinat               = $this->input->post('kordinat');
+
+
+        $data = array(
+            'nisn'                  => $nisn,
+            'status_tinggal_siswa'  => $status_tinggal_siswa,
+            'prov'                  => $prov,
+            'kab'                   => $kab,
+            'kec'                   => $kec,
+            'desa'                  => $desa,
+            'kodepos_siswa'         => $kodepos_siswa,
+            'alamat_siswa'          => $alamat_siswa,
+            'kordinat'              => $kordinat,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Identitas Ayah </div>');
+        redirect('user/edit_ortu');
+    }
+
+    public function uportu() // Update Data Ayah
+    {
+        $nisn                       = $this->input->post('nisn');
+        $no_kk                      = $this->input->post('no_kk');
+        $nik_ayah                   = $this->input->post('nik_ayah');
+        $kepala_keluarga            = $this->input->post('kepala_keluarga');
+        $nama_ayah                  = $this->input->post('nama_ayah');
+        $status_ayah                = $this->input->post('status_ayah');
+        $tempat_lahir_ayah          = $this->input->post('tempat_lahir_ayah');
+        $tgl_lahir_ayah             = $this->input->post('tgl_lahir_ayah');
+        $pendidikan_ayah            = $this->input->post('pendidikan_ayah');
+        $pekerjaan_ayah             = $this->input->post('pekerjaan_ayah');
+        $penghasilan_ayah           = $this->input->post('penghasilan_ayah');
+        $status_tmp_tinggal_ayah    = $this->input->post('status_tmp_tinggal_ayah');
+        $prov_ayah                  = $this->input->post('prov');
+        $kab_ayah                   = $this->input->post('kab');
+        $kec_ayah                   = $this->input->post('kec');
+        $desa_ayah                  = $this->input->post('desa');
+        $kodepos_ayah               = $this->input->post('kodepos_ayah');
+        $alamat_ayah                = $this->input->post('alamat_ayah');
+
+        $data = array(
+            'nisn'                      => $nisn,
+            'no_kk'                     => $no_kk,
+            'nik_ayah'                  => $nik_ayah,
+            'kepala_keluarga'           => $kepala_keluarga,
+            'nama_ayah'                 => $nama_ayah,
+            'status_ayah'               => $status_ayah,
+            'tempat_lahir_ayah'         => $tempat_lahir_ayah,
+            'tgl_lahir_ayah'            => $tgl_lahir_ayah,
+            'pendidikan_ayah'           => $pendidikan_ayah,
+            'pekerjaan_ayah'            => $pekerjaan_ayah,
+            'penghasilan_ayah'          => $penghasilan_ayah,
+            'status_tmp_tinggal_ayah'   => $status_tmp_tinggal_ayah,
+            'prov_ayah'                 => $prov_ayah,
+            'kab_ayah'                  => $kab_ayah,
+            'kec_ayah'                  => $kec_ayah,
+            'desa_ayah'                 => $desa_ayah,
+            'alamat_ayah'               => $alamat_ayah,
+            'kodepos_ayah'              => $kodepos_ayah,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Identitas Ibu </div>');
+        redirect('user/edit_ortu2');
+    }
+
+    public function uportu2() // Update Data Ayah
+    {
+        $nisn                       = $this->input->post('nisn');
+        $nik_ibu                    = $this->input->post('nik_ibu');
+        $kepala_keluarga            = $this->input->post('kepala_keluarga');
+        $nama_ibu                   = $this->input->post('nama_ibu');
+        $warga_ibu                  = $this->input->post('warga_ibu');
+        $status_ibu                = $this->input->post('status_ibu');
+        $tempat_lahir_ibu          = $this->input->post('tempat_lahir_ibu');
+        $tgl_lahir_ibu             = $this->input->post('tgl_lahir_ibu');
+        $pendidikan_ibu            = $this->input->post('pendidikan_ibu');
+        $pekerjaan_ibu             = $this->input->post('pekerjaan_ibu');
+        $penghasilan_ibu           = $this->input->post('penghasilan_ibu');
+        $status_tmp_tinggal_ibu    = $this->input->post('status_tmp_tinggal_ibu');
+        $prov_ibu                  = $this->input->post('prov');
+        $kab_ibu                   = $this->input->post('kab');
+        $kec_ibu                   = $this->input->post('kec');
+        $desa_ibu                  = $this->input->post('desa');
+        $kodepos_ibu               = $this->input->post('kodepos_ibu');
+        $alamat_ibu                = $this->input->post('alamat_ibu');
+
+        $data = array(
+            'nisn'                     => $nisn,
+            'warga_ibu'                => $warga_ibu,
+            'nik_ibu'                  => $nik_ibu,
+            'kepala_keluarga'          => $kepala_keluarga,
+            'nama_ibu'                 => $nama_ibu,
+            'status_ibu'               => $status_ibu,
+            'tempat_lahir_ibu'         => $tempat_lahir_ibu,
+            'tgl_lahir_ibu'            => $tgl_lahir_ibu,
+            'pendidikan_ibu'           => $pendidikan_ibu,
+            'pekerjaan_ibu'            => $pekerjaan_ibu,
+            'penghasilan_ibu'          => $penghasilan_ibu,
+            'status_tmp_tinggal_ibu'   => $status_tmp_tinggal_ibu,
+            'prov_ibu'                 => $prov_ibu,
+            'kab_ibu'                  => $kab_ibu,
+            'kec_ibu'                  => $kec_ibu,
+            'desa_ibu'                 => $desa_ibu,
+            'alamat_ibu'               => $alamat_ibu,
+            'kodepos_ibu'              => $kodepos_ibu,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Identitas Wali </div>');
+        redirect('user/edit_wali');
+    }
+
+    public function upwali() // Update Data Ayah
+    {
+        $nisn                       = $this->input->post('nisn');
+        $kepala_keluarga            = $this->input->post('kepala_keluarga');
+        $nama_wali                   = $this->input->post('nama_wali');
+        $nik_wali                   = $this->input->post('nik_wali');
+        $warga_wali                  = $this->input->post('warga_wali');
+        $status_wali                = $this->input->post('status_wali');
+        $tempat_lahir_wali          = $this->input->post('tempat_lahir_wali');
+        $tgl_lahir_wali             = $this->input->post('tgl_lahir_wali');
+        $pendidikan_wali            = $this->input->post('pendidikan_wali');
+        $pekerjaan_wali             = $this->input->post('pekerjaan_wali');
+        $penghasilan_wali           = $this->input->post('penghasilan_wali');
+        $status_tmp_tinggal_wali    = $this->input->post('status_tmp_tinggal_wali');
+        $prov_wali                  = $this->input->post('prov');
+        $kab_wali                   = $this->input->post('kab');
+        $kec_wali                   = $this->input->post('kec');
+        $desa_wali                  = $this->input->post('desa');
+        $kodepos_wali               = $this->input->post('kodepos_wali');
+        $alamat_wali                = $this->input->post('alamat_wali');
+
+        $data = array(
+            'nisn'                     => $nisn,
+            'warga_wali'                => $warga_wali,
+            'nik_wali'                => $nik_wali,
+            'kepala_keluarga'          => $kepala_keluarga,
+            'nama_wali'                 => $nama_wali,
+            'status_wali'               => $status_wali,
+            'tempat_lahir_wali'         => $tempat_lahir_wali,
+            'tgl_lahir_wali'            => $tgl_lahir_wali,
+            'pendidikan_wali'           => $pendidikan_wali,
+            'pekerjaan_wali'            => $pekerjaan_wali,
+            'penghasilan_wali'          => $penghasilan_wali,
+            'status_tmp_tinggal_wali'   => $status_tmp_tinggal_wali,
+            'prov_wali'                 => $prov_wali,
+            'kab_wali'                  => $kab_wali,
+            'kec_wali'                  => $kec_wali,
+            'desa_wali'                 => $desa_wali,
+            'alamat_wali'               => $alamat_wali,
+            'kodepos_wali'              => $kodepos_wali,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Identitas Sekolah Asal </div>');
+        redirect('user/edit_skolah');
+    }
+
+
+
+
+
+
+
+
 
 
     function add_ajax_kab($id_prov)
