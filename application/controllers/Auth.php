@@ -70,6 +70,10 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
         if ($this->session->userdata('email')) {
             redirect('user');
         }
@@ -87,7 +91,7 @@ class Auth extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'WPU User Registration';
             $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/registration');
+            $this->load->view('auth/registration', $data);
             $this->load->view('templates/auth_footer');
         } else {
             $email = $this->input->post('email', true);
@@ -211,5 +215,35 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed! Please login.</div>');
             redirect('auth');
         }
+    }
+
+    function add_ajax_kab($id_prov)
+    {
+        $query = $this->db->get_where('wilayah_kabupaten', array('provinsi_id' => $id_prov));
+        $data = "<option value=''>- Select Kabupaten -</option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->kabupaten . "</option>";
+        }
+        echo $data;
+    }
+
+    function add_ajax_kec($id_kab)
+    {
+        $query = $this->db->get_where('wilayah_kecamatan', array('kabupaten_id' => $id_kab));
+        $data = "<option value=''> - Pilih Kecamatan - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->kecamatan . "</option>";
+        }
+        echo $data;
+    }
+
+    function add_ajax_des($id_kec)
+    {
+        $query = $this->db->get_where('sekolah', array('id_kec' => $id_kec));
+        $data = "<option value=''> - Pilih Desa - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->id . "'>" . $value->nama_sekolah . "</option>";
+        }
+        echo $data;
     }
 }
