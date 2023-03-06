@@ -85,4 +85,18 @@ class M_Siswa extends CI_Model
         }
         return $hasil;
     }
+
+    public function get_sekolah($sekolah)
+    {
+        $hasil = $this->db->query("SELECT * FROM sekolah WHERE id_skolah ='$sekolah'");
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $data) {
+                $hasil = array(
+                    'id_skolah'  => $data->id_skolah,
+                    'nama_sekolah'  => $data->nama_sekolah,
+                );
+            }
+        }
+        return $hasil;
+    }
 }

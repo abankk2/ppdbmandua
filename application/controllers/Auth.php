@@ -79,7 +79,8 @@ class Auth extends CI_Controller
         }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|is_unique[user.email]', [
+        $this->form_validation->set_rules('id_skolah', 'NPSN', 'required|trim');
+        $this->form_validation->set_rules('email', 'NISN', 'required|trim|is_unique[user.email]|min_length[10]|max_length[10]', [
             'is_unique' => 'NISN ini Sudah Terdaftar!'
         ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
@@ -108,9 +109,12 @@ class Auth extends CI_Controller
             $this->db->insert('user', $data);
 
             $data2 = [
-                'nama_siswa'    => htmlspecialchars($this->input->post('name', true)),
-                'nisn'           => htmlspecialchars($email),
-                'no_daftar'     => $this->M_Siswa->buat_kode(),
+                'nama_siswa'        => htmlspecialchars($this->input->post('name', true)),
+                'nisn'              => htmlspecialchars($email),
+                'asal_sekolah'      => $this->input->post('nama_sekolah'),
+                'npsn_sekolah'      => htmlspecialchars($this->input->post('id_skolah', true)),
+                'jk'                => $this->input->post('jk'),
+                'no_daftar'         => $this->M_Siswa->buat_kode(),
 
             ];
             $this->db->insert('detail_siswa', $data2);
@@ -217,10 +221,14 @@ class Auth extends CI_Controller
         }
     }
 
+
+
+    // AJK Nama Sekolah Se Indonesia
+
     function add_ajax_kab($id_prov)
     {
         $query = $this->db->get_where('wilayah_kabupaten', array('provinsi_id' => $id_prov));
-        $data = "<option value=''>- Select Kabupaten -</option>";
+        $data = "<option value=''>- Pilih Kabupaten -</option>";
         foreach ($query->result() as $value) {
             $data .= "<option value='" . $value->id . "'>" . $value->kabupaten . "</option>";
         }
@@ -240,10 +248,17 @@ class Auth extends CI_Controller
     function add_ajax_des($id_kec)
     {
         $query = $this->db->get_where('sekolah', array('id_kec' => $id_kec));
-        $data = "<option value=''> - Pilih Desa - </option>";
+        $data = "<option value=''> - Pilih Sekolah - </option>";
         foreach ($query->result() as $value) {
-            $data .= "<option value='" . $value->id . "'>" . $value->nama_sekolah . "</option>";
+            $data .= "<option value='" . $value->id_skolah  . "'>" . $value->nama_sekolah . "</option>";
         }
         echo $data;
+    }
+
+    function get_sekolah() // Get Data Sekolah
+    {
+        $sekolah  = $this->input->post('desa');
+        $data   = $this->M_Siswa->get_sekolah($sekolah);
+        echo json_encode($data);
     }
 }

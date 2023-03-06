@@ -22,84 +22,108 @@
     });
 </script>
 
+<script src='https://kit.fontawesome.com/76a945766d.js' crossorigin='anonymous'></script>
+
 <div class="main-wrapper login-body">
     <div class="login-wrapper">
         <div class="container">
-            <div class="loginbox">
+            <div class="card p-3">
                 <div class="login-right">
                     <div class="login-right-wrap">
                         <div class="text-center mb-4">
-                            <img src="<?= base_url('assets/img'); ?>/icon.png" class="img-fluid" alt="logo MAN 2" style="max-width: 40%;">
+                            <img src="<?= base_url('assets/img'); ?>/icon.png" class="mb-3" alt="logo MAN 2" style="max-width: 20%;">
                             <h1 class="h4 text-gray-900">Membuat Akun Pendaftaran</h1>
                             <p>PPDB MAN 2 Kota Cirebon</p>
                         </div>
+
                         <form class="user" method="post" action="<?= base_url('auth/registration'); ?>">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <select name="provinsi" class="form-select form-select" id="provinsi">
-                                        <option>- Pilih Provinsi -</option>
-                                        <?php
-                                        foreach ($provinsi as $prov) {
-                                            echo '<option value="' . $prov->id . '">' . $prov->provinsi . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <select name="kabupaten" class="form-select form-select" id="kabupaten">
-                                            <option value=''>Pilih Kabupaten</option>
-                                        </select>
+                                    <p>Sekolah Asal</p>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <select name="provinsi" class="form-select form-select" id="provinsi">
+                                                <option>- Pilih Provinsi -</option>
+                                                <?php
+                                                foreach ($provinsi as $prov) {
+                                                    echo '<option value="' . $prov->id . '">' . $prov->provinsi . '</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select name="kabupaten" class="form-select form-select" id="kabupaten" required>
+                                                    <option>Pilih Kabupaten</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select name="kecamatan" class="form-select form-select" id="kecamatan">
+                                                    <option>Pilih Kecamatan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select name="sekolah" class="form-select form-select" id="desa">
+                                                    <option>Nama Sekolah</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" name="id_skolah" placeholder="NPSN/NSM" readonly required>
+                                                <?= form_error('id_skolah', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                <small class="text-primary  pl-3"><i class="fa-solid fa-triangle-exclamation"></i> Jika Nama Sekolah Anda Tidak Terdaftar Hubungi <a class="text-danger" href="<?= base_url('home/kontak'); ?>">Kami</a></small>
+                                            </div>
+                                            <input type="text" class="form-control form-control-user d-none" name="nama_sekolah" placeholder="Sekolah" readonly>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <select name="kecamatan" class="form-select form-select" id="kecamatan">
-                                            <option>Pilih Kecamatan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <select name="des" class="form-select form-select" id="desa">
-                                            <option>Nama Sekolah</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" name="sekolah" placeholder="NPSN" value="<?= set_value('name'); ?>">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
-                                <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="NISN" value="<?= set_value('email'); ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
-                                    <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary btn-user" type="submit">Buat Akun Pendaftaran</button>
-                            </div>
 
-                        </form>
-                        <hr>
-                        <!-- <div class="text-center">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Username</p>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
+                                        <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="NISN" value="<?= set_value('email'); ?>">
+                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-select" name="jk" required>
+                                            <option selected disabled>Jenis Kelamin</option>
+                                            <option value="1">Laki - Laki</option>
+                                            <option value="2">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
+                                            <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary btn-user" type="submit">Buat Akun Pendaftaran</button>
+                                    </div>
+                                    <hr>
+                                    <!-- <div class="text-center">
                             <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
                         </div> -->
-                        <div class="text-center">
-                            Sudah Mempunyai Akun? Login<a class="small" href="<?= base_url('auth'); ?>"> disini</a>
-                        </div>
-                        <div class="text-center mt-1"><a href="<?= base_url('/'); ?>">Kembali Ke Halaman Utama</a></div>
+                                    <div class="text-center">
+                                        Sudah Mempunyai Akun? Login<a class="small" href="<?= base_url('auth'); ?>"> disini</a>
+                                    </div>
+                                    <div class="text-center mt-1"><a href="<?= base_url('/'); ?>">Kembali Ke Halaman Utama</a></div>
+
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
@@ -114,83 +138,21 @@
 <!-- Get Pangkalan -->
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#provinsi').on('input', function() {
-
-            var provinsi = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('user/get_prov'); ?>",
-                dataType: "JSON",
-                data: {
-                    provinsi: provinsi
-                },
-                cache: false,
-                success: function(data) {
-                    $.each(data, function(provinsi, provinsi) {
-                        $('[name="prov"]').val(data.provinsi);
-                    });
-
-                }
-            });
-            return false;
-        });
-
-        $('#kabupaten').on('input', function() {
-
-            var kabupaten = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('user/get_kab'); ?>",
-                dataType: "JSON",
-                data: {
-                    kabupaten: kabupaten
-                },
-                cache: false,
-                success: function(data) {
-                    $.each(data, function(kabupaten, kabupaten) {
-                        $('[name="kab"]').val(data.kabupaten);
-                    });
-
-                }
-            });
-            return false;
-        });
-
-        $('#kecamatan').on('input', function() {
-
-            var kecamatan = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('user/get_kec'); ?>",
-                dataType: "JSON",
-                data: {
-                    kecamatan: kecamatan
-                },
-                cache: false,
-                success: function(data) {
-                    $.each(data, function(kecamatan, kecamatan) {
-                        $('[name="kec"]').val(data.kecamatan);
-                    });
-
-                }
-            });
-            return false;
-        });
-
         $('#desa').on('input', function() {
 
             var desa = $(this).val();
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url('user/get_des'); ?>",
+                url: "<?php echo base_url('auth/get_sekolah'); ?>",
                 dataType: "JSON",
                 data: {
                     desa: desa
                 },
                 cache: false,
                 success: function(data) {
-                    $.each(data, function(desa, desa) {
-                        $('[name="desa"]').val(data.desa);
+                    $.each(data, function(desa, id_skolah) {
+                        $('[name="id_skolah"]').val(data.id_skolah);
+                        $('[name="nama_sekolah"]').val(data.nama_sekolah);
                     });
 
                 }
