@@ -12,6 +12,28 @@ class M_Siswa extends CI_Model
         return $this->db->get();
     }
 
+    public function jm_daftar() //Hitung Jumlah Daftar
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function cari_siswa($keyword) //Cari 
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->like('nama_siswa', $keyword);
+
+        return $this->db->get()->result_array();
+    }
+
     // Buat Kode PPDB
     public function buat_kode()
     {

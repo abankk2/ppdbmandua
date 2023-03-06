@@ -158,10 +158,47 @@
             <div class="col-md-6">
                 <div class="shadow card">
                     <h3 class="card-header p-3 text-center">Informasi Pendaftaran</h3>
-                    <p class="p-3">
-
-
-                    </p>
+                    <div class="card-body">
+                        <h3><span class="badge text-bg-warning">Gelombang 1</span></h3>
+                        <h5>06 Maret - 20 April 2023</h5>
+                        <p>Jalur Prestasi "Best Quality Acception"</p>
+                        <h3><span class="badge text-bg-warning">Gelombang 2</span></h3>
+                        <h5>27 Mei - 23 Juni 2023</h5>
+                        <p>Jalur Reguler "Reguler Acception"</p>
+                        <h3 class="text-center">Jadwal Kegiatan</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-warning">
+                                    <tr>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Kegiatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>06 Marte s.d 23 Juni 2023</th>
+                                        <td>Pendaftaran Online</td>
+                                    </tr>
+                                    <tr>
+                                        <th>26 Juni 2023</th>
+                                        <td>Seleksi Tulis (Skolastik & Literasi)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>27 Juni 2023</th>
+                                        <td>Pengumuman Penerimaan</td>
+                                    </tr>
+                                    <tr>
+                                        <th>03 s.d 05 Juli 2023</th>
+                                        <td>Lapor Diri & Pembagian Kelas (Melengkapi Administrasi Pendaftaran)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>10 s.d 12 Juli 2023</th>
+                                        <td>MATSAMA</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -181,7 +218,7 @@
             <div class="col-md-4 mb-3">
                 <div class="shadow card">
                     <h3 class="card-header2 p-3 text-center">Data Pendaftar</h3>
-                    <h6 class="display-6 text-center" style="font-weight: bold;">378</h6>
+                    <h6 class="display-6 text-center" style="font-weight: bold;"><?= $daftar; ?></h6>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
@@ -193,7 +230,7 @@
             <div class="col-md-4 mb-5">
                 <div class="shadow card">
                     <h3 class="card-header2 p-3 text-center">Quota Pendaftar</h3>
-                    <h6 class="display-6 text-center" style="font-weight: bold;">201</h6>
+                    <h6 class="display-6 text-center" style="font-weight: bold;">280</h6>
                 </div>
             </div>
 

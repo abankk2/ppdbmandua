@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-sm mt-3 btn-block btn-primary w-100" type="submit">Login</button>
+                            <button class="btn btn-sm mt-3 btn-block btn-success w-100" type="submit">Login</button>
 
 
                             <div class="text-center mt-3">Belum Punya Akun? Daftar <a href="<?= base_url('auth/registration'); ?>">disini</a></div>

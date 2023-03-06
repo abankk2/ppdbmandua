@@ -114,6 +114,7 @@ class Auth extends CI_Controller
                 'asal_sekolah'      => $this->input->post('nama_sekolah'),
                 'npsn_sekolah'      => htmlspecialchars($this->input->post('id_skolah', true)),
                 'jk'                => $this->input->post('jk'),
+                'date_created'      => time(),
                 'no_daftar'         => $this->M_Siswa->buat_kode(),
 
             ];

@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="<?= base_url('/'); ?>">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?= base_url('home'); ?>">Home</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" aria-current="page" href="<?= base_url('/'); ?>">Data Pendaftar</a>
+                        <a class="nav-link" aria-current="page" href="<?= base_url('home/data'); ?>">Data Pendaftar</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" aria-current="page" href="<?= base_url('/'); ?>">Kontak</a>
+                        <a class="nav-link" aria-current="page" href="<?= base_url('home/kontak'); ?>">Kontak</a>
                     </li>
 
                 </ul>
