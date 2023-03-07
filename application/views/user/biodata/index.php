@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
-                        <i class="fa-solid fa-file-pdf"></i> <span>Dokumen</span>
+                        <i class="fa-solid fa-file-pdf"></i> <span>Informasi Lainnya</span>
                     </a>
                 </li>
 
@@ -80,9 +80,9 @@
                                 <label class="form-label">Jenis Kelamin</label>
                                 <select class="form-select" name="jk" required>
                                     <?php if ($siswa['jk'] == 1) { ?>
-                                        <option value="<?= $siswa['jk']; ?>" disabled>Laki - Laki</option>
+                                        <option value="<?= $siswa['jk']; ?>">Laki - Laki</option>
                                     <?php } else if ($siswa['jk'] == 2) { ?>
-                                        <option value="<?= $siswa['jk']; ?>" disabled>Perempuan</option>
+                                        <option value="<?= $siswa['jk']; ?>">Perempuan</option>
                                     <?php } else if ($siswa['jk'] == 0) { ?>
                                         <option></option>
                                     <?php } ?>
@@ -95,7 +95,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Gol Darah</label>
                                 <select class="form-select" name="golongandarah" required>
-                                    <option value="<?= $siswa['golongandarah']; ?>" selected disabled><?= $siswa['golongandarah']; ?></option>
+                                    <option value="<?= $siswa['golongandarah']; ?>" selected><?= $siswa['golongandarah']; ?></option>
                                     <option value="A">A</option>
                                     <option value="B">AB</option>
                                     <option value="AB">B</option>
@@ -164,6 +164,19 @@
                             <div class="mb-3">
                                 <label class="form-label">No. Whatsapp</label>
                                 <input type="number" name="no_hp" value="<?= $siswa['no_hp']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Biaya Sekolah</label>
+                                <select class="form-select" name="biaya_sekolah" required>
+                                    <option value="<?= $siswa['biaya_sekolah']; ?>" selected><?= $siswa['biaya_sekolah']; ?></option>
+                                    <option value="Ayah">Ayah</option>
+                                    <option value="Ibu">Ibu</option>
+                                    <option value="Wali">Wali</option>
+                                    <option value="Kerabat Keluarga">Kerabat Keluarga</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-5">

@@ -20,56 +20,55 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
-    public function role()
+    public function siswa()
     {
-        $data['title'] = 'Role';
+        $data['title'] = 'Daftar Siswa';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['role'] = $this->db->get('user_role')->result_array();
+        $data['siswa'] = $this->db->get('detail_siswa')->result_array();
+        $data['daftar'] = $this->M_Siswa->jm_daftar();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('admin/role', $data);
+        $this->load->view('admin/siswa/index', $data);
         $this->load->view('templates/footer');
     }
 
-
-    public function roleAccess($role_id)
+    public function info()
     {
-        $data['title'] = 'Role Access';
+        $data['title'] = 'Informasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
-
-        $this->db->where('id !=', 1);
-        $data['menu'] = $this->db->get('user_menu')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('admin/role-access', $data);
+        $this->load->view('admin/info', $data);
         $this->load->view('templates/footer');
     }
 
-
-    public function changeAccess()
+    public function cetak()
     {
-        $menu_id = $this->input->post('menuId');
-        $role_id = $this->input->post('roleId');
+        $data['title'] = 'Cetak';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data = [
-            'role_id' => $role_id,
-            'menu_id' => $menu_id
-        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/cetak', $data);
+        $this->load->view('templates/footer');
+    }
 
-        $result = $this->db->get_where('user_access_menu', $data);
+    public function cari()
+    {
+        $data['title'] = 'Cetak';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        if ($result->num_rows() < 1) {
-            $this->db->insert('user_access_menu', $data);
-        } else {
-            $this->db->delete('user_access_menu', $data);
-        }
+        $data['daftar'] = $this->M_Siswa->jm_daftar();
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
+        $keyword = $this->input->post('keyword');
+        $data['siswa'] = $this->M_Siswa->cari_siswa($keyword);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/siswa/index', $data);
+        $this->load->view('templates/footer');
     }
 }

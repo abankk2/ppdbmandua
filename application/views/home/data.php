@@ -27,6 +27,7 @@
                                 <th scope="col">NISN</th>
                                 <th scope="col">Sekolah Asal</th>
                                 <th scope="col" class="text-center">Waktu Pendaftaran</th>
+                                <th scope="col" class="text-center">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,12 @@
                                     <td><?= $sis['nisn']; ?></td>
                                     <td><?= $sis['asal_sekolah']; ?></td>
                                     <td class="text-center"><?= date('d F Y | H : m', $sis['date_created']); ?> WIB</td>
+                                    <td class="text-center"><?php if ($sis['kunci'] == 1) { ?>
+                                            <i class="fa-solid fa-user-lock text-success"></i>
+                                        <?php } else if ($sis['kunci'] == 0) { ?>
+                                            <i class="fa-solid fa-user-clock text-danger"></i>
+                                        <?php } ?>
+                                    </td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>

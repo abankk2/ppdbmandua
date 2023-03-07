@@ -1,4 +1,5 @@
 <div class="row">
+    <?= $this->session->flashdata('message'); ?>
     <div class="col-md-4">
         <h4 class="mb-3"><i class="fa-solid fa-volume-high"></i> Informasi</h4>
         <div class="row">

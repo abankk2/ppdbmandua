@@ -59,7 +59,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
-                        <i class="fa-solid fa-file-pdf"></i> <span>Dokumen</span>
+                        <i class="fa-solid fa-file-pdf"></i> <span>Informasi Lainnya</span>
                     </a>
                 </li>
 
@@ -254,6 +254,12 @@
                             <div class="mb-3">
                                 <label class="form-label">Kode POS</label>
                                 <input type="number" name="kodepos_wali" value="<?= $siswa['kodepos_wali']; ?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Whatsapp</label>
+                                <input type="number" name="no_hp_wali" value="<?= $siswa['no_hp_wali']; ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-12">

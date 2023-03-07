@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
-                        <i class="fa-solid fa-file-pdf"></i> <span>Dokumen</span>
+                        <i class="fa-solid fa-file-pdf"></i> <span>Informasi Lainnya</span>
                     </a>
                 </li>
 
@@ -148,7 +148,25 @@
                                 <div id="emailHelp" class="form-text">Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03</div>
                             </div>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Jarak ke Sekolah</label>
+                                <div class="input-group">
+                                    <input type="number" name="jarak" value="<?= $siswa['jarak']; ?>" class="form-control" aria-describedby="basic-addon2" required>
+                                    <span class="input-group-text" id="basic-addon2">Km</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Waktu Tempuh</label>
+                                <div class="input-group">
+                                    <input type="number" name="waktu" value="<?= $siswa['waktu']; ?>" class="form-control" aria-describedby="basic-addon2" required>
+                                    <span class="input-group-text" id="basic-addon2">Menit</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Kordinat</label>
                                 <input type="text" name="kordinat" value="<?= $siswa['kordinat']; ?>" class="form-control">

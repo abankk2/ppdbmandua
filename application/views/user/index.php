@@ -172,13 +172,13 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Jarak</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['jarak']; ?></div>
+                                <div class="form-control">: <?= $siswa['jarak']; ?> KM</div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Waktu</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['waktu']; ?></div>
+                                <div class="form-control">: <?= $siswa['waktu']; ?> Menit</div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -200,34 +200,34 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Keb. Khusus</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['keb_khusus']; ?></div>
+                                <?php if ($siswa['keb_khusus'] == 0) { ?>
+                                    <div class="form-control">: Ya</div>
+                                <?php } else if ($siswa['keb_khusus'] == 1) { ?>
+                                    <div class="form-control">: Tidak</div>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Disabelitas</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['keb_disabilitas']; ?></div>
+                                <?php if ($siswa['keb_disabilitas'] == 0) { ?>
+                                    <div class="form-control">: Ya</div>
+                                <?php } else if ($siswa['keb_disabilitas'] == 1) { ?>
+                                    <div class="form-control">: Tidak</div>
+                                <?php } ?>
                             </div>
                         </div>
                         <h5>Pra Sekolah</h5>
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">TK</label>
                             <div class="col-7">
-                                <?php if ($siswa['tk'] == 0) { ?>
-                                    <div class="form-control">: Tidak</div>
-                                <?php } else if ($siswa['tk'] == 1) { ?>
-                                    <div class="form-control">: Iya</div>
-                                <?php } ?>
+                                <div class="form-control">: <?= $siswa['tk']; ?></div>
                             </div>
                         </div>
                         <div class="form-group row mb-2">
                             <label class="col-5 col-form-label">Paud</label>
                             <div class="col-7">
-                                <?php if ($siswa['paud'] == 0) { ?>
-                                    <div class="form-control">: Tidak</div>
-                                <?php } else if ($siswa['paud'] == 1) { ?>
-                                    <div class="form-control">: Iya</div>
-                                <?php } ?>
+                                <div class="form-control">: <?= $siswa['paud']; ?></div>
                             </div>
                         </div>
                     </div>
@@ -389,12 +389,6 @@
                             </div>
                         </div>
                         <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Domisisli</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['domisili_ayah']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Provinsi</label>
                             <div class="col-7">
                                 <div class="form-control">: <?= $siswa['prov_ayah']; ?></div>
@@ -492,12 +486,6 @@
                             <label class="col-5 col-form-label">No. Hp</label>
                             <div class="col-7">
                                 <div class="form-control">: <?= $siswa['no_hp_ibu']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Domisisli</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['domisili_ibu']; ?></div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -656,10 +644,66 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Nama</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['nama_wali']; ?></div>
+                                <div class="form-control">: <?= $siswa['asal_sekolah']; ?></div>
                             </div>
                         </div>
-
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">NPSN/NSM</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['npsn_sekolah']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tahun Lulus</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tahun_lulus']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. SKHUN</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['no_skhun']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. Ijazah</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['seri_ijazah']; ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Siswa Mutasi</h4>
+                    <div class="card-body">
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Status Siswa</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['aktif']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">No. Surat</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['no_surat']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tgl. Surat</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tgl_surat']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Tgl. Mutasi</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['tgl_mutasi']; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <label class="col-5 col-form-label">Alasan Mutasi</label>
+                            <div class="col-7">
+                                <div class="form-control">: <?= $siswa['alasan_mutasi']; ?></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

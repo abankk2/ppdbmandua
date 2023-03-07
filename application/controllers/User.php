@@ -232,6 +232,20 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function kunci()
+    {
+        $data['title'] = 'Kunci Biodata';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/kunci', $data);
+        $this->load->view('templates/footer');
+    }
+
     // Aksi Edit Perubahan Data siswa
 
     public function upbiodata() // Update Data Biodata
@@ -249,6 +263,7 @@ class User extends CI_Controller
         $hobi               = $this->input->post('hobi');
         $no_hp              = $this->input->post('no_hp');
         $emails             = $this->input->post('emails');
+        $biaya_sekolah               = $this->input->post('biaya_sekolah');
 
 
         $data = array(
@@ -265,6 +280,7 @@ class User extends CI_Controller
             'hobi'          => $hobi,
             'no_hp'         => $no_hp,
             'emails'        => $emails,
+            'biaya_sekolah'        => $biaya_sekolah,
 
         );
 
@@ -286,7 +302,8 @@ class User extends CI_Controller
         $kodepos_siswa          = $this->input->post('kodepos_siswa');
         $alamat_siswa           = $this->input->post('alamat_siswa');
         $kordinat               = $this->input->post('kordinat');
-
+        $jarak               = $this->input->post('jarak');
+        $waktu               = $this->input->post('waktu');
 
         $data = array(
             'nisn'                  => $nisn,
@@ -298,6 +315,8 @@ class User extends CI_Controller
             'kodepos_siswa'         => $kodepos_siswa,
             'alamat_siswa'          => $alamat_siswa,
             'kordinat'              => $kordinat,
+            'jarak'                 => $jarak,
+            'waktu'                 => $waktu,
 
         );
 
@@ -327,6 +346,7 @@ class User extends CI_Controller
         $kec_ayah                   = $this->input->post('kec');
         $desa_ayah                  = $this->input->post('desa');
         $kodepos_ayah               = $this->input->post('kodepos_ayah');
+        $no_hp_ayah               = $this->input->post('no_hp_ayah');
         $alamat_ayah                = $this->input->post('alamat_ayah');
 
         $data = array(
@@ -348,6 +368,7 @@ class User extends CI_Controller
             'desa_ayah'                 => $desa_ayah,
             'alamat_ayah'               => $alamat_ayah,
             'kodepos_ayah'              => $kodepos_ayah,
+            'no_hp_ayah'              => $no_hp_ayah,
 
         );
 
@@ -377,6 +398,7 @@ class User extends CI_Controller
         $kec_ibu                   = $this->input->post('kec');
         $desa_ibu                  = $this->input->post('desa');
         $kodepos_ibu               = $this->input->post('kodepos_ibu');
+        $no_hp_ibu                  = $this->input->post('no_hp_ibu');
         $alamat_ibu                = $this->input->post('alamat_ibu');
 
         $data = array(
@@ -398,6 +420,7 @@ class User extends CI_Controller
             'desa_ibu'                 => $desa_ibu,
             'alamat_ibu'               => $alamat_ibu,
             'kodepos_ibu'              => $kodepos_ibu,
+            'no_hp_ibu'                => $no_hp_ibu,
 
         );
 
@@ -427,6 +450,7 @@ class User extends CI_Controller
         $kec_wali                   = $this->input->post('kec');
         $desa_wali                  = $this->input->post('desa');
         $kodepos_wali               = $this->input->post('kodepos_wali');
+        $no_hp_wali               = $this->input->post('no_hp_wali');
         $alamat_wali                = $this->input->post('alamat_wali');
 
         $data = array(
@@ -448,6 +472,7 @@ class User extends CI_Controller
             'desa_wali'                 => $desa_wali,
             'alamat_wali'               => $alamat_wali,
             'kodepos_wali'              => $kodepos_wali,
+            'no_hp_wali'              => $no_hp_wali,
 
         );
 
@@ -457,6 +482,82 @@ class User extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Identitas Sekolah Asal </div>');
         redirect('user/edit_skolah');
     }
+
+    public function upskolah() // Update Data Ayah
+    {
+        $nisn           = $this->input->post('nisn');
+        $tahun_lulus    = $this->input->post('tahun_lulus');
+        $no_skhun       = $this->input->post('no_skhun');
+        $seri_ijazah    = $this->input->post('seri_ijazah');
+        $aktif         = $this->input->post('aktif');
+        $no_surat       = $this->input->post('no_surat');
+        $tgl_surat      = $this->input->post('tgl_surat');
+        $tgl_mutasi     = $this->input->post('tgl_mutasi');
+        $alasan_mutasi  = $this->input->post('alasan_mutasi');
+
+        $data = array(
+            'nisn'              => $nisn,
+            'tahun_lulus'       => $tahun_lulus,
+            'no_skhun'          => $no_skhun,
+            'seri_ijazah'       => $seri_ijazah,
+            'aktif'            => $aktif,
+            'no_surat'          => $no_surat,
+            'tgl_surat'         => $tgl_surat,
+            'tgl_mutasi'        => $tgl_mutasi,
+            'alasan_mutasi'     => $alasan_mutasi,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Lanjutkan Informasi Lainnya </div>');
+        redirect('user/edit_dok');
+    }
+
+    public function uplainnya() // Update Data Ayah
+    {
+        $nisn               = $this->input->post('nisn');
+        $tk                 = $this->input->post('tk');
+        $paud                 = $this->input->post('paud');
+        $no_kip             = $this->input->post('no_kip');
+        $no_kks             = $this->input->post('no_kks');
+        $no_pkh             = $this->input->post('no_pkh');
+        $keb_khusus         = $this->input->post('keb_khusus');
+        $keb_disabilitas    = $this->input->post('keb_disabilitas');
+        $hepatitis          = $this->input->post('hepatitis');
+        $polio              = $this->input->post('polio');
+        $bcg                = $this->input->post('bcg');
+        $campak             = $this->input->post('campak');
+        $dpt                = $this->input->post('dpt');
+        $covid              = $this->input->post('covid');
+
+        $data = array(
+            'nisn'              => $nisn,
+            'tk'                => $tk,
+            'paud'                => $paud,
+            'no_kip'            => $no_kip,
+            'no_kks'            => $no_kks,
+            'no_pkh'            => $no_pkh,
+            'keb_khusus'        => $keb_khusus,
+            'keb_disabilitas'   => $keb_disabilitas,
+            'hepatitis'         => $hepatitis,
+            'polio'             => $polio,
+            'bcg'               => $bcg,
+            'campak'            => $campak,
+            'dpt'               => $dpt,
+            'covid'             => $covid,
+
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Menunggu Informasi Dari Panitia PPDB </div>');
+        redirect('user/info');
+    }
+
+
 
 
 
