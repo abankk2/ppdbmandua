@@ -59,9 +59,19 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
-                        <i class="fa-solid fa-file-pdf"></i> <span>Informasi Lainnya</span>
+                        <i class="fa-solid fa-circle-info"></i> <span>Informasi Lainnya</span>
                     </a>
                 </li>
+
+                <?php if ($siswa['jalur'] == 1) { ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('user/upload'); ?>" class="nav-link">
+                            <i class="fa-solid fa-file-pdf"></i> <span>Dokumen upload</span>
+                        </a>
+                    </li>
+                <?php } else if ($siswa['jalur'] == 2) { ?>
+
+                <?php } ?>
 
             </ul>
         </div>
@@ -141,6 +151,7 @@
                                 <label class="form-label">Pendidikan Ibu</label>
                                 <select class="form-select" name="pendidikan_ibu" required>
                                     <option value="<?= $siswa['pendidikan_ibu']; ?>" selected><?= $siswa['pendidikan_ibu']; ?></option>
+                                    <option value="SMP/Sederajat">SD/Sederajat</option>
                                     <option value="SMP/Sederajat">SMP/Sederajat</option>
                                     <option value="SMA/Sederajat">SMA/Sederajat</option>
                                     <option value="D1">D1</option>

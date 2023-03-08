@@ -9,8 +9,7 @@
 
         <div class="profile-cover">
             <div class="profile-cover-wrap">
-                <img class="profile-cover-img" src="<?= base_url('assets/img/profiles/') . $user['image']; ?>" alt=" Profile Cover">
-
+                <!-- <img class="profile-cover-img" src="<?= base_url('assets/img/profiles/') . $user['image']; ?>" alt=" Profile Cover"> -->
                 <div class="cover-content">
 
                 </div>
@@ -200,9 +199,9 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Keb. Khusus</label>
                             <div class="col-7">
-                                <?php if ($siswa['keb_khusus'] == 0) { ?>
+                                <?php if ($siswa['keb_khusus'] == 1) { ?>
                                     <div class="form-control">: Ya</div>
-                                <?php } else if ($siswa['keb_khusus'] == 1) { ?>
+                                <?php } else if ($siswa['keb_khusus'] == 0) { ?>
                                     <div class="form-control">: Tidak</div>
                                 <?php } ?>
                             </div>
@@ -210,9 +209,9 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Disabelitas</label>
                             <div class="col-7">
-                                <?php if ($siswa['keb_disabilitas'] == 0) { ?>
+                                <?php if ($siswa['keb_disabilitas'] == 1) { ?>
                                     <div class="form-control">: Ya</div>
-                                <?php } else if ($siswa['keb_disabilitas'] == 1) { ?>
+                                <?php } else if ($siswa['keb_disabilitas'] == 0) { ?>
                                     <div class="form-control">: Tidak</div>
                                 <?php } ?>
                             </div>
@@ -415,7 +414,7 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Alamat</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['alamat_ayah']; ?></div>
+                                <textarea class="form-control" rows="2">: <?= $siswa['alamat_ayah']; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -515,7 +514,7 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Alamat</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['alamat_ibu']; ?></div>
+                                <textarea class="form-control" rows="2">: <?= $siswa['alamat_ibu']; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -621,7 +620,7 @@
                         <div class="form-group row mb-0">
                             <label class="col-5 col-form-label">Alamat</label>
                             <div class="col-7">
-                                <div class="form-control">: <?= $siswa['alamat_wali']; ?></div>
+                                <textarea class="form-control" rows="2">: <?= $siswa['alamat_wali']; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -672,39 +671,7 @@
                             </div>
                         </div>
                     </div>
-                    <h4>Siswa Mutasi</h4>
-                    <div class="card-body">
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Status Siswa</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['aktif']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">No. Surat</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['no_surat']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Tgl. Surat</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['tgl_surat']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Tgl. Mutasi</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['tgl_mutasi']; ?></div>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <label class="col-5 col-form-label">Alasan Mutasi</label>
-                            <div class="col-7">
-                                <div class="form-control">: <?= $siswa['alasan_mutasi']; ?></div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

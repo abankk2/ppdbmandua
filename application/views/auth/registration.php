@@ -74,15 +74,28 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12">
+                                                <small class="text-primary mb-3"><i class="fa-solid fa-triangle-exclamation"></i> Jika Nama Sekolah Anda Tidak Terdaftar Hubungi <a class="text-danger" href="<?= base_url('home/kontak'); ?>">Kami</a></small>
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control form-control-user" name="id_skolah" placeholder="NPSN/NSM" readonly required>
                                                         <?= form_error('id_skolah', '<small class="text-danger pl-3">', '</small>'); ?>
-                                                        <small class="text-primary  pl-3"><i class="fa-solid fa-triangle-exclamation"></i> Jika Nama Sekolah Anda Tidak Terdaftar Hubungi <a class="text-danger" href="<?= base_url('home/kontak'); ?>">Kami</a></small>
                                                     </div>
                                                     <input type="text" class="form-control form-control-user d-none" name="nama_sekolah" placeholder="Sekolah" readonly>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <select class="form-select" name="jalur" required>
+                                                            <option selected disabled>Jalur Masuk</option>
+                                                            <option value="1">Prestasi</option>
+                                                            <option value="2">Reguler</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
+
+                                            <input type="text" name="prov_sekolah" class="form-control d-none">
+                                            <input type="text" name="kab_sekolah" class=" form-control d-none">
+                                            <input type=" text" name="kec_sekolah" class=" form-control d-none">
 
                                         </div>
                                         <div class="col-md-6">
@@ -115,9 +128,7 @@
                                                 <button class="btn btn-success btn-user" type="submit">Buat Akun Pendaftaran</button>
                                             </div>
                                             <hr>
-                                            <!-- <div class="text-center">
-                            <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
-                        </div> -->
+
                                             <div class="text-center">
                                                 Sudah Mempunyai Akun? Login<a class="small" href="<?= base_url('auth'); ?>"> disini</a>
                                             </div>
@@ -138,8 +149,9 @@
 
 </div>
 
-
-
+<!-- <div class="text-center">
+<a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
+</div> -->
 <!-- Get Pangkalan -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -158,6 +170,74 @@
                     $.each(data, function(desa, id_skolah) {
                         $('[name="id_skolah"]').val(data.id_skolah);
                         $('[name="nama_sekolah"]').val(data.nama_sekolah);
+                    });
+
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#provinsi').on('input', function() {
+
+            var provinsi = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('auth/get_prov'); ?>",
+                dataType: "JSON",
+                data: {
+                    provinsi: provinsi
+                },
+                cache: false,
+                success: function(data) {
+                    $.each(data, function(provinsi, provinsi) {
+                        $('[name="prov_sekolah"]').val(data.provinsi);
+                    });
+
+                }
+            });
+            return false;
+        });
+
+        $('#kabupaten').on('input', function() {
+
+            var kabupaten = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('auth/get_kab'); ?>",
+                dataType: "JSON",
+                data: {
+                    kabupaten: kabupaten
+                },
+                cache: false,
+                success: function(data) {
+                    $.each(data, function(kabupaten, kabupaten) {
+                        $('[name="kab_sekolah"]').val(data.kabupaten);
+                    });
+
+                }
+            });
+            return false;
+        });
+
+        $('#kecamatan').on('input', function() {
+
+            var kecamatan = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('auth/get_kec'); ?>",
+                dataType: "JSON",
+                data: {
+                    kecamatan: kecamatan
+                },
+                cache: false,
+                success: function(data) {
+                    $.each(data, function(kecamatan, kecamatan) {
+                        $('[name="kec_sekolah"]').val(data.kecamatan);
                     });
 
                 }

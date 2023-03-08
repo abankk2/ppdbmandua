@@ -80,6 +80,7 @@ class Auth extends CI_Controller
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('id_skolah', 'NPSN', 'required|trim');
+        $this->form_validation->set_rules('jalur', 'Jalur Masuk', 'required|trim');
         $this->form_validation->set_rules('email', 'NISN', 'required|trim|is_unique[user.email]|min_length[10]|max_length[10]', [
             'is_unique' => 'NISN ini Sudah Terdaftar!'
         ]);
@@ -114,6 +115,11 @@ class Auth extends CI_Controller
                 'asal_sekolah'      => $this->input->post('nama_sekolah'),
                 'npsn_sekolah'      => htmlspecialchars($this->input->post('id_skolah', true)),
                 'jk'                => $this->input->post('jk'),
+                'prov_sekolah'      => $this->input->post('prov_sekolah'),
+                'kab_sekolah'       => $this->input->post('kab_sekolah'),
+                'kec_sekolah'       => $this->input->post('kec_sekolah'),
+                'jalur'             => htmlspecialchars($this->input->post('jalur', true)),
+                'kunci'             => 0,
                 'date_created'      => time(),
                 'no_daftar'         => $this->M_Siswa->buat_kode(),
 
@@ -260,6 +266,27 @@ class Auth extends CI_Controller
     {
         $sekolah  = $this->input->post('desa');
         $data   = $this->M_Siswa->get_sekolah($sekolah);
+        echo json_encode($data);
+    }
+
+    function get_prov() // Get Data prov
+    {
+        $prov  = $this->input->post('provinsi');
+        $data   = $this->M_Siswa->get_prov($prov);
+        echo json_encode($data);
+    }
+
+    function get_kab() // Get Data kab
+    {
+        $kab  = $this->input->post('kabupaten');
+        $data   = $this->M_Siswa->get_kab($kab);
+        echo json_encode($data);
+    }
+
+    function get_kec() // Get Data kec
+    {
+        $kec  = $this->input->post('kecamatan');
+        $data   = $this->M_Siswa->get_kec($kec);
         echo json_encode($data);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2023 at 08:48 AM
+-- Generation Time: Mar 08, 2023 at 09:14 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -127,31 +127,32 @@ CREATE TABLE `detail_siswa` (
   `desa_wali` varchar(256) DEFAULT NULL,
   `alamat_wali` varchar(256) DEFAULT NULL,
   `kodepos_wali` varchar(256) DEFAULT NULL,
-  `tgl_surat` varchar(100) DEFAULT NULL,
-  `no_surat` varchar(100) DEFAULT NULL,
-  `alasan_mutasi` varchar(100) DEFAULT NULL,
+  `prov_sekolah` varchar(100) DEFAULT NULL,
+  `kab_sekolah` varchar(100) DEFAULT NULL,
+  `kec_sekolah` varchar(100) DEFAULT NULL,
   `asal_sekolah` text DEFAULT NULL,
   `npsn_sekolah` text DEFAULT NULL,
   `tahun_lulus` text DEFAULT NULL,
   `no_skhun` varchar(100) DEFAULT '''0''',
   `seri_ijazah` text DEFAULT NULL,
-  `aktif` varchar(10) DEFAULT '0',
   `golongandarah` varchar(10) DEFAULT NULL,
   `date_created` int(11) NOT NULL,
   `tgl_mutasi` date NOT NULL,
-  `kunci` int(11) NOT NULL
+  `kunci` int(11) NOT NULL,
+  `jalur` int(11) DEFAULT 0,
+  `file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `detail_siswa`
 --
 
-INSERT INTO `detail_siswa` (`id`, `nisn`, `no_daftar`, `kelas`, `nama_siswa`, `nis`, `warga_siswa`, `nik`, `tempat_lahir`, `tgl_lahir`, `jk`, `anak_ke`, `saudara`, `agama`, `cita`, `no_hp`, `emails`, `hobi`, `status_tinggal_siswa`, `prov`, `kab`, `kec`, `desa`, `alamat_siswa`, `kordinat`, `kodepos_siswa`, `transportasi`, `jarak`, `waktu`, `biaya_sekolah`, `keb_khusus`, `keb_disabilitas`, `tk`, `paud`, `hepatitis`, `polio`, `bcg`, `campak`, `dpt`, `covid`, `no_kip`, `no_kks`, `no_pkh`, `no_kk`, `kepala_keluarga`, `nama_ayah`, `status_ayah`, `warga_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `domisili_ayah`, `status_tmp_tinggal_ayah`, `prov_ayah`, `kab_ayah`, `kec_ayah`, `desa_ayah`, `alamat_ayah`, `kodepos_ayah`, `nama_ibu`, `status_ibu`, `warga_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `status_tinggal_ibu`, `domisili_ibu`, `status_tmp_tinggal_ibu`, `prov_ibu`, `kab_ibu`, `kec_ibu`, `desa_ibu`, `alamat_ibu`, `kodepos_ibu`, `status_wali`, `nama_wali`, `warga_wali`, `nik_wali`, `tempat_lahir_wali`, `tgl_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `status_tmp_tinggal_wali`, `prov_wali`, `kab_wali`, `kec_wali`, `desa_wali`, `alamat_wali`, `kodepos_wali`, `tgl_surat`, `no_surat`, `alasan_mutasi`, `asal_sekolah`, `npsn_sekolah`, `tahun_lulus`, `no_skhun`, `seri_ijazah`, `aktif`, `golongandarah`, `date_created`, `tgl_mutasi`, `kunci`) VALUES
-(1, '089660642666', 'ADMIN PPDB2023-002', NULL, 'Ade Hamiludin', '089660642666', NULL, NULL, NULL, '2023-03-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '32145678915273', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, '0', NULL, 0, '0000-00-00', 1),
-(2, '123456789', 'PPDB2023-002', NULL, 'Siswa PPDB II', '123456', NULL, NULL, NULL, '2023-03-29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, '0', NULL, 0, '0000-00-00', 1),
-(3, '9876543212', 'PPDB2023-003', NULL, 'Ade Hamiludin', NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTs Jatitujuh', '121132100003', NULL, '0', NULL, '0', NULL, 0, '0000-00-00', 0),
-(4, '0098765432', 'PPDB2023-004', NULL, 'Ishmah Khairunnisa', NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTs MA`ARIF CIKERUH', '121232110042', NULL, '0', NULL, '0', NULL, 1678113565, '0000-00-00', 0),
-(5, '1239873456', 'PPDB2023-005', NULL, 'Tes Siswa 4', NULL, NULL, '3252363626266', 'Majalengka', '2023-03-07', '1', 2, 1, 'Islam', 'Ilmuan', '089660642666', ' aad@ssf.com      ', 'Olahraga', 'Dengan Ayah Kandung', 'Jawa Barat', 'Kab. Bandung Barat', ' Cisarua', 'Jambudipa', 'Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03\r\n', '32644374743743', '35535', NULL, '2', '10', 'Kerabat Keluarga', NULL, NULL, 'YA', 'Tidak', '1', '1', '1', '1', '1', '1', '32235235dg', '325sdsgsd', '5fsd43', '46343743734', 'AYah', 'Ayah', 'Masih Hidup', NULL, '2362464277', 'Jamblang', '2023-03-07', 'D4/S1', 'Pensiunan', '1.000.001 - 2.000.000', '087772924242', NULL, 'Rumah Saudara/kerabat', 'Di Yogyakarta', 'Kab. Bantul', ' Sewon', 'Timbulharjo', 'safasfjhasf safasgouagugiasgv', '434634', 'Ibu Ku', 'Masih Hidup', 'Warga Negara Indonesia', '436734737443', 'Jogja', '2023-03-07', 'D2', 'Petani/Peternak', '500.000 - 1.000.000', '0897746432', NULL, NULL, 'Rumah Dinas', 'Di Yogyakarta', 'Kab. Gunung Kidul', ' Playen', 'Bandung', 'Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03', '574574', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-07', '10/MN/2023', 'Kendala Ekonomi', 'MTs Al Hidayah Sindangkasih', '121232090030', '2023', 'skh 235235', 'Dn Dd 4363374', 'Aktif', 'A', 1678162972, '2023-02-26', 1);
+INSERT INTO `detail_siswa` (`id`, `nisn`, `no_daftar`, `kelas`, `nama_siswa`, `nis`, `warga_siswa`, `nik`, `tempat_lahir`, `tgl_lahir`, `jk`, `anak_ke`, `saudara`, `agama`, `cita`, `no_hp`, `emails`, `hobi`, `status_tinggal_siswa`, `prov`, `kab`, `kec`, `desa`, `alamat_siswa`, `kordinat`, `kodepos_siswa`, `transportasi`, `jarak`, `waktu`, `biaya_sekolah`, `keb_khusus`, `keb_disabilitas`, `tk`, `paud`, `hepatitis`, `polio`, `bcg`, `campak`, `dpt`, `covid`, `no_kip`, `no_kks`, `no_pkh`, `no_kk`, `kepala_keluarga`, `nama_ayah`, `status_ayah`, `warga_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `domisili_ayah`, `status_tmp_tinggal_ayah`, `prov_ayah`, `kab_ayah`, `kec_ayah`, `desa_ayah`, `alamat_ayah`, `kodepos_ayah`, `nama_ibu`, `status_ibu`, `warga_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `status_tinggal_ibu`, `domisili_ibu`, `status_tmp_tinggal_ibu`, `prov_ibu`, `kab_ibu`, `kec_ibu`, `desa_ibu`, `alamat_ibu`, `kodepos_ibu`, `status_wali`, `nama_wali`, `warga_wali`, `nik_wali`, `tempat_lahir_wali`, `tgl_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `status_tmp_tinggal_wali`, `prov_wali`, `kab_wali`, `kec_wali`, `desa_wali`, `alamat_wali`, `kodepos_wali`, `prov_sekolah`, `kab_sekolah`, `kec_sekolah`, `asal_sekolah`, `npsn_sekolah`, `tahun_lulus`, `no_skhun`, `seri_ijazah`, `golongandarah`, `date_created`, `tgl_mutasi`, `kunci`, `jalur`, `file`) VALUES
+(1, '089660642666', 'ADMIN PPDB2023-002', NULL, 'Ade Hamiludin', '089660642666', NULL, NULL, NULL, '2023-03-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '32145678915273', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, 0, '0000-00-00', 1, 0, ''),
+(2, '123456789', 'PPDB2023-002', NULL, 'Siswa PPDB II', '123456', NULL, NULL, NULL, '2023-03-29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, 0, '0000-00-00', 1, 0, ''),
+(3, '9876543212', 'PPDB2023-003', NULL, 'Ade Hamiludin', NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTs Jatitujuh', '121132100003', NULL, '0', NULL, NULL, 0, '0000-00-00', 0, 0, ''),
+(4, '0098765432', 'PPDB2023-004', NULL, 'Ishmah Khairunnisa', NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MTs MA`ARIF CIKERUH', '121232110042', NULL, '0', NULL, NULL, 1678113565, '0000-00-00', 0, 0, ''),
+(5, '1239873456', 'PPDB2023-005', NULL, 'Tes Siswa 4', NULL, NULL, '3252363626266', 'Majalengka', '2023-03-07', '1', 2, 1, 'Islam', 'Ilmuan', '089660642666', ' aad@ssf.com      ', 'Olahraga', 'Dengan Ayah Kandung', 'Jawa Barat', 'Kab. Bandung Barat', ' Cisarua', 'Jambudipa', 'Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03\r\n', '32644374743743', '35535', NULL, '2', '10', 'Kerabat Keluarga', NULL, NULL, 'YA', 'Tidak', NULL, '1', NULL, NULL, '1', NULL, '32235235dg', '325sdsgsd', '5fsd43', '46343743734', 'AYah', 'Ayah', 'Masih Hidup', 'Warga Negara Indonesia', '2362464277', 'Jamblang', '2023-03-07', 'D4/S1', 'Pensiunan', '1.000.001 - 2.000.000', '087772924242', NULL, 'Rumah Saudara/kerabat', 'Di Yogyakarta', 'Kab. Bantul', ' Sewon', 'Timbulharjo', 'Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03', '434634', 'Ibu Ku', 'Masih Hidup', 'Warga Negara Indonesia', '436734737443', 'Jogja', '2023-03-07', 'D2', 'Petani/Peternak', '500.000 - 1.000.000', '0897746432', NULL, NULL, 'Rumah Dinas', 'Di Yogyakarta', 'Kab. Gunung Kidul', ' Playen', 'Bandung', 'Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03', '574574', 'Masih Hidup', 'Wali Siswa', 'Warga Negara Indonesia', '534637347', 'Jakarta', '2023-03-08', 'SMA/Sederajat', 'Sopir/Masinis/Kondektur', 'Kurang dari 500.000', '09864332224', 'Milik Sendiri', 'Di Yogyakarta', 'Kab. Gunung Kidul', ' Patuk', 'Beji', 'Contoh : Jl. Salam Raya II Gg. Salam 10 No. 87 Rt.06 Rw. 03', '43636', 'Jawa Barat', 'Kab. Majalengka', 'Jatitujuh', 'MTs Al Hidayah Sindangkasih', '121232090030', '2023', 'skh 23523', 'Dn Dd 4363374', 'A', 1678162972, '2023-02-26', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -2600,7 +2601,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (25, 1, 'Daftar Siswa', 'admin/siswa', 'fas-fa fa-solid fa-user-graduate', 1),
 (26, 1, 'Informasi', 'admin/info', 'fas-fa fa-solid fa-volume-high', 1),
 (27, 1, 'Cetak', 'admin/cetak', 'fas-fa fa-solid fa-print', 1),
-(28, 2, 'Kunci Biodata', 'user/kunci', 'fas-fa fa-solid fa-lock', 1);
+(28, 2, 'Kunci Biodata', 'user/kunci', 'fas-fa fa-solid fa-lock', 1),
+(29, 2, 'Cetak Kartu', 'user/kartu', 'fas-fw fa-solid fa-id-card-clip', 1),
+(30, 1, 'Registrasi Panitia', 'admin/registrasi', 'fas-fw fa-solid fa-users', 1);
 
 -- --------------------------------------------------------
 
@@ -89991,7 +89994,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user_token`
