@@ -113,7 +113,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">No. SKHUN</label>
+                                <label class="form-label">No. Surat Keterangan Kelulusan</label>
                                 <input type="text" name="no_skhun" value="<?= $siswa['no_skhun']; ?>" class="form-control">
                             </div>
                         </div>

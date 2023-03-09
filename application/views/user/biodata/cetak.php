@@ -26,14 +26,25 @@
                 <div class="row line">
                     <div class="col-4">
                         <img src="<?= base_url('assets/img/profiles/') . $user['image']; ?>" class="card-img my-3">
+                        </small>
+                        <small class="text-muted">Tgl. Daftar : <?= date('d M Y', $siswa['date_created']); ?> <br> Tgl. Cetak : <?= date("d M Y") . " JAM : " . date("H:i"); ?></small>
                     </div>
                     <div class="col-8">
                         <div class="card-body">
+                            <small class="mb-0">No. Peserta</small>
+                            <h5 class="card-title"><?= $siswa['no_daftar']; ?></h5>
+
                             <small class="mb-0 mt-3">Nama</small>
                             <h3 class="card-title"><?= $siswa['nama_siswa']; ?></h3>
 
-                            <small class="mb-0">No. Peserta</small>
-                            <h5 class="card-title"><?= $siswa['no_daftar']; ?></h5>
+                            <small class="mb-0 mt-3">Jenis Kelamin</small>
+                            <?php if ($siswa['jk'] == 1) { ?>
+                                <h3 class="card-title">Laki - Laki</h3>
+                            <?php } else if ($siswa['jk'] == 2) { ?>
+                                <h3 class="card-title">Perempuan</h3>
+                            <?php } ?>
+
+
 
                             <small class="mb-0">Asal Sekolah</small>
                             <h5 class="card-title"><?= $siswa['asal_sekolah']; ?> <br><small><?= $siswa['npsn_sekolah']; ?></small>
@@ -45,8 +56,7 @@
                             <?php } else if ($siswa['jalur'] == 2) { ?>
                                 <h5 class="card-title">Reguler</h5>
                             <?php } ?>
-                            </small>
-                            <small class="text-muted">Tgl. Daftar : <?= date('d M Y', $siswa['date_created']); ?> <br> Tgl. Cetak : <?= date("d M Y") . " JAM : " . date("H:i") . " WIB"; ?></small>
+
                         </div>
                     </div>
                 </div>
@@ -54,17 +64,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
     <script>

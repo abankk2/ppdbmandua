@@ -63,7 +63,7 @@
                 <?= form_open_multipart('user/aksi_upload'); ?>
                 <div class="row">
                     <h5 class="mb-0">Upload Dokumen</h5>
-                    <small class="mb-3">Dokumen Upload file Sertifikat atau Rapot Smester 1 sd 5 berbentuk PDF Max Size 1 Mb</small>
+                    <small class="mb-3">Dokumen Upload file Sertifikat atau Surat Keterangan Prestasi dari Sekolah asl berbentuk PDF Max Size 1 Mb</small>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Dokumen Prestasi</label>
