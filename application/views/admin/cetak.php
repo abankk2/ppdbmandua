@@ -1,5 +1,2 @@
-Laporan PDF
-No Pendaftar NISN NAMA Jk Asal Sekolah <br>
-Export Excl PR ABank
-
-<a href="<?= base_url('admin/export'); ?>">Explor</a>
+<a class="btn btn-primary" href="<?= base_url('admin/export'); ?>" role="button">Export Excl</a>
+<a class="btn btn-success" href="<?= base_url('admin/pdf'); ?>" role="button">Export PDF</a>

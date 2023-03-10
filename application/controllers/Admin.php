@@ -230,4 +230,12 @@ class Admin extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
+
+    public function pdf()
+    {
+
+        $data['siswa'] = $this->db->get('detail_siswa')->result_array();
+
+        $this->load->view('admin/siswa/pdf', $data);
+    }
 }
