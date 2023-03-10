@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
+
 class User extends CI_Controller
 {
     public function __construct()
@@ -587,6 +589,36 @@ class User extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Update Silahkan Menunggu Informasi Dari Panitia PPDB </div>');
         redirect('user/info');
     }
+
+    public function aksi_upload() // Update CS
+    {
+        $nisn   = $this->input->post('nisn');
+
+        $config['upload_path']          = './assets/dokumen/';
+        $config['allowed_types']        = 'pdf';
+        $config['max_size']             = 2000;
+
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('file')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> File Berbentuk Pdf max 1 Mb</div>');
+            redirect('user/upload');
+        } else {
+            $data = array(
+                'file'              => $this->upload->data('file_name'),
+                'nisn'              => $nisn,
+
+            );
+
+            $this->db->where('nisn', $nisn);
+            $this->db->update('detail_siswa', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Dokumen Berhasil di Upload</div>');
+            redirect('user/upload');
+        }
+    }
+
 
     public function bio_kunci() // Kunci Biodata
     {

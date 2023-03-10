@@ -121,4 +121,9 @@ class M_Siswa extends CI_Model
         }
         return $hasil;
     }
+
+    public function view()
+    {
+        return $this->db->get('detail_siswa')->result(); // Tampilkan semua data yang ada di tabel siswa
+    }
 }

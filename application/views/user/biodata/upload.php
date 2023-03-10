@@ -54,7 +54,7 @@
     </div>
     <div class="col-xl-9 col-md-8">
         <?= $this->session->flashdata('message'); ?>
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header">
                 <h5 class="card-title">Khusus Jalur Prestasi</h5>
             </div>
@@ -63,30 +63,42 @@
                 <?= form_open_multipart('user/aksi_upload'); ?>
                 <div class="row">
                     <h5 class="mb-0">Upload Dokumen</h5>
-                    <small class="mb-3">Dokumen Upload file Sertifikat atau Surat Keterangan Prestasi dari Sekolah asl berbentuk PDF Max Size 1 Mb</small>
+                    <small class="mb-3">Dokumen Upload file Sertifikat atau Surat Keterangan Prestasi dari Sekolah asl berbentuk PDF Max Size 1 Mb <br> Rname file Contoh : <b>NAMA_LENGKAP SERTIFIKAT_JUARA_1_OLIMPIADE_MATEMATIKA_TINGKAT_NASIONAL</b></small>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Dokumen Prestasi</label>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" name="file" type="file" id="formFile">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label class="form-label">Nama Dokumen</label>
-                            <input type="text" name="file" value="<?= $siswa['file']; ?>" class="form-control" readonly>
+                            <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control d-none" readonly>
+                            <input type="text" value="<?= $siswa['file']; ?>" class="form-control" readonly>
                         </div>
                     </div>
 
                 </div>
 
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-block btn-primary">Simpan</button>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-block btn-primary">Upload Dokumen</button>
+                </div>
             </div>
 
             </form>
 
         </div>
+
+        <div class="card">
+            <div class="card-body">
+                <?php if ($siswa['file'] == NULL) { ?>
+
+                <?php } else { ?>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="<?= base_url('assets/dokumen/') . $siswa['file']; ?>" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
     </div>
-</div>
 </div>
