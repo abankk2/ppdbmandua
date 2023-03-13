@@ -176,7 +176,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>06 Marte s.d 23 Juni 2023</th>
+                                        <th>06 Maret s.d 23 Juni 2023</th>
                                         <td>Pendaftaran Online</td>
                                     </tr>
                                     <tr>

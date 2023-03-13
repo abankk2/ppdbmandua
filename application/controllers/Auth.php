@@ -118,6 +118,7 @@ class Auth extends CI_Controller
                 'prov_sekolah'      => $this->input->post('prov_sekolah'),
                 'kab_sekolah'       => $this->input->post('kab_sekolah'),
                 'kec_sekolah'       => $this->input->post('kec_sekolah'),
+                'no_hp'             => $this->input->post('no_hp'),
                 'jalur'             => htmlspecialchars($this->input->post('jalur', true)),
                 'kunci'             => 0,
                 'date_created'      => time(),

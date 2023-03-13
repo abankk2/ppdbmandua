@@ -12,6 +12,52 @@ class M_Siswa extends CI_Model
         return $this->db->get();
     }
 
+    public function data()
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->order_by('nama_siswa', 'asc');
+        return $this->db->get();
+    }
+
+    public function sekolah()
+    {
+        $this->db->select('*');
+        $this->db->from('sekolah');
+        $this->db->join('wilayah_kecamatan', 'wilayah_kecamatan.id = sekolah.id_kec', 'inner');
+        $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id = wilayah_kecamatan.kabupaten_id', 'inner');
+        $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id = wilayah_kabupaten.provinsi_id', 'inner');
+        $this->db->limit(10);
+        return $this->db->get()->result_array();
+    }
+
+    public function jm_admin() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role_id', 1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jm_sekolah() //Hitung Jumlah Sekolah
+    {
+        $this->db->select('*');
+        $this->db->from('sekolah');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function jm_daftar() //Hitung Jumlah Daftar
     {
         $this->db->select('*');
@@ -31,6 +77,18 @@ class M_Siswa extends CI_Model
         $this->db->from('detail_siswa');
         $this->db->like('nama_siswa', $keyword);
 
+        return $this->db->get()->result_array();
+    }
+
+    public function cari_sekolah($keyword) //Cari 
+    {
+        $this->db->select('*');
+        $this->db->from('sekolah');
+        $this->db->join('wilayah_kecamatan', 'wilayah_kecamatan.id = sekolah.id_kec', 'inner');
+        $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id = wilayah_kecamatan.kabupaten_id', 'inner');
+        $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id = wilayah_kabupaten.provinsi_id', 'inner');
+        $this->db->limit(10);
+        $this->db->like('id_skolah', $keyword);
         return $this->db->get()->result_array();
     }
 
@@ -125,5 +183,22 @@ class M_Siswa extends CI_Model
     public function view()
     {
         return $this->db->get('detail_siswa')->result(); // Tampilkan semua data yang ada di tabel siswa
+    }
+
+    function rank_sekolah() //Renk Sekolah
+    {
+        $query = $this->db->query('SELECT asal_sekolah, COUNT(asal_sekolah) AS jumlah FROM detail_siswa GROUP BY asal_sekolah ORDER BY jumlah DESC');
+        return $query;
+    }
+
+    function jml_sekolah() //Renk Sekolah
+    {
+        $query = $this->db->query('SELECT asal_sekolah, COUNT(asal_sekolah) AS jumlah FROM detail_siswa GROUP BY asal_sekolah');
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
     }
 }

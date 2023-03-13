@@ -108,19 +108,22 @@
                                                 <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="NISN" value="<?= set_value('email'); ?>">
                                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
-                                            <div class="form-group">
-                                                <select class="form-select" name="jk" required>
-                                                    <option selected disabled>Jenis Kelamin</option>
-                                                    <option value="1">Laki - Laki</option>
-                                                    <option value="2">Perempuan</option>
-                                                </select>
-                                            </div>
                                             <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="col-sm-6 mb-3 ">
+                                                    <select class="form-select" name="jk" required>
+                                                        <option selected disabled>Jenis Kelamin</option>
+                                                        <option value="1">Laki - Laki</option>
+                                                        <option value="2">Perempuan</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6 mb-3 ">
+                                                    <input type="number" class="form-control form-control-user" id="whatsapp" name="no_hp" placeholder="No. Whatsapp" value="<?= set_value('whatsapp'); ?>" required>
+                                                </div>
+                                                <div class="col-sm-6 mb-3 ">
                                                     <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
                                                     <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 mb-3">
                                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                                 </div>
                                             </div>

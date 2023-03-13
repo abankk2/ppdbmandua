@@ -19,7 +19,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'PPDB | MAN 2 Kota Cirebon';
 
-        $data['siswa'] = $this->db->get('detail_siswa')->result_array();
+        // $data['siswa'] = $this->db->get('detail_siswa')->result_array();
+        $data['siswa'] = $this->M_Siswa->data()->result_array();
 
         $this->load->view('templates/home_header', $data);
         $this->load->view('home/data', $data);

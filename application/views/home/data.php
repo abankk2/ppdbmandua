@@ -26,6 +26,7 @@
                                 <th scope="col">Nama</th>
                                 <th scope="col">NISN</th>
                                 <th scope="col">Sekolah Asal</th>
+                                <th scope="col" class="text-center">Jalur Masuk</th>
                                 <th scope="col" class="text-center">Waktu Pendaftaran</th>
                                 <th scope="col" class="text-center">Status</th>
                             </tr>
@@ -39,7 +40,13 @@
                                     <td><?= $sis['nama_siswa']; ?></td>
                                     <td><?= $sis['nisn']; ?></td>
                                     <td><?= $sis['asal_sekolah']; ?></td>
-                                    <td class="text-center"><?= date('d F Y | H : m', $sis['date_created']); ?> WIB</td>
+                                    <td class="text-center"><?php if ($sis['jalur'] == 1) { ?>
+                                            Prestasi
+                                        <?php } else if ($sis['jalur'] == 2) { ?>
+                                            Reguler
+                                        <?php } ?>
+                                    </td>
+                                    <td class="text-center"><?= date('d F Y | H : i', $sis['date_created']); ?> WIB</td>
                                     <td class="text-center"><?php if ($sis['kunci'] == 1) { ?>
                                             <i class="fa-solid fa-user-lock text-success"></i>
                                         <?php } else if ($sis['kunci'] == 0) { ?>

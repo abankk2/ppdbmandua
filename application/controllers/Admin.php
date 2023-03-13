@@ -18,6 +18,11 @@ class Admin extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['rank_sekolah'] = $this->M_Siswa->rank_sekolah()->result_array();
+        $data['admin'] = $this->M_Siswa->jm_admin();
+        $data['siswa'] = $this->M_Siswa->jm_daftar();
+        $data['sekolah'] = $this->M_Siswa->jml_sekolah();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('admin/index', $data);
@@ -237,5 +242,74 @@ class Admin extends CI_Controller
         $data['siswa'] = $this->db->get('detail_siswa')->result_array();
 
         $this->load->view('admin/siswa/pdf', $data);
+    }
+
+    public function sekolah()
+    {
+
+        $data['title'] = 'Sekolah';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['jm_sekolah'] = $this->M_Siswa->jm_sekolah();
+        $data['sekolah'] = $this->M_Siswa->sekolah();
+
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/sekolah', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function cari_sekolah()
+    {
+        $data['title'] = 'Cetak';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['jm_sekolah'] = $this->M_Siswa->jm_sekolah();
+
+        $keyword = $this->input->post('keyword');
+        $data['sekolah'] = $this->M_Siswa->cari_sekolah($keyword);
+
+        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
+        $data['provinsi'] = $get_prov->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/sekolah', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+    public function aksi_sekolah()
+    {
+
+        $this->form_validation->set_rules('kecamatan', 'kecamatan', 'required|trim');
+        $this->form_validation->set_rules('id_skolah', 'NPSN/NSM', 'required|trim|is_unique[sekolah.id_skolah]', [
+            'is_unique' => 'NPSN/NSM ini Sudah Terdaftar!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> NPSN/NSM Sudah Terdaftar atau Pilih Kecamatan Terlebih dahulu !!!
+            </div>');
+            redirect('admin/sekolah');
+        } else {
+
+            $id_kec           = $this->input->post('kecamatan');
+            $id_skolah        = $this->input->post('id_skolah');
+            $nama_sekolah      = $this->input->post('nama_sekolah');
+
+            $data = [
+                'id_kec'            => $id_kec,
+                'id_skolah'         => $id_skolah,
+                'nama_sekolah'      => $nama_sekolah,
+
+            ];
+            $this->db->insert('sekolah', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Sekolah Berhasil di Tambahkan</div>');
+            redirect('admin/sekolah');
+        }
     }
 }
