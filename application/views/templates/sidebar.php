@@ -106,8 +106,8 @@
 
 
                         <?php endforeach; ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                        <li class="nav-item pt-2">
+                            <a class="nav-link text-danger" href="<?= base_url('auth/logout'); ?>">
                                 <i class="fas fa-fw fa-sign-out-alt"></i>
                                 <span>Logout</span></a>
                         </li>
