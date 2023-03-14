@@ -28,6 +28,7 @@
                             <th scope="col">NISN</th>
                             <th scope="col">Sekolah Asal</th>
                             <th scope="col" class="text-center">Waktu Pendaftaran</th>
+                            <th scope="col" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,11 @@
                                 <td><?= $sis['nisn']; ?></td>
                                 <td><?= $sis['asal_sekolah']; ?></td>
                                 <td class="text-center"><?= date('d F Y | H : m', $sis['date_created']); ?> WIB</td>
+                                <td>
+                                    <a href="<?= base_url() ?>admin/Dsiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-circle-info btn btn-sm bg-success text-white"></a>
+                                    <a href="<?= base_url() ?>admin/Esiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-user-pen btn btn-sm bg-warning text-white"></a>
+                                    <a href="#" class="fa-solid fa-trash btn btn-sm bg-danger text-white"></a>
+                                </td>
                             </tr>
                             <?php $i++; ?>
                         <?php endforeach; ?>

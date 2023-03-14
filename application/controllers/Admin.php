@@ -45,6 +45,33 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function Dsiswa($nisn)
+    {
+        $data['title'] = 'Daftar Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['siswa']          = $this->M_Siswa->Dsiswa($nisn)->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/siswa/detail', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function Esiswa($nisn)
+    {
+        $data['title'] = 'Daftar Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['siswa']          = $this->M_Siswa->Dsiswa($nisn)->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/siswa/edit', $data);
+        $this->load->view('templates/footer');
+    }
+
+
     public function info()
     {
         $data['title'] = 'Informasi';
