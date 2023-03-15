@@ -1,3 +1,48 @@
+<form method="post" action="<?= base_url('user/AksiTes'); ?>">
+    <div class="row">
+        <?= $this->session->flashdata('message'); ?>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label">Kecamatan</label>
+                <select id="status_ayah" class="form-select form-select" name="status" onchange="toggleNamaAyah()" required>
+                    <option disabled selected></option>
+                    <option value="hidup">Hidup</option>
+                    <option value="meninggal">Meninggal</option>
+                    <option value="tidak_diketahui">Tidak diketahui</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label">Satu</label>
+                <input type="text" id="satu" name="satu" class="form-control">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Simpan</button>
+    </div>
+
+</form>
+
+<script>
+    function toggleNamaAyah() {
+        var statusAyah = document.getElementById("status_ayah");
+        var satu = document.getElementById("satu");
+        if (statusAyah.value == "hidup") {
+            satu.required = true;
+            satu.disabled = false;
+
+        } else {
+            satu.required = false;
+            satu.disabled = true;
+            satu.value = "";
+
+        }
+    }
+</script>
+
+<br><br><br><br><br><br><br><br><br><br>
+
 Tidak Bekerja
 Pensiunan
 PNS

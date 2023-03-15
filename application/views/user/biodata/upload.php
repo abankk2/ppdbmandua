@@ -59,8 +59,7 @@
                 <h5 class="card-title">Khusus Jalur Prestasi</h5>
             </div>
             <div class="card-body">
-
-                <?= form_open_multipart('user/aksi_upload'); ?>
+                <!-- <?= form_open_multipart('user/aksi_upload'); ?>
                 <div class="row">
                     <h5 class="mb-0">Upload Dokumen</h5>
                     <small class="mb-3">Dokumen Upload file Sertifikat atau Surat Keterangan Prestasi dari Sekolah asl berbentuk PDF Max Size 1 Mb <br> Rname file Contoh : <b>NAMA_LENGKAP SERTIFIKAT_JUARA_1_OLIMPIADE_MATEMATIKA_TINGKAT_NASIONAL</b></small>
@@ -82,9 +81,10 @@
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-block btn-primary">Upload Dokumen</button>
-                </div>
-            </div>
+                </div> -->
 
+                <p>Untuk Dokumen Prestasi menunggu <b>Tanggal Upload yang sudah di tentukan Panitia</b></p>
+            </div>
             </form>
 
         </div>

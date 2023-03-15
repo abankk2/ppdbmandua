@@ -708,4 +708,36 @@ class User extends CI_Controller
         $data   = $this->M_Siswa->get_des($des);
         echo json_encode($data);
     }
+
+    public function tes()
+    {
+        $data['title'] = 'Informasi';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/biodata/tes', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+    public function AksiTes() // Kunci Biodata
+    {
+        $status               = $this->input->post('status');
+        $satu               = $this->input->post('satu');
+        $dua               = $this->input->post('dua');
+
+
+        $data = array(
+            'status'              => $status,
+            'satu'              => $satu,
+            'dua'              => $dua,
+
+        );
+
+        $this->db->insert('tes', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Kunci Silahkan Silahkan Cetak Kartu PPDB </div>');
+        redirect('user/tes');
+    }
 }
