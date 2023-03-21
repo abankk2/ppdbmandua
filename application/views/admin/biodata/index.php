@@ -1,46 +1,47 @@
+<?php if ($siswa['kunci'] == 0) { ?>
     <div class="row">
         <div class="col-xl-3 col-md-4">
             <div class="widget settings-menu">
                 <ul>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/Esiswa/<?= $siswa['nisn']; ?>" class="nav-link active">
+                        <a href="<?= base_url('user/edit'); ?>" class="nav-link active">
                             <i class="far fa-user"></i> <span>Biodata</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_tinggal/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_tinggal'); ?>" class="nav-link">
                             <i class="fa-solid fa-house"></i> <span>Tempat Tinggal</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_ortu/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
                             <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_ortu2/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_ortu2'); ?>" class="nav-link">
                             <i class="fa-regular fa-address-book"></i> <span>Identitas Ibu</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_wali/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_wali'); ?>" class="nav-link">
                             <i class="fa-solid fa-user-tie"></i> <span>Wali Siswa</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_sekolah/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_skolah'); ?>" class="nav-link">
                             <i class="fa-solid fa-school"></i> <span>Sekolah Asal</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/edit_dok/<?= $siswa['nisn']; ?>" class="nav-link">
+                        <a href="<?= base_url('user/edit_dok'); ?>" class="nav-link">
                             <i class="fa-solid fa-circle-info"></i> <span>Informasi Lainnya</span>
                         </a>
                     </li>
 
                     <?php if ($siswa['jalur'] == 1) { ?>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>admin/upload/<?= $siswa['nisn']; ?>" class="nav-link">
+                            <a href="<?= base_url('user/upload'); ?>" class="nav-link">
                                 <i class="fa-solid fa-file-pdf"></i> <span>Dokumen upload</span>
                             </a>
                         </li>
@@ -64,13 +65,13 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nama Lengkap</label>
-                                    <input type="text" name="nama_siswa" value="<?= $siswa['nama_siswa']; ?>" class="form-control">
+                                    <input type="text" name="nama_siswa" value="<?= $siswa['nama_siswa']; ?>" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">NISN / Username</label>
-                                    <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control">
+                                    <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -123,7 +124,7 @@
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label class="form-label">Agama</label>
-                                    <input type="text" name="agama" value="Islam" class="form-control" required>
+                                    <input type="text" name="agama" value="Islam" class="form-control" readonly required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -206,3 +207,14 @@
             </div>
         </div>
     </div>
+<?php } else if ($siswa['kunci'] == 1) { ?>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading"><i class="fa-solid fa-lock fa-shake"></i> Biodata Anda Sudah di Kunci !!</h4>
+                <p>Jika Masih ada Kesalahan silahkan datang ke Sekretariat PPDB MAN 2 Kota Cirebon, jika biodata anda sudah sesuai silahkan cetak Kartu Peserta Anda.</p>
+                <a class="btn btn-outline-danger btn-sm" target="_blank" href="https://goo.gl/maps/g1NYRVBmf3snbtFg7"><i class="fa-solid fa-location-dot"></i> Lokasi</a>
+            </div>
+        </div>
+    </div>
+<?php } ?>

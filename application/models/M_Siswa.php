@@ -16,7 +16,7 @@ class M_Siswa extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('detail_siswa');
-        $this->db->order_by('nama_siswa', 'asc');
+        $this->db->order_by('id', 'asc');
         return $this->db->get();
     }
 
