@@ -241,6 +241,17 @@ class Admin extends CI_Controller
         $sheet->setCellValue('AA3', "KEB. DISABILITAS");
         $sheet->setCellValue('AB3', "TK");
         $sheet->setCellValue('AC3', "PAUD");
+        $sheet->setCellValue('AD3', "HEPATITIS");
+        $sheet->setCellValue('AE3', "POLIO");
+        $sheet->setCellValue('AF3', "BCG");
+        $sheet->setCellValue('AG3', "CAMPAK");
+        $sheet->setCellValue('AH3', "DPT");
+        $sheet->setCellValue('AI3', "COVID");
+        $sheet->setCellValue('AJ3', "NO KIP");
+        $sheet->setCellValue('AK3', "NO KKS");
+        $sheet->setCellValue('AL3', "NO PKH");
+        $sheet->setCellValue('AM3', "NO KK");
+        $sheet->setCellValue('AN3', "KEPALA KELUARGA");
 
 
         // Apply style header yang telah kita buat tadi ke masing-masing kolom header
@@ -273,6 +284,17 @@ class Admin extends CI_Controller
         $sheet->getStyle('AA3')->applyFromArray($style_col);
         $sheet->getStyle('AB3')->applyFromArray($style_col);
         $sheet->getStyle('AC3')->applyFromArray($style_col);
+        $sheet->getStyle('AD3')->applyFromArray($style_col);
+        $sheet->getStyle('AE3')->applyFromArray($style_col);
+        $sheet->getStyle('AF3')->applyFromArray($style_col);
+        $sheet->getStyle('AG3')->applyFromArray($style_col);
+        $sheet->getStyle('AH3')->applyFromArray($style_col);
+        $sheet->getStyle('AI3')->applyFromArray($style_col);
+        $sheet->getStyle('AJ3')->applyFromArray($style_col);
+        $sheet->getStyle('AK3')->applyFromArray($style_col);
+        $sheet->getStyle('AL3')->applyFromArray($style_col);
+        $sheet->getStyle('AM3')->applyFromArray($style_col);
+        $sheet->getStyle('AN3')->applyFromArray($style_col);
 
         // Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
         $siswa = $this->M_Siswa->view();
@@ -313,6 +335,17 @@ class Admin extends CI_Controller
             $sheet->setCellValue('AA' . $numrow, $data->keb_disabilitas);
             $sheet->setCellValue('AB' . $numrow, $data->tk);
             $sheet->setCellValue('AC' . $numrow, $data->paud);
+            $sheet->setCellValue('AD' . $numrow, $data->hepatitis);
+            $sheet->setCellValue('AE' . $numrow, $data->polio);
+            $sheet->setCellValue('AF' . $numrow, $data->bcg);
+            $sheet->setCellValue('AG' . $numrow, $data->campak);
+            $sheet->setCellValue('AH' . $numrow, $data->dpt);
+            $sheet->setCellValue('AI' . $numrow, $data->covid);
+            $sheet->setCellValueExplicit('AJ' . $numrow, $data->no_kip, DataType::TYPE_STRING);
+            $sheet->setCellValueExplicit('AK' . $numrow, $data->no_kks, DataType::TYPE_STRING);
+            $sheet->setCellValueExplicit('AL' . $numrow, $data->no_pkh, DataType::TYPE_STRING);
+            $sheet->setCellValueExplicit('AM' . $numrow, $data->no_kk, DataType::TYPE_STRING);
+            $sheet->setCellValue('AN' . $numrow, $data->kepala_keluarga);
 
             // $sheet->setCellValueExplicit('E' . $numrow, $data->no_kk, DataType::TYPE_STRING);
 
@@ -346,7 +379,17 @@ class Admin extends CI_Controller
             $sheet->getStyle('AA' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('AB' . $numrow)->applyFromArray($style_row);
             $sheet->getStyle('AC' . $numrow)->applyFromArray($style_row);
-
+            $sheet->getStyle('AD' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AE' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AF' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AG' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AH' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AI' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AJ' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AK' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AL' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AM' . $numrow)->applyFromArray($style_row);
+            $sheet->getStyle('AN' . $numrow)->applyFromArray($style_row);
 
 
             $no++; // Tambah 1 setiap kali looping
@@ -382,6 +425,18 @@ class Admin extends CI_Controller
         $sheet->getColumnDimension('AA')->setAutoSize(true);
         $sheet->getColumnDimension('AB')->setAutoSize(true);
         $sheet->getColumnDimension('AC')->setAutoSize(true);
+        $sheet->getColumnDimension('AD')->setAutoSize(true);
+        $sheet->getColumnDimension('AE')->setAutoSize(true);
+        $sheet->getColumnDimension('AF')->setAutoSize(true);
+        $sheet->getColumnDimension('AG')->setAutoSize(true);
+        $sheet->getColumnDimension('AH')->setAutoSize(true);
+        $sheet->getColumnDimension('AI')->setAutoSize(true);
+        $sheet->getColumnDimension('AJ')->setAutoSize(true);
+        $sheet->getColumnDimension('AK')->setAutoSize(true);
+        $sheet->getColumnDimension('AL')->setAutoSize(true);
+        $sheet->getColumnDimension('AM')->setAutoSize(true);
+        $sheet->getColumnDimension('AN')->setAutoSize(true);
+
 
         // Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
         $sheet->getDefaultRowDimension()->setRowHeight(-1);

@@ -39,10 +39,18 @@
         h2 {
             text-align: center;
         }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
+    <img src="<?= base_url('assets/'); ?>img/kop.png" alt="">
     <h2>Daftar Siswa PPDB MAN 2 Kota Cirebon <br>Tahun 2023/2024</h2>
     <table>
         <thead>
