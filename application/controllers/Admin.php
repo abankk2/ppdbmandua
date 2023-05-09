@@ -184,28 +184,32 @@ class Admin extends CI_Controller
         $sheet = $spreadsheet->getActiveSheet();
         // Buat sebuah variabel untuk menampung pengaturan style dari header tabel
         $style_col = [
-            'font' => ['bold' => true], // Set font nya jadi bold
-            'alignment' => [
+            'font'          => ['bold' => true], // Set font nya jadi bold
+            'alignment'     => [
                 'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, // Set text jadi ditengah secara horizontal (center)
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
+                'vertical'  => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
             ],
-            'borders' => [
-                'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
-                'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
-                'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
-                'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
+            'borders'       => [
+                'top'       => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
+                'right'     => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
+                'bottom'    => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
+                'left'      => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => ['rgb' => '32CD32']
             ]
         ];
         // Buat sebuah variabel untuk menampung pengaturan style dari isi tabel
         $style_row = [
-            'alignment' => [
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
+            'alignment'     => [
+                'vertical'      => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
             ],
-            'borders' => [
-                'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
-                'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
-                'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
-                'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
+            'borders'       => [
+                'top'       => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
+                'right'     => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
+                'bottom'    => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
+                'left'      => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
             ]
         ];
         $sheet->setCellValue('A1', "DATA SISWA PPDB TAHUN 2023/2024"); // Set kolom A1 dengan tulisan "DATA SISWA"
@@ -252,49 +256,21 @@ class Admin extends CI_Controller
         $sheet->setCellValue('AL3', "NO PKH");
         $sheet->setCellValue('AM3', "NO KK");
         $sheet->setCellValue('AN3', "KEPALA KELUARGA");
-
+        $sheet->setCellValue('AO3', "NPSN/NSM");
+        $sheet->setCellValue('AP3', "NAMA SEKOLAH");
+        $sheet->setCellValue('AQ3', "TAHUN LULUS");
+        $sheet->setCellValue('AR3', "PROVINSI SEKOLAH");
+        $sheet->setCellValue('AS3', "KAB/KOTA SEKOLAH");
+        $sheet->setCellValue('AT3', "KECAMATAN SEKOLAH");
 
         // Apply style header yang telah kita buat tadi ke masing-masing kolom header
-        $sheet->getStyle('A3')->applyFromArray($style_col);
-        $sheet->getStyle('B3')->applyFromArray($style_col);
-        $sheet->getStyle('C3')->applyFromArray($style_col);
-        $sheet->getStyle('D3')->applyFromArray($style_col);
-        $sheet->getStyle('E3')->applyFromArray($style_col);
-        $sheet->getStyle('F3')->applyFromArray($style_col);
-        $sheet->getStyle('G3')->applyFromArray($style_col);
-        $sheet->getStyle('H3')->applyFromArray($style_col);
-        $sheet->getStyle('I3')->applyFromArray($style_col);
-        $sheet->getStyle('J3')->applyFromArray($style_col);
-        $sheet->getStyle('K3')->applyFromArray($style_col);
-        $sheet->getStyle('L3')->applyFromArray($style_col);
-        $sheet->getStyle('M3')->applyFromArray($style_col);
-        $sheet->getStyle('N3')->applyFromArray($style_col);
-        $sheet->getStyle('O3')->applyFromArray($style_col);
-        $sheet->getStyle('P3')->applyFromArray($style_col);
-        $sheet->getStyle('Q3')->applyFromArray($style_col);
-        $sheet->getStyle('R3')->applyFromArray($style_col);
-        $sheet->getStyle('S3')->applyFromArray($style_col);
-        $sheet->getStyle('T3')->applyFromArray($style_col);
-        $sheet->getStyle('U3')->applyFromArray($style_col);
-        $sheet->getStyle('V3')->applyFromArray($style_col);
-        $sheet->getStyle('W3')->applyFromArray($style_col);
-        $sheet->getStyle('X3')->applyFromArray($style_col);
-        $sheet->getStyle('Y3')->applyFromArray($style_col);
-        $sheet->getStyle('Z3')->applyFromArray($style_col);
-        $sheet->getStyle('AA3')->applyFromArray($style_col);
-        $sheet->getStyle('AB3')->applyFromArray($style_col);
-        $sheet->getStyle('AC3')->applyFromArray($style_col);
-        $sheet->getStyle('AD3')->applyFromArray($style_col);
-        $sheet->getStyle('AE3')->applyFromArray($style_col);
-        $sheet->getStyle('AF3')->applyFromArray($style_col);
-        $sheet->getStyle('AG3')->applyFromArray($style_col);
-        $sheet->getStyle('AH3')->applyFromArray($style_col);
-        $sheet->getStyle('AI3')->applyFromArray($style_col);
-        $sheet->getStyle('AJ3')->applyFromArray($style_col);
-        $sheet->getStyle('AK3')->applyFromArray($style_col);
-        $sheet->getStyle('AL3')->applyFromArray($style_col);
-        $sheet->getStyle('AM3')->applyFromArray($style_col);
-        $sheet->getStyle('AN3')->applyFromArray($style_col);
+
+        $col_start = 'A'; // Kolom pertama
+        $col_end = 'AT'; // Kolom terakhir
+        $row = 3; // Baris ke-3
+
+        $range = $col_start . $row . ':' . $col_end . $row; // range yang akan diberi style
+        $sheet->getStyle($range)->applyFromArray($style_col);
 
         // Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
         $siswa = $this->M_Siswa->view();
@@ -346,97 +322,30 @@ class Admin extends CI_Controller
             $sheet->setCellValueExplicit('AL' . $numrow, $data->no_pkh, DataType::TYPE_STRING);
             $sheet->setCellValueExplicit('AM' . $numrow, $data->no_kk, DataType::TYPE_STRING);
             $sheet->setCellValue('AN' . $numrow, $data->kepala_keluarga);
+            $sheet->setCellValueExplicit('AO' . $numrow, $data->npsn_sekolah, DataType::TYPE_STRING);
+            $sheet->setCellValue('AP' . $numrow, $data->asal_sekolah);
+            $sheet->setCellValue('AQ' . $numrow, $data->tahun_lulus);
+            $sheet->setCellValue('AR' . $numrow, $data->prov_sekolah);
+            $sheet->setCellValue('AS' . $numrow, $data->kab_sekolah);
+            $sheet->setCellValue('AT' . $numrow, $data->kec_sekolah);
 
             // $sheet->setCellValueExplicit('E' . $numrow, $data->no_kk, DataType::TYPE_STRING);
 
+
             // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
-            $sheet->getStyle('A' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('B' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('C' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('D' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('E' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('F' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('G' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('H' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('I' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('J' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('K' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('L' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('M' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('N' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('O' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('P' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('Q' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('R' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('S' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('T' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('U' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('V' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('W' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('X' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('Y' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('Z' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AA' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AB' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AC' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AD' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AE' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AF' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AG' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AH' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AI' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AJ' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AK' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AL' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AM' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('AN' . $numrow)->applyFromArray($style_row);
+            for ($i = 'A'; $i != 'AU'; $i++) {
+                $sheet->getStyle($i . $numrow)->applyFromArray($style_row);
+            }
 
 
             $no++; // Tambah 1 setiap kali looping
             $numrow++; // Tambah 1 setiap kali looping
         }
-        // Set width kolom
-        $sheet->getColumnDimension('A')->setAutoSize(true);
-        $sheet->getColumnDimension('B')->setAutoSize(true);
-        $sheet->getColumnDimension('C')->setAutoSize(true);
-        $sheet->getColumnDimension('D')->setAutoSize(true);
-        $sheet->getColumnDimension('E')->setAutoSize(true);
-        $sheet->getColumnDimension('F')->setAutoSize(true);
-        $sheet->getColumnDimension('G')->setAutoSize(true);
-        $sheet->getColumnDimension('H')->setAutoSize(true);
-        $sheet->getColumnDimension('I')->setAutoSize(true);
-        $sheet->getColumnDimension('J')->setAutoSize(true);
-        $sheet->getColumnDimension('K')->setAutoSize(true);
-        $sheet->getColumnDimension('L')->setAutoSize(true);
-        $sheet->getColumnDimension('M')->setAutoSize(true);
-        $sheet->getColumnDimension('N')->setAutoSize(true);
-        $sheet->getColumnDimension('O')->setAutoSize(true);
-        $sheet->getColumnDimension('P')->setAutoSize(true);
-        $sheet->getColumnDimension('Q')->setAutoSize(true);
-        $sheet->getColumnDimension('R')->setAutoSize(true);
-        $sheet->getColumnDimension('S')->setAutoSize(true);
-        $sheet->getColumnDimension('T')->setAutoSize(true);
-        $sheet->getColumnDimension('U')->setAutoSize(true);
-        $sheet->getColumnDimension('V')->setAutoSize(true);
-        $sheet->getColumnDimension('W')->setAutoSize(true);
-        $sheet->getColumnDimension('X')->setAutoSize(true);
-        $sheet->getColumnDimension('Y')->setAutoSize(true);
-        $sheet->getColumnDimension('Z')->setAutoSize(true);
-        $sheet->getColumnDimension('AA')->setAutoSize(true);
-        $sheet->getColumnDimension('AB')->setAutoSize(true);
-        $sheet->getColumnDimension('AC')->setAutoSize(true);
-        $sheet->getColumnDimension('AD')->setAutoSize(true);
-        $sheet->getColumnDimension('AE')->setAutoSize(true);
-        $sheet->getColumnDimension('AF')->setAutoSize(true);
-        $sheet->getColumnDimension('AG')->setAutoSize(true);
-        $sheet->getColumnDimension('AH')->setAutoSize(true);
-        $sheet->getColumnDimension('AI')->setAutoSize(true);
-        $sheet->getColumnDimension('AJ')->setAutoSize(true);
-        $sheet->getColumnDimension('AK')->setAutoSize(true);
-        $sheet->getColumnDimension('AL')->setAutoSize(true);
-        $sheet->getColumnDimension('AM')->setAutoSize(true);
-        $sheet->getColumnDimension('AN')->setAutoSize(true);
 
+        // Set width kolom
+        for ($col = 'A'; $col !== 'AU'; $col++) {
+            $sheet->getColumnDimension($col)->setAutoSize(true);
+        }
 
         // Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
         $sheet->getDefaultRowDimension()->setRowHeight(-1);
@@ -640,6 +549,7 @@ class Admin extends CI_Controller
     public function upbiodata() // Update Data Biodata
     {
         $nisn               = $this->input->post('nisn');
+        $nama_siswa         = $this->input->post('nama_siswa');
         $tempat_lahir       = $this->input->post('tempat_lahir');
         $tgl_lahir          = $this->input->post('tgl_lahir');
         $jk                 = $this->input->post('jk');
@@ -652,11 +562,12 @@ class Admin extends CI_Controller
         $hobi               = $this->input->post('hobi');
         $no_hp              = $this->input->post('no_hp');
         $emails             = $this->input->post('emails');
-        $biaya_sekolah               = $this->input->post('biaya_sekolah');
+        $biaya_sekolah      = $this->input->post('biaya_sekolah');
 
 
         $data = array(
             'nisn'          => $nisn,
+            'nama_siswa'    => $nama_siswa,
             'tempat_lahir'  => $tempat_lahir,
             'tgl_lahir'     => $tgl_lahir,
             'jk'            => $jk,
@@ -965,6 +876,19 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Dokumen Berhasil di Upload</div>');
             redirect('admin/upload/' . $nisn);
         }
+    }
+
+    public function HpsSiswa($nisn)
+    {
+
+        $this->db->where('nisn', $nisn);
+        $this->db->delete('detail_siswa');
+
+        $this->db->where('email', $nisn);
+        $this->db->delete('user');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Data Siswa Berhasil Di Hapus</div>');
+        redirect('admin/siswa');
     }
 
     function add_ajax_kab($id_prov)

@@ -46,6 +46,11 @@
             margin-right: auto;
             width: 100%;
         }
+
+        .ttd {
+            float: right;
+            margin-right: 20px;
+        }
     </style>
 </head>
 
@@ -85,6 +90,15 @@
         </tbody>
     </table>
 
+    <div class="ttd">
+        <p>Cirebon, <?= date('d F Y' . ' | ' . 'H:s'); ?> WIB
+            <br>Ketua PPDB 2023
+        </p>
+        <br><br><br>
+        <p><b>H. MUHAMMAD SAEFUDIN, SH</b>
+            <br>NIP. 19660609 200604 1 002
+        </p>
+    </div>
 
     <script>
         window.print();

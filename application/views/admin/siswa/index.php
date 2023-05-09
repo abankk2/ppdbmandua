@@ -17,6 +17,7 @@
             <?= form_close(); ?>
         </div>
     </div>
+    <?= $this->session->flashdata('message'); ?>
     <div class="col-md-12">
         <div class="shadow p-3 card">
             <div class="table-responsive">
@@ -44,7 +45,7 @@
                                 <td>
                                     <a href="<?= base_url() ?>admin/Dsiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-circle-info btn btn-sm bg-success text-white"></a>
                                     <a href="<?= base_url() ?>admin/Esiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-user-pen btn btn-sm bg-warning text-white"></a>
-                                    <a href="#" class="fa-solid fa-trash btn btn-sm bg-danger text-white"></a>
+                                    <a href="<?= base_url() ?>admin/HpsSiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-trash btn btn-sm bg-danger text-white"></a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
