@@ -71,6 +71,19 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function Ksiswa($nisn)
+    {
+        $data['title'] = 'Kunci Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['siswa']          = $this->M_Siswa->Dsiswa($nisn)->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('admin/siswa/kunci', $data);
+        $this->load->view('templates/footer');
+    }
+
 
     public function info()
     {
@@ -877,6 +890,24 @@ class Admin extends CI_Controller
             redirect('admin/upload/' . $nisn);
         }
     }
+
+    public function Bkunci() // Update Data Biodata
+    {
+        $nisn               = $this->input->post('nisn');
+        $kunci         = $this->input->post('kunci');
+
+        $data = array(
+            'nisn'          => $nisn,
+            'kunci'    => $kunci,
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Edit Kunci Berhasil di simpan</div>');
+        redirect('admin/siswa');
+    }
+
 
     public function HpsSiswa($nisn)
     {

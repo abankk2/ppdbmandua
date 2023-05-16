@@ -207,4 +207,22 @@ class M_Siswa extends CI_Model
         $query = $this->db->get_where('detail_siswa', array('nisn' => $nisn));
         return $query;
     }
+
+    public function news()
+    {
+        $this->db->select('*');
+        $this->db->from('info');
+        $this->db->limit(1);
+        $this->db->order_by('id', 'desc');
+        return $this->db->get();
+    }
+
+    public function news2()
+    {
+        $this->db->select('*');
+        $this->db->from('info');
+        $this->db->order_by('id', 'desc');
+        $this->db->limit(10, 1);
+        return $this->db->get();
+    }
 }

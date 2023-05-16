@@ -45,6 +45,15 @@
                                 <td>
                                     <a href="<?= base_url() ?>admin/Dsiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-circle-info btn btn-sm bg-success text-white"></a>
                                     <a href="<?= base_url() ?>admin/Esiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-user-pen btn btn-sm bg-warning text-white"></a>
+
+                                    <?php if ($sis['kunci'] == 0) { ?>
+                                        <a href="<?= base_url() ?>admin/Ksiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-unlock btn btn-sm bg-secondary text-white"></a>
+                                    <?php } else if ($sis['kunci'] == 1) { ?>
+                                        <a href="<?= base_url() ?>admin/Ksiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-lock btn btn-sm bg-info text-white"></a>
+
+                                    <?php } ?>
+
+
                                     <a href="<?= base_url() ?>admin/HpsSiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-trash btn btn-sm bg-danger text-white"></a>
                                 </td>
                             </tr>

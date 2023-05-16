@@ -118,6 +118,10 @@ class User extends CI_Controller
         $data['title'] = 'Informasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['info'] = $this->M_Siswa->news()->result_array();
+        $data['info2'] = $this->M_Siswa->news2()->result_array();
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/info', $data);
