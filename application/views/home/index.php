@@ -180,6 +180,10 @@
                                         <td>Pendaftaran Online</td>
                                     </tr>
                                     <tr>
+                                        <th>19 - 24 Juni 2023</th>
+                                        <td>Penyerahan Berkas dan Wawancara Calon Peserta Didik Baru</td>
+                                    </tr>
+                                    <tr>
                                         <th>26 Juni 2023</th>
                                         <td>Seleksi Tulis (Skolastik & Literasi)</td>
                                     </tr>

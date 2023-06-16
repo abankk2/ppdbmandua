@@ -80,6 +80,15 @@ class M_Siswa extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function cari_siswa2($keyword) //Cari 
+    {
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->like('nama', $keyword);
+
+        return $this->db->get()->result_array();
+    }
+
     public function cari_sekolah($keyword) //Cari 
     {
         $this->db->select('*');
@@ -225,4 +234,32 @@ class M_Siswa extends CI_Model
         $this->db->limit(10, 1);
         return $this->db->get();
     }
+
+    // public function wawancara()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('wawancara');
+    //     $this->db->where('status', 0);
+    //     return $this->db->get();
+    // }
+    // public function Dwawancara($slug = NULL)
+    // {
+    //     $query = $this->db->get_where('wawancara', array('slug' => $slug));
+    //     return $query;
+    // }
+
+    // public function cekin()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('detail_siswa');
+    //     $this->db->where('kunci < 2');
+    //     return $this->db->get();
+    // }
+    // public function validasi()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('detail_siswa');
+    //     $this->db->where('kunci = 3');
+    //     return $this->db->get();
+    // }
 }

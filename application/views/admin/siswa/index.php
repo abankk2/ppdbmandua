@@ -25,6 +25,7 @@
                     <thead class="bg-success text-white">
                         <tr>
                             <th scope="col" class="text-center">No</th>
+                            <th scope="col">No PPDB</th>
                             <th scope="col">Nama</th>
                             <th scope="col">NISN</th>
                             <th scope="col">Sekolah Asal</th>
@@ -38,6 +39,7 @@
                         <?php foreach ($siswa as $sis) : ?>
                             <tr>
                                 <th scope="row" class="text-center"><?= $i; ?></th>
+                                <td><?= $sis['no_daftar']; ?></td>
                                 <td><?= $sis['nama_siswa']; ?></td>
                                 <td><?= $sis['nisn']; ?></td>
                                 <td><?= $sis['asal_sekolah']; ?></td>
