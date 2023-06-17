@@ -14,10 +14,8 @@ class Panitia extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // $data['rank_sekolah'] = $this->M_Siswa->rank_sekolah()->result_array();
-        // $data['admin'] = $this->M_Siswa->jm_admin();
-        // $data['siswa'] = $this->M_Siswa->jm_daftar();
-        // $data['sekolah'] = $this->M_Siswa->jml_sekolah();
+        $data['siswa'] = $this->M_Siswa->jm_daftar();
+        $data['jm_wawancara'] = $this->M_Siswa->jm_wawancara();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -25,20 +23,6 @@ class Panitia extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    // public function siswa()
-    // {
-    //     $data['title'] = 'Data Siswa';
-    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-    //     // $data['siswa'] = $this->db->get('detail_siswa')->result_array();
-    //     $data['siswa'] = $this->M_Siswa->cekin()->result_array();
-    //     $data['daftar'] = $this->M_Siswa->jm_daftar();
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('panitia/siswa', $data);
-    //     $this->load->view('templates/footer');
-    // }
 
     public function wawancara()
     {
@@ -56,19 +40,46 @@ class Panitia extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function cari2()
+    public function sudah_wawancara()
     {
         $data['title'] = 'Wawancara';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['daftar'] = $this->M_Siswa->jm_daftar();
+        $data['siswa'] = $this->M_Siswa->sd_wawancara()->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('panitia/siswa', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function bl_wawancara()
+    {
+        $data['title'] = 'Wawancara';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $keyword = $this->input->post('keyword');
+        $data['siswa'] = $this->M_Siswa->cari_siswa($keyword);
+
+        $data['siswa'] = $this->M_Siswa->bl_wawancara()->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('panitia/siswa', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function cari()
+    {
+        $data['title'] = 'Wawancara';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $keyword = $this->input->post('keyword');
         $data['siswa'] = $this->M_Siswa->cari_siswa2($keyword);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('panitia/wawancara', $data);
+        $this->load->view('panitia/siswa', $data);
         $this->load->view('templates/footer');
     }
 
@@ -93,8 +104,9 @@ class Panitia extends CI_Controller
 
         $data['siswa']          = $this->M_Siswa->wawancara($nisn)->row_array();
         $data['prestasi']       = $this->M_Siswa->prestasi($nisn)->result_array();
-        $data['keterampilan']   = $this->M_Siswa->keterampilan()->result_array();
-
+        $data['tbsm']           = $this->M_Siswa->tbsm();
+        $data['tata']           = $this->M_Siswa->tata();
+        $data['multimedia']     = $this->M_Siswa->multimedia();
 
 
         $this->load->view('templates/header', $data);
@@ -184,5 +196,23 @@ class Panitia extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil di Tambahkan</div>');
         redirect('panitia/input/' . $siswa_id);
+    }
+
+    function get_tbsm() // Get Data kec
+    {
+        $data   = $this->M_Siswa->tbsm();
+        echo json_encode($data);
+    }
+
+    function get_tata() // Get Data kec
+    {
+        $data   = $this->M_Siswa->tata();
+        echo json_encode($data);
+    }
+
+    function get_multi() // Get Data kec
+    {
+        $data   = $this->M_Siswa->multimedia();
+        echo json_encode($data);
     }
 }

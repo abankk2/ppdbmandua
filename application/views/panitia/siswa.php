@@ -2,7 +2,17 @@
     <h1 class="text-center">DATA PENDAFTAR</h1>
     <h4 class="text-center mb-3">PPDB MAN 2 KOTA CIREBON TAHUN 2023/2024</h4>
     <div class="col-md-8">
-        <h5>Jumlah Pendaftar : <?= $daftar; ?> Siswa</h5>
+        <div class="dropdown">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter Capesdik
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<?= base_url('panitia/wawancara'); ?>">Semua Data</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('panitia/sudah_wawancara'); ?>">Sudah Wawancara</a></li>
+                <li><a class=" dropdown-item" href="<?= base_url('panitia/bl_wawancara'); ?>">Belum Wawancara</a></li>
+            </ul>
+        </div>
     </div>
     <div class="col-md-4 mb-3">
         <div class="form-inline my-2 my-lg-0">
@@ -11,7 +21,7 @@
                 <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Nama Lengkap" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                    <a href="<?= base_url('panitia/siswa'); ?>" class="btn btn-outline-warning">Reset</a>
+                    <a href="<?= base_url('panitia/wawancara'); ?>" class="btn btn-outline-warning">Reset</a>
                 </div>
             </div>
             <?= form_close(); ?>
@@ -47,11 +57,11 @@
                                     <a href="<?= base_url() ?>panitia/Dsiswa/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-info text-white"><i class="fa-solid fa-circle-info"></i></a>
 
                                     <?php if ($sis['kunci'] == 1) { ?>
-                                        <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-headset"></i></a>
-                                    <?php } else if ($sis['kunci'] == 2) { ?>
                                         <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa-solid fa-headset"></i></a>
-                                    <?php } else if ($sis['kunci'] == 0) { ?>
+                                    <?php } else if ($sis['kunci'] == 2) { ?>
                                         <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-headset"></i></a>
+                                    <?php } else if ($sis['kunci'] == 0) { ?>
+                                        <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa-solid fa-headset"></i></a>
                                     <?php } ?>
                                 </td>
                             </tr>

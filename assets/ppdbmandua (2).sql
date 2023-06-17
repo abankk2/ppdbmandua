@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2023 at 06:58 AM
+-- Generation Time: Jun 17, 2023 at 12:17 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -149,7 +149,7 @@ CREATE TABLE `detail_siswa` (
 
 INSERT INTO `detail_siswa` (`id`, `nisn`, `no_daftar`, `kelas`, `nama_siswa`, `nis`, `warga_siswa`, `nik`, `tempat_lahir`, `tgl_lahir`, `jk`, `anak_ke`, `saudara`, `agama`, `cita`, `no_hp`, `emails`, `hobi`, `status_tinggal_siswa`, `prov`, `kab`, `kec`, `desa`, `alamat_siswa`, `kordinat`, `kodepos_siswa`, `transportasi`, `jarak`, `waktu`, `biaya_sekolah`, `keb_khusus`, `keb_disabilitas`, `tk`, `paud`, `hepatitis`, `polio`, `bcg`, `campak`, `dpt`, `covid`, `no_kip`, `no_kks`, `no_pkh`, `no_kk`, `kepala_keluarga`, `nama_ayah`, `status_ayah`, `warga_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `domisili_ayah`, `status_tmp_tinggal_ayah`, `prov_ayah`, `kab_ayah`, `kec_ayah`, `desa_ayah`, `alamat_ayah`, `kodepos_ayah`, `nama_ibu`, `status_ibu`, `warga_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `status_tinggal_ibu`, `domisili_ibu`, `status_tmp_tinggal_ibu`, `prov_ibu`, `kab_ibu`, `kec_ibu`, `desa_ibu`, `alamat_ibu`, `kodepos_ibu`, `status_wali`, `nama_wali`, `warga_wali`, `nik_wali`, `tempat_lahir_wali`, `tgl_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `status_tmp_tinggal_wali`, `prov_wali`, `kab_wali`, `kec_wali`, `desa_wali`, `alamat_wali`, `kodepos_wali`, `prov_sekolah`, `kab_sekolah`, `kec_sekolah`, `asal_sekolah`, `npsn_sekolah`, `tahun_lulus`, `no_skhun`, `seri_ijazah`, `golongandarah`, `date_created`, `tgl_mutasi`, `kunci`, `jalur`, `file`) VALUES
 (1, '0085674951', 'PPDB2023-001', NULL, 'Mochamad Fachry Murrodz', NULL, NULL, '3274021704080001', 'Kota Cirebon', '2008-04-17', '1', 2, 3, 'Islam', 'PNS', '081542389594', ' destianeyhyc18@gmail.com    ', 'Olahraga', 'Lainnya', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Perumahan Graha Keandra Kalijaga Tahap 2 Jl. Diponegoro Blok AC No. 2, Kota Cirebon', '', '45144', NULL, '5', '17', 'Ayah', NULL, NULL, 'YA', 'Tidak', '1', '1', '1', '1', '1', '1', '', '', '', '3274031004170007', 'Yahya', 'Yahya', 'Masih Hidup', 'Warga Negara Indonesia', '3274020609700010', 'Kota Cirebon', '1970-09-06', 'SMA/Sederajat', 'Wiraswasta', '500.000 - 1.000.000', '082119754818', NULL, 'Milik Sendiri', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Perumahan Graha Keandra Kalijaga Tahap 2 Jl. Diponegoro Blok AC No. 2 Kota Cirebon', '45144', 'Sri Suherti', 'Masih Hidup', 'Warga Negara Indonesia', '3274026410770004', 'Kota Cirebon', '1977-10-24', 'D4/S1', 'PNS', '2.000.001 - 3.000.000', '089623241077', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Perumahan Graha Keandra Kalijaga Tahap 2 Jl. Diponegoro Blok AC No. 2 Kota Cirebon', '45144', 'Masih Hidup', 'Destiane Yahya Chaerunissa', 'Warga Negara Indonesia', '3274025802000005', 'Kota Cirebon', '2000-12-18', 'D4/S1', 'Lainnya', 'Tidak ada', '081542389594', 'Rumah Orang Tua', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Perumahan Graha Keandra Kalijaga Tahap 2 Jl. Diponegoro Blok AC No. 2 Kota Cirebon', '45144', 'Jawa Barat', 'Kab. Kuningan', ' Kramatmulya', ' SMP NEGERI 2 KRAMATMULYA', '20212972', '2023', '\'0\'', '0', 'AB', 1678544043, '0000-00-00', 2, 2, ''),
-(2, '0084427819', 'PPDB2023-002', NULL, 'Sakia Musdalifah', NULL, NULL, '32091270110800051', 'Cirebon ', '2008-11-30', '2', 1, 1, 'Islam', 'Guru/Dosen', '088224542899', ' kiakiamusdalifah@gmail.com', 'Membaca', 'Rumah SInggah', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01', '-', '45173', NULL, '5', '30', 'Ayah', '1', NULL, 'YA', 'Tidak', '1', '1', '1', '1', '1', '1', '32740321441246', '', '', '3209121009073234', 'Adibing Sonjaya ', 'Adibing Sonjaya ', 'Masih Hidup', 'Warga Negara Indonesia', '3209121408840001', 'Cirebon ', '1984-06-14', 'SMP/Sederajat', 'Lainnya', '500.000 - 1.000.000', '082126945420', NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Umi Hani ', 'Masih Hidup', 'Warga Negara Indonesia', '3209125404800005', 'Cirebon ', '1980-04-14', 'SMA/Sederajat', 'Lainnya', 'Kurang dari 500.000', '081223835598', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Masih Hidup', 'Adibing Sonjaya ', 'Warga Negara Indonesia', '3209121406840001', 'Cirebon ', '1984-06-14', 'SMP/Sederajat', 'Lainnya', '500.000 - 1.000.000', '082126945420', 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'MTsN 2 Kota Cirebon', '20279594', '2023', '\'0\'', 'Belum di bagikan ', 'AB', 1678579291, '0000-00-00', 0, 1, ''),
+(2, '0084427819', 'PPDB2023-002', NULL, 'Sakia Musdalifah', NULL, NULL, '32091270110800051', 'Cirebon ', '2008-11-30', '2', 1, 1, 'Islam', 'Guru/Dosen', '088224542899', ' kiakiamusdalifah@gmail.com', 'Membaca', 'Rumah SInggah', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01', '-', '45173', NULL, '5', '30', 'Ayah', '1', NULL, 'YA', 'Tidak', '1', '1', '1', '1', '1', '1', '32740321441246', '', '', '3209121009073234', 'Adibing Sonjaya ', 'Adibing Sonjaya ', 'Masih Hidup', 'Warga Negara Indonesia', '3209121408840001', 'Cirebon ', '1984-06-14', 'SMP/Sederajat', 'Lainnya', '500.000 - 1.000.000', '082126945420', NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Umi Hani ', 'Masih Hidup', 'Warga Negara Indonesia', '3209125404800005', 'Cirebon ', '1980-04-14', 'SMA/Sederajat', 'Lainnya', 'Kurang dari 500.000', '081223835598', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Masih Hidup', 'Adibing Sonjaya ', 'Warga Negara Indonesia', '3209121406840001', 'Cirebon ', '1984-06-14', 'SMP/Sederajat', 'Lainnya', '500.000 - 1.000.000', '082126945420', 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Mundu', 'Pamengkang', 'Blok manis dusun 1 RT 01 RW 01 ', '45173', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'MTsN 2 Kota Cirebon', '20279594', '2023', '\'0\'', 'Belum di bagikan ', 'AB', 1678579291, '0000-00-00', 2, 1, ''),
 (3, '0086566432', 'PPDB2023-003', NULL, 'TANTI TRIDAYANINGSIH', NULL, NULL, '3274034201080005', 'Kota Cirebon ', '2008-01-02', '2', 3, 3, 'Islam', 'Lainnya', '082380006733', ' jumadiiskandar062@gmail.com ', 'Membaca', 'Lainnya', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl karya bakti no 109 RT 02 RW 04', '-6.751429, 108.545971', '45144', NULL, '3', '5', 'Ayah', NULL, NULL, 'Tidak', 'Tidak', '1', '1', '1', '1', '1', '1', 'T9S7HU', '6221008703580244', '6221008703580244', '3274031209130005', 'JUMADI ISKANDAR ', 'JUMADI ISKANDAR ', 'Masih Hidup', 'Warga Negara Indonesia', '3274032105710008', 'Lampung ', '1971-05-21', 'SMP/Sederajat', 'Buruh (Tani/Pabrik/Bangunan)', '1.000.001 - 2.000.000', '082380006733', NULL, 'Milik Sendiri', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl karya bakti no 109 rt02 rw04', '45144', 'MASINA', 'Masih Hidup', 'Warga Negara Indonesia', '3274035612760004', 'KOTA CIREBON ', '1976-12-16', 'SMP/Sederajat', 'Tidak Bekerja', 'Tidak ada', '083195948099', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl karya bakti no109 rt02 rw04', '45144', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'MTsN 2 Kota Cirebon', '20279594', '2023', '\'0\'', '0', 'A', 1678596761, '0000-00-00', 0, 2, ''),
 (4, '0066712695', 'PPDB2023-004', NULL, 'HILWA FATHIYYAH', NULL, NULL, '3173036012061001', 'Cirebon', '2006-12-20', '2', 1, 3, 'Islam', 'Guru/Dosen', '081295398989', ' alkaff474@gmail.com  ', 'Membaca', 'Dengan Ayah Kandung', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl. Pramuka | Kel. Kalijaga | kec. Harjamukti | RT.001 RW.003 | blok pesantren ', '', '45144', NULL, '1', '20', 'Ayah', NULL, NULL, 'YA', 'Tidak', NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '3175060207131026', 'Ayah', 'Idrus bafagih', 'Masih Hidup', 'Warga Negara Indonesia', '3173031012720001', 'Jakarta ', '1972-12-10', 'SMA/Sederajat', 'Pedagang', '500.000 - 1.000.000', '089621162091', NULL, 'Rumah Orang Tua', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl. Pramuka | Kel. Kalijaga | kec. Harjamukti | RT. 003 RW. 002 blok pesatren, samping masjid Baitul amanah', '45144', 'Aisah alkaff', 'Masih Hidup', 'Warga Negara Indonesia', '3173034606760009', 'Cirebon ', '1976-06-06', 'SMA/Sederajat', 'Buruh (Tani/Pabrik/Bangunan)', 'Tidak ada', '089627734284', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'Kalijaga', 'Jl. Pramuka | Kel. Kalijaga | kec. Harjamukti | RT. 003 RW. 002 blok pesatren, samping masjid Baitul', '45144', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Jawa Barat', 'Kota Cirebon', ' Pekalipan', 'MTSS AN-NUR', '20279604', NULL, '\'0\'', NULL, 'B', 1678604655, '0000-00-00', 1, 2, ''),
 (5, '0089436354', 'PPDB2023-005', NULL, 'SALMAN ALFARISI', NULL, NULL, '3209141402080004', 'Kota Cirebon', '2008-02-14', '1', 1, 1, 'Islam', 'Wiraswasta', '083893851206', ' alfarisi.sal.2008@gmail.com', 'Lainnya', 'Dengan Ayah Kandung', 'Jawa Barat', 'Kab. Cirebon', ' Talun', 'Cirebon Girang', 'Jl. Palem Raya No. 35 Rt. 03 Rw. 13 Perumnas Bumi Arumsari Desa Cirebon Girang Kecamatan Talun Kabupaten Cirebon 45171', '-6.762303, 108.513518', '45171', NULL, '3', '15', 'Ayah', NULL, NULL, 'YA', 'YA', '1', '1', '1', '1', '1', NULL, '', '', '', '3209141008110024', 'TAUFIK HIDAYAT, ST.', 'TAUFIK HIDAYAT, ST.', 'Masih Hidup', 'Warga Negara Indonesia', '3209141704780005', 'CIREBON', '1978-04-17', 'D4/S1', 'Wiraswasta', '2.000.001 - 3.000.000', '085321041478', NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Talun', 'Cirebon Girang', 'Jl. Palem Raya No. 35 Rt. 03 Rw. 13 Perumnas Bumi Arumsari Desa Cirebon Girang Kecamatan Talun Kabupaten Cirebon 45171', '45171', 'RACHMAWATI MANSYUR, SE.', 'Masih Hidup', 'Warga Negara Indonesia', '3209147105830002', 'CIREBON', '1983-05-31', 'D4/S1', 'Tidak Bekerja', 'Tidak ada', '083893852074', NULL, NULL, 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Talun', 'Cirebon Girang', 'Jl. Palem Raya No. 35 Rt. 03 Rw. 13 Perumnas Bumi Arumsari Desa Cirebon Girang Kecamatan Talun Kabup', '45171', 'Masih Hidup', 'TAUFIK HIDAYAT, ST.', 'Warga Negara Indonesia', '3209141704780005', 'Cirebon', '1978-04-17', 'D4/S1', 'Wiraswasta', '2.000.001 - 3.000.000', '085321041478', 'Milik Sendiri', 'Jawa Barat', 'Kab. Cirebon', ' Talun', 'Cirebon Girang', 'Jl. Palem Raya No. 35 Rt. 03 Rw. 13 Perumnas Bumi Arumsari Desa Cirebon Girang Kecamatan Talun Kabupaten Cirebon 45171', '45171', 'Jawa Barat', 'Kota Cirebon', ' Harjamukti', 'MTsN 2 Kota Cirebon', '20279594', '2023', '0129/MTs.10.20.0138/PP.01.1/06/2023', '-', 'A', 1678671347, '0000-00-00', 0, 1, ''),
@@ -475,14 +475,6 @@ CREATE TABLE `prestasi` (
   `tahun` varchar(11) NOT NULL,
   `oleh` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `prestasi`
---
-
-INSERT INTO `prestasi` (`id`, `siswa_id`, `siswa`, `kegiatan`, `peringkat`, `tingkat`, `tahun`, `oleh`) VALUES
-(1, '0085674951', 'Mochamad Fachry Murrodz', 'Pramuka', '1', 'Sekolah', '2023', ''),
-(2, '0085674951', 'Mochamad Fachry Murrodz', 'PMR', '2', 'Kecamatan', '2022', '');
 
 -- --------------------------------------------------------
 
@@ -3165,7 +3157,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (3, 2, 2),
 (7, 3, 3),
-(10, 4, 4);
+(10, 4, 4),
+(11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -3205,8 +3198,7 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
-(2, 'Member'),
-(4, 'Panitia');
+(2, 'Member');
 
 -- --------------------------------------------------------
 
@@ -3292,16 +3284,6 @@ CREATE TABLE `wawancara` (
   `oleh` varchar(100) NOT NULL,
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `wawancara`
---
-
-INSERT INTO `wawancara` (`id`, `id_siswa`, `nama`, `mapel`, `ekskul1`, `ekskul2`, `keterampilan1`, `keterampilan2`, `keterampilan3`, `rencana`, `ptn1`, `jurusan1`, `ptn2`, `jurusan2`, `baca`, `tulis`, `oleh`, `date_created`) VALUES
-(1, '0085674951', 'Mochamad Fachry Murrodz', 'Teknik Sains', 'Pramuka', 'Karate', 'TBSM', 'Tata Boga', 'Multimedia', 'Kuliah', 'IAIN Cirebon', 'BKI', 'UGJ', 'Kedokteran', 'Lancar', 'Belum Lancar', 'Ade Hamiludin', 1686974552),
-(2, '0084427819', 'Sakia Musdalifah', '', '', '', 'Tata Boga', '', '', '', '', '', '', '', '', '', '', 1678544043),
-(3, '0086566432', 'TANTI TRIDAYANINGSIH', '', '', '', 'TBSM', '', '', '', '', '', '', '', '', '', '', 0),
-(4, '0066712695', 'HILWA FATHIYYAH', '', '', '', 'TBSM', '', '', '', '', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -90666,7 +90648,7 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sekolah`
@@ -90684,7 +90666,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -90714,7 +90696,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `wawancara`
 --
 ALTER TABLE `wawancara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -83,8 +83,8 @@ class M_Siswa extends CI_Model
     public function cari_siswa2($keyword) //Cari 
     {
         $this->db->select('*');
-        $this->db->from('wawancara');
-        $this->db->like('nama', $keyword);
+        $this->db->from('detail_siswa');
+        $this->db->like('nama_siswa', $keyword);
 
         return $this->db->get()->result_array();
     }
@@ -256,6 +256,76 @@ class M_Siswa extends CI_Model
     function keterampilan() //jm keterampilan
     {
         $query = $this->db->query('SELECT keterampilan1, COUNT(keterampilan1) AS jumlah FROM wawancara GROUP BY keterampilan1 ');
+        return $query;
+    }
+
+    public function tbsm() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "TBSM");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function tata() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "Tata Boga");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function multimedia() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "Multimedia");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jm_wawancara() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->where('kunci', 2);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function sd_wawancara()
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->where('kunci', '2');
+        return $this->db->get();
+    }
+
+    public function bl_wawancara()
+    {
+        $query = $this->db->query('SELECT * FROM detail_siswa WHERE kunci = 0 OR kunci = 1');
         return $query;
     }
 }
