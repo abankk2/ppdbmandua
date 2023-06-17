@@ -53,7 +53,10 @@
                                     <?php } else if ($sis['kunci'] == 1) { ?>
                                         <a href="<?= base_url() ?>admin/Ksiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-lock btn btn-sm bg-info text-white"></a>
 
-                                    <?php } ?>
+                                    <?php } else if ($sis['kunci'] == 2) { ?>
+                                        <a href="<?= base_url() ?>admin/Ksiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-lock btn btn-sm bg-info text-white"></a>
+
+                                    <?php }?>
 
 
                                     <a href="<?= base_url() ?>admin/HpsSiswa/<?php echo $sis['nisn']; ?>" class="fa-solid fa-trash btn btn-sm bg-danger text-white"></a>
