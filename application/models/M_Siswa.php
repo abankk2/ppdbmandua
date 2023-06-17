@@ -235,31 +235,27 @@ class M_Siswa extends CI_Model
         return $this->db->get();
     }
 
-    // public function wawancara()
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('wawancara');
-    //     $this->db->where('status', 0);
-    //     return $this->db->get();
-    // }
-    // public function Dwawancara($slug = NULL)
-    // {
-    //     $query = $this->db->get_where('wawancara', array('slug' => $slug));
-    //     return $query;
-    // }
+    public function wawancara($nisn)
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->join('wawancara', 'wawancara.id_siswa = detail_siswa.nisn', 'inner');
+        $this->db->where('wawancara.id_siswa', $nisn);
+        return $this->db->get();
+    }
 
-    // public function cekin()
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('detail_siswa');
-    //     $this->db->where('kunci < 2');
-    //     return $this->db->get();
-    // }
-    // public function validasi()
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('detail_siswa');
-    //     $this->db->where('kunci = 3');
-    //     return $this->db->get();
-    // }
+    public function prestasi($nisn)
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->join('prestasi', 'prestasi.siswa_id = detail_siswa.nisn', 'inner');
+        $this->db->where('prestasi.siswa_id', $nisn);
+        return $this->db->get();
+    }
+
+    function keterampilan() //jm keterampilan
+    {
+        $query = $this->db->query('SELECT keterampilan1, COUNT(keterampilan1) AS jumlah FROM wawancara GROUP BY keterampilan1 ');
+        return $query;
+    }
 }

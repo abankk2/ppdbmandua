@@ -24,6 +24,7 @@
                     <thead class="bg-success text-white">
                         <tr>
                             <th scope="col" class="text-center">No</th>
+                            <th scope="col">No Peserta</th>
                             <th scope="col">Nama</th>
                             <th scope="col">NISN</th>
                             <th scope="col">Sekolah Asal</th>
@@ -37,18 +38,20 @@
                         <?php foreach ($siswa as $sis) : ?>
                             <tr>
                                 <th scope="row" class="text-center"><?= $i; ?></th>
+                                <td><?= $sis['no_daftar']; ?></td>
                                 <td><?= $sis['nama_siswa']; ?></td>
                                 <td><?= $sis['nisn']; ?></td>
                                 <td><?= $sis['asal_sekolah']; ?></td>
                                 <td class="text-center"><?= date('d F Y | H : m', $sis['date_created']); ?> WIB</td>
                                 <td>
                                     <a href="<?= base_url() ?>panitia/Dsiswa/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-info text-white"><i class="fa-solid fa-circle-info"></i></a>
-                                    <?php if ($sis['kunci'] == 0) { ?>
-                                        <a href="#" class="btn btn-sm btn-warning text-white"><i class="fa-solid fa-lock-open"></i></a>
-                                    <?php } else if ($sis['kunci'] == 1) { ?>
-                                        <a href="#" class="btn btn-sm btn-danger text-white"><i class="fa-solid fa-lock"></i></a>
+
+                                    <?php if ($sis['kunci'] == 1) { ?>
+                                        <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-headset"></i></a>
                                     <?php } else if ($sis['kunci'] == 2) { ?>
-                                        <a href="#" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-user-check"></i></a>
+                                        <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa-solid fa-headset"></i></a>
+                                    <?php } else if ($sis['kunci'] == 0) { ?>
+                                        <a href="<?= base_url() ?>panitia/input/<?php echo $sis['nisn']; ?>" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-headset"></i></a>
                                     <?php } ?>
                                 </td>
                             </tr>
