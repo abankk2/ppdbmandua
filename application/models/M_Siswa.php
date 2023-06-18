@@ -328,4 +328,172 @@ class M_Siswa extends CI_Model
         $query = $this->db->query('SELECT * FROM detail_siswa WHERE kunci = 0 OR kunci = 1');
         return $query;
     }
+
+    public function Pcetak()
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->join('wawancara', 'wawancara.id_siswa = detail_siswa.nisn', 'inner');
+        $this->db->where('wawancara.date_created', $tgl);
+        return $this->db->get()->result_array();
+    }
+
+    public function Pjm()
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->join('wawancara', 'wawancara.id_siswa = detail_siswa.nisn', 'inner');
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rtbsm() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "TBSM");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rtata() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "Tata Boga");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rmulti() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('keterampilan1', "Multimedia");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rteksan() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Teknik Sains");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Ragama() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Keagamaan");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rkesehatan() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Kesehatan");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+    public function Rkeguruan() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Keguruan");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+    public function Rhumaniora() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Humaniora");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Rkerja() //Hitung Jumlah Admin
+    {
+        $tgl = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->where('mapel', "Kerja");
+        $this->db->where('wawancara.date_created', $tgl);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
 }

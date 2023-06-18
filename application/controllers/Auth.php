@@ -129,6 +129,12 @@ class Auth extends CI_Controller
             ];
             $this->db->insert('detail_siswa', $data2);
 
+            $data3 = [
+                'nama'                  => htmlspecialchars($this->input->post('name', true)),
+                'id_siswa'              => htmlspecialchars($email),
+
+            ];
+            $this->db->insert('wawancara', $data3);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran Berhasil' . '<br>Username Anda : ' . $email . '</div>');
             redirect('auth');

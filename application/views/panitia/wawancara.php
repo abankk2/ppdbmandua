@@ -16,11 +16,28 @@
                     <input type="text" class="form-control d-none" name="nama" value="<?= $siswa['nama_siswa']; ?>" readonly>
                     <input type="text" class="form-control d-none" name="nisn" value="<?= $siswa['nisn']; ?>" readonly>
                     <input type="text" class="form-control d-none" name="oleh" value="<?= $user['name']; ?>" readonly>
+                    <input type="text" class="form-control d-none" name="date_created" value="<?= date("Y/m/d"); ?>" readonly>
                     <h5>1. Pemilihan Komponen Mata Pelajaran</h5>
                     <div class="col-md-6">
+                        <h6>Pilihan 1</h6>
                         <div class="mb-3">
                             <select class="form-select" name="mapel">
                                 <option selected value="<?= $siswa['mapel']; ?>"><?= $siswa['mapel']; ?></option>
+                                <option disabled>===</option>
+                                <option value="Teknik Sains">Teknik Sains</option>
+                                <option value="Keagamaan">Keagamaan</option>
+                                <option value="Kesehatan">Kesehatan</option>
+                                <option value="Keguruan">Keguruan</option>
+                                <option value="Humaniora">Humaniora</option>
+                                <option value="Kerja">Kerja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Pilihan 2</h6>
+                        <div class="mb-3">
+                            <select class="form-select" name="mapel2">
+                                <option selected value="<?= $siswa['mapel2']; ?>"><?= $siswa['mapel2']; ?></option>
                                 <option disabled>===</option>
                                 <option value="Teknik Sains">Teknik Sains</option>
                                 <option value="Keagamaan">Keagamaan</option>

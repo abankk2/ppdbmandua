@@ -54,6 +54,23 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <a href="<?= base_url('panitia/print'); ?>" class="card">
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <span class="dash-widget-icon bg-primary">
+                            <i class="fa-solid fa-print"></i>
+                            </span>
+                            <div class="dash-count">
+                                <div class="dash-title text-dark">PRINT REKAP</div>
+                                <div class="dash-counts">
+                                    <h3>HARI INI</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
         </div>
     </div>

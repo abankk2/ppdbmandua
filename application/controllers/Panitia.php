@@ -120,6 +120,7 @@ class Panitia extends CI_Controller
         $id_siswa           = $this->input->post('nisn');
         $nama               = $this->input->post('nama');
         $mapel              = $this->input->post('mapel');
+        $mapel2             = $this->input->post('mapel2');
         $ekskul1            = $this->input->post('ekskul1');
         $ekskul2            = $this->input->post('ekskul2');
         $keterampilan1      = $this->input->post('keterampilan1');
@@ -132,12 +133,14 @@ class Panitia extends CI_Controller
         $jurusan2           = $this->input->post('jurusan2');
         $baca               = $this->input->post('baca');
         $tulis              = $this->input->post('tulis');
-        $oleh              = $this->input->post('oleh');
+        $oleh               = $this->input->post('oleh');
+        $date_created       = $this->input->post('date_created');
 
         $data = array(
             'id_siswa'          => $id_siswa,
             'nama'          => $nama,
             'mapel'         => $mapel,
+            'mapel2'        => $mapel2,
             'ekskul1'       => $ekskul1,
             'ekskul2'       => $ekskul2,
             'keterampilan1' => $keterampilan1,
@@ -151,7 +154,7 @@ class Panitia extends CI_Controller
             'baca'          => $baca,
             'tulis'         => $tulis,
             'oleh'          => $oleh,
-            'date_created'  => time()
+            'date_created'  => $date_created
 
 
         );
@@ -197,6 +200,28 @@ class Panitia extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil di Tambahkan</div>');
         redirect('panitia/input/' . $siswa_id);
     }
+
+    public function print()
+    {
+        $data['title'] = 'Data Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['jml']        = $this->M_Siswa->Pjm();
+        $data['siswa']      = $this->M_Siswa->Pcetak();
+        $data['tbsm']       = $this->M_Siswa->Rtbsm();
+        $data['tata']       = $this->M_Siswa->Rtata();
+        $data['multi']      = $this->M_Siswa->Rmulti();
+        $data['teksan']      = $this->M_Siswa->Rteksan();
+        $data['agama']      = $this->M_Siswa->Ragama();
+        $data['kes']      = $this->M_Siswa->Rkesehatan();
+        $data['guru']      = $this->M_Siswa->Rkeguruan();
+        $data['human']      = $this->M_Siswa->Rhumaniora();
+        $data['kerja']      = $this->M_Siswa->Rkerja();
+
+        $this->load->view('panitia/print', $data);
+    }
+
+
 
     function get_tbsm() // Get Data kec
     {
