@@ -55,57 +55,30 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <canvas id="myChart" style="width:100%;"></canvas>
-            </div>
+    <div class="col-md-6">
+        <div class="card p-3">
+            <table class="table">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Sekolah</th>
+                        <th scope="col">Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $i = 1; ?>
+                    <?php foreach ($rank_sekolah as $rank) : ?>
+                        <tr>
+                            <th scope="row"><?= $i; ?></th>
+                            <td><?= $rank['asal_sekolah']; ?></td>
+                            <td><?= $rank['jumlah']; ?></td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-
-
-<?php
-foreach ($rank_sekolah as $rs) {
-    $asal_sekolah[] = $rs['asal_sekolah'];
-    $jumlah[] = intval($rs['jumlah']);
-}
-// echo json_encode($jumlah);
-?>
-<script>
-    var xValues = <?php
-                    echo json_encode($asal_sekolah)
-                    ?>;
-    var yValues = <?php
-                    echo json_encode($jumlah)
-                    ?>;
-    var barColors = "rgba(21,155,0,0.7)"
-
-    new Chart("myChart", {
-        type: "horizontalBar",
-        data: {
-            labels: xValues,
-            datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            title: {
-                display: true,
-                text: "Laporan Jumlah Siswa PPDB 2023/2024 Persekolah"
-            },
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        min: 0,
-                        max: 50,
-                    }
-                }]
-            }
-        }
-    });
-</script>
