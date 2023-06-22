@@ -163,7 +163,7 @@ class M_Rekap extends CI_Model
         $this->db->select('*');
         $this->db->from('detail_siswa');
         $this->db->join('wawancara', 'wawancara.id_siswa = detail_siswa.nisn', 'inner');
-        $this->db->where('detail_siswa.kunci', 3);
+        $this->db->where('detail_siswa.kunci', 2);
         return $this->db->get()->result();
     }
 }
