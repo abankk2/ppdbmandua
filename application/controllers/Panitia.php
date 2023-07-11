@@ -227,6 +227,17 @@ class Panitia extends CI_Controller
         $this->load->view('panitia/print', $data);
     }
 
+    public function rekapprestasi()
+    {
+        $data['title'] = 'Data Siswa';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['siswa']      = $this->M_Rekap->prestasi();
+
+
+        $this->load->view('panitia/rekap_prestasi', $data);
+    }
+
 
 
     function get_tbsm() // Get Data kec

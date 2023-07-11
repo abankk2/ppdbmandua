@@ -18,4 +18,12 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <h4 class="text-center">REKAP PRESTASI</h4>
+        <div class="card">
+            <div class="card-body text-center">
+                <a class="btn btn-primary mx-3" href="<?= base_url('panitia/rekapprestasi'); ?>" role="button">Export Excl</a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -19,6 +19,14 @@ class M_Rekap extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function prestasi()
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->join('prestasi', 'prestasi.siswa_id = detail_siswa.nisn', 'inner');
+        return $this->db->get()->result_array();
+    }
+
     public function Pjm()
     {
         $this->db->select('*');
