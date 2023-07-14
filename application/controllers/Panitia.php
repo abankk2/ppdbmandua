@@ -406,4 +406,12 @@ class Panitia extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
+
+    public function export_siswa()
+    {
+
+        $data['siswa'] = $this->M_Siswa->data()->result_array();
+
+        $this->load->view('panitia/export', $data);
+    }
 }

@@ -26,4 +26,12 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <h4 class="text-center">DETAIL SISWA</h4>
+        <div class="card">
+            <div class="card-body text-center">
+                <a class="btn btn-success mx-3" href="<?= base_url('panitia/export_siswa'); ?>" role="button">Export Excl</a>
+            </div>
+        </div>
+    </div>
 </div>
