@@ -13,8 +13,8 @@
                             <div class="slidd">
                                 <h2 class="mb-3">Selamat Datang Di Web PPDB MAN 2 Kota Cirebon</h2>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Aplikasi Penerimaan Peserta didik baru Tahun Pelajaran 2023/2024
-                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Pendaftaran Siswa dan Siswi Baru Tahun 2023/2024 ini telah dibuka. <br> Silahkan Segera Daftar dan lengkapi Formulir
+                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Aplikasi Penerimaan Peserta didik baru Tahun Pelajaran 2024/2025
+                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Pendaftaran Siswa dan Siswi Baru Tahun 2024/2025 ini telah dibuka. <br> Silahkan Segera Daftar dan lengkapi Formulir
                                     </li>
                                 </ul>
                                 <a href="#alur" class="btn btn-outline-warning mt-3 px-5" style="border-radius: 2em;"> Lihat Alur Pendaftaran</a>
@@ -23,7 +23,7 @@
                         <div class="carousel-item" data-bs-interval="2000">
                             <div class="slidd">
                                 <h2 class="mb-3">Syarat Pendaftaran Peserta Didik Baru</h2>
-                                <h5>Tahun Pelajaran 2023/2024 </h5>
+                                <h5>Tahun Pelajaran 2024/2025 </h5>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Surat Keterangan Lulus </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Ijazah Jenjang Sebelumnya </li>
@@ -37,7 +37,7 @@
                         <div class="carousel-item">
                             <div class="slidd">
                                 <h2 class="mb-3">Alur Pendaftaran Peserta Didik Baru</h2>
-                                <h5>Tahun Pelajaran 2023/2024</h5>
+                                <h5>Tahun Pelajaran 2024/2025</h5>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Daftar Akun </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Lengkapi Biodata </li>
@@ -97,7 +97,7 @@
 
 <section id="alur">
     <div class="container pt-5">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="shadow card">
                     <h3 class="card-header p-3 text-center">Alur Proses Pendaftaran</h3>
@@ -155,15 +155,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-none">
                 <div class="shadow card">
                     <h3 class="card-header p-3 text-center">Informasi Pendaftaran</h3>
                     <div class="card-body">
                         <h3><span class="badge text-bg-warning">Gelombang 1</span></h3>
-                        <h5>06 Maret - 20 April 2023</h5>
+                        <h5>06 Maret - 20 April 2024</h5>
                         <p>Jalur Prestasi "Best Quality Acception"</p>
                         <h3><span class="badge text-bg-warning">Gelombang 2</span></h3>
-                        <h5>27 Mei - 23 Juni 2023</h5>
+                        <h5>27 Mei - 23 Juni 2024</h5>
                         <p>Jalur Reguler "Reguler Acception"</p>
                         <h3 class="text-center">Jadwal Kegiatan</h3>
                         <div class="table-responsive">
@@ -176,27 +176,27 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>06 Maret s.d 23 Juni 2023</th>
+                                        <th>06 Maret s.d 23 Juni 2024</th>
                                         <td>Pendaftaran Online</td>
                                     </tr>
                                     <tr>
-                                        <th>19 - 24 Juni 2023</th>
+                                        <th>19 - 24 Juni 2024</th>
                                         <td>Penyerahan Berkas dan Wawancara Calon Peserta Didik Baru</td>
                                     </tr>
                                     <tr>
-                                        <th>26 Juni 2023</th>
+                                        <th>26 Juni 2024</th>
                                         <td>Seleksi Tulis (Skolastik & Literasi)</td>
                                     </tr>
                                     <tr>
-                                        <th>27 Juni 2023</th>
+                                        <th>27 Juni 2024</th>
                                         <td>Pengumuman Penerimaan</td>
                                     </tr>
                                     <tr>
-                                        <th>03 s.d 05 Juli 2023</th>
+                                        <th>03 s.d 05 Juli 2024</th>
                                         <td>Lapor Diri & Pembagian Kelas (Melengkapi Administrasi Pendaftaran)</td>
                                     </tr>
                                     <tr>
-                                        <th>10 s.d 12 Juli 2023</th>
+                                        <th>10 s.d 12 Juli 2024</th>
                                         <td>MATSAMA</td>
                                     </tr>
                                 </tbody>
@@ -217,7 +217,7 @@
         <div class="row">
             <div class="text-center text-white mb-3">
                 <h3 class="mb-1">Data Pendaftar</h3>
-                <h4>Peserta Didik Baru MAN 2 Kota Cirebon Tahun 2023/2024</h4>
+                <h4>Peserta Didik Baru MAN 2 Kota Cirebon Tahun 2024/2025</h4>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="shadow card">
@@ -234,7 +234,7 @@
             <div class="col-md-4 mb-5">
                 <div class="shadow card">
                     <h3 class="card-header2 p-3 text-center">Quota Pendaftar</h3>
-                    <h6 class="display-6 text-center" style="font-weight: bold;">280</h6>
+                    <h6 class="display-6 text-center" style="font-weight: bold;">288</h6>
                 </div>
             </div>
 

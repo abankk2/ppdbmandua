@@ -16,8 +16,8 @@
                                         <img src="<?= base_url('assets/img'); ?>/kemenag.png" class="mx-2" alt="logo MAN 2" style="max-width: 20%;">
                                         <img src="<?= base_url('assets/img'); ?>/icon.png" class="mx-2" alt="logo MAN 2" style="max-width: 20%;">
                                     </div>
-                                    <img src="<?= base_url('assets/img'); ?>/clos.png" class="mb-3" alt="logo MAN 2" style="max-width: 30%;">
-                                    <h1 class="h4 text-gray-900">MOHON MAAF<br>Pendftaran Sudah Di tutup pada Tanggal 23 Juni 2023</h1>
+                                    <img src="<?= base_url('assets/img'); ?>/maaf.png" class="mb-3" alt="logo MAN 2" style="max-width: 30%;">
+                                    <h1 class="h4 text-gray-900">MOHON MAAF<br>Pendftaran di Buka Bulan Februari 2024</h1>
                                     <button class="btn btn-success mt-3"><a class="text-white" href="<?= base_url('/'); ?>">Kembali Ke Halaman Utama</a></button>
                                 </div>
 

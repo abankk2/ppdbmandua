@@ -7,10 +7,6 @@
                 <div class="card p-3">
                     <div class="row justify-content-center">
                         <div class="col-md-5">
-                            <a href="https://api.whatsapp.com/send?phone=6282331706232&text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20PPDB%20MAN%202%20Kota%20Cirebon" class="d-flex align-items-center text-decoration-none text-dark" target="_blank">
-                                <div class="p-2"><i class="fa-brands fa-whatsapp text-white btn p-2 bg-success"></i></div>
-                                <div class="p-2">082331706232 | Admin PPDB</div>
-                            </a>
                             <a href="https://api.whatsapp.com/send?phone=6281324147470&text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20PPDB%20MAN%202%20Kota%20Cirebon" class="d-flex align-items-center text-decoration-none text-dark" target="_blank">
                                 <div class="p-2"><i class="fa-brands fa-whatsapp text-white btn p-2 bg-success"></i></div>
                                 <div class="p-2">081324147470 | H. M Saefudin</div>
