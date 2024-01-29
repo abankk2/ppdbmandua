@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Detail Siswa PPDB 2023</title>
+    <title>Detail Siswa PPDB 2024</title>
     <meta content="" name="description">
     <meta content="Author" name="MJ Maraz">
     <link href="<?= base_url('assets/table/assets/'); ?>images/favicon.png" rel="icon">

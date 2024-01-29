@@ -56,7 +56,7 @@
 
 <body>
     <img src="<?= base_url('assets/'); ?>img/kop.png" alt="">
-    <h2>Daftar Rekap Siswa Belum Wawancara PPDB MAN 2 Kota Cirebon <br>Tahun 2023/2024</h2>
+    <h2>Daftar Rekap Siswa Belum Wawancara PPDB MAN 2 Kota Cirebon <br>Tahun 2024/2025</h2>
     <table>
         <thead>
             <tr>

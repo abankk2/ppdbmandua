@@ -3,7 +3,6 @@
         <h4 class="text-center">REKAP PPDB</h4>
         <div class="card">
             <div class="card-body text-center">
-                <a class="btn btn-primary mx-3" href="<?= base_url('admin/export'); ?>" role="button">Export Excl</a>
                 <a class="btn btn-success mx-3" href="<?= base_url('admin/pdf'); ?>" role="button">Export PDF</a>
             </div>
         </div>

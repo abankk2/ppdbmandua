@@ -98,7 +98,7 @@
 <section id="alur">
     <div class="container pt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="shadow card">
                     <h3 class="card-header p-3 text-center">Alur Proses Pendaftaran</h3>
                     <p class="p-3">Silahkan Simak Alur Pendaftaran sebelum Melakukan Pendaftaran di PPDB Online MAN 2 KOTA CIREBON</p>
@@ -155,17 +155,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 d-none">
+            <div class="col-md-6 mb-3">
                 <div class="shadow card">
                     <h3 class="card-header p-3 text-center">Informasi Pendaftaran</h3>
                     <div class="card-body">
-                        <h3><span class="badge text-bg-warning">Gelombang 1</span></h3>
+                        <!-- <h3><span class="badge text-bg-warning">Gelombang 1</span></h3>
                         <h5>06 Maret - 20 April 2024</h5>
                         <p>Jalur Prestasi "Best Quality Acception"</p>
                         <h3><span class="badge text-bg-warning">Gelombang 2</span></h3>
                         <h5>27 Mei - 23 Juni 2024</h5>
-                        <p>Jalur Reguler "Reguler Acception"</p>
-                        <h3 class="text-center">Jadwal Kegiatan</h3>
+                        <p>Jalur Reguler "Reguler Acception"</p> 
+                        <h3 class="text-center">Jadwal Kegiatan</h3> -->
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="bg-warning">
@@ -176,7 +176,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>06 Maret s.d 23 Juni 2024</th>
+                                        <th>05 Februari s.d 14 Juni 2024</th>
                                         <td>Pendaftaran Online</td>
                                     </tr>
                                     <tr>
@@ -188,15 +188,15 @@
                                         <td>Seleksi Tulis (Skolastik & Literasi)</td>
                                     </tr>
                                     <tr>
-                                        <th>27 Juni 2024</th>
+                                        <th>28 Juni 2024</th>
                                         <td>Pengumuman Penerimaan</td>
                                     </tr>
                                     <tr>
-                                        <th>03 s.d 05 Juli 2024</th>
+                                        <th>01 s.d 03 Juli 2024</th>
                                         <td>Lapor Diri & Pembagian Kelas (Melengkapi Administrasi Pendaftaran)</td>
                                     </tr>
                                     <tr>
-                                        <th>10 s.d 12 Juli 2024</th>
+                                        <th>08 s.d 10 Juli 2024</th>
                                         <td>MATSAMA</td>
                                     </tr>
                                 </tbody>

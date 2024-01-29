@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-md-8">
-        <h4 class="mb-3"><i class="fa-solid fa-calendar-days"></i> Agenda PPDB 2023</h4>
+        <h4 class="mb-3"><i class="fa-solid fa-calendar-days"></i> Agenda PPDB 2024</h4>
         <div class="card">
             <div class="card-body">
                 <div class="cd-horizontal-timeline">
@@ -45,11 +45,11 @@
                         <div class="events-wrapper">
                             <div class="events">
                                 <ol>
-                                    <li><a href="#0" data-date="16/01/2014" class="selected">06 Maret 23 Juni</a></li>
+                                    <li><a href="#0" data-date="16/01/2014" class="selected">05 Februari 14 Juni</a></li>
                                     <li><a href="#0" data-date="28/02/2014">26 Juni</a></li>
-                                    <li><a href="#0" data-date="20/04/2014">27 Juni</a></li>
-                                    <li><a href="#0" data-date="20/05/2014">03 - 05 Juli</a></li>
-                                    <li><a href="#0" data-date="09/07/2014">10 - 12 Juli</a></li>
+                                    <li><a href="#0" data-date="20/04/2014">28 Juni</a></li>
+                                    <li><a href="#0" data-date="20/05/2014">01 - 03 Juli</a></li>
+                                    <li><a href="#0" data-date="09/07/2014">08 - 10 Juli</a></li>
                                     <li><a href="#0" data-date="30/08/2014"></a></li>
                                     <li><a href="#0" data-date="15/09/2014"></a></li>
                                     <li><a href="#0" data-date="01/11/2014"></a></li>

@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
+
 <div class="row justify-content-center">
     <h1 class="text-center">DATA PENDAFTAR</h1>
-    <h4 class="text-center mb-3">PPDB MAN 2 KOTA CIREBON TAHUN 2023/2024</h4>
+    <h4 class="text-center mb-3">PPDB MAN 2 KOTA CIREBON TAHUN 2024/2025</h4>
     <div class="col-md-8">
-        <div class="dropdown">
+        <div class="dropdown mb-3">
             <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter Capesdik
             </a>
@@ -15,22 +17,11 @@
         </div>
     </div>
     <div class="col-md-4 mb-3">
-        <div class="form-inline my-2 my-lg-0">
-            <?= form_open('panitia/cari'); ?>
-            <div class="input-group">
-                <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Nama Lengkap" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    <a href="<?= base_url('panitia/wawancara'); ?>" class="btn btn-outline-warning">Reset</a>
-                </div>
-            </div>
-            <?= form_close(); ?>
-        </div>
     </div>
     <div class="col-md-12">
         <div class="shadow p-3 card">
             <div class="table-responsive">
-                <table class="table">
+                <table id="example" class="table">
                     <thead class="bg-success text-white">
                         <tr>
                             <th scope="col" class="text-center">No</th>
@@ -73,3 +64,17 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+
+
+
+<script>
+    $('#example').DataTable({
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+</script>

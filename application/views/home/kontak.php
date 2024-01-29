@@ -15,6 +15,10 @@
                                 <div class="p-2"><i class="fa-brands fa-whatsapp text-white btn p-2 bg-success"></i></div>
                                 <div class="p-2">081320570760 | Dra. Sutriyati</div>
                             </a>
+                            <a href="https://api.whatsapp.com/send?phone=6285179636606&text=Assalamualaikum,%20saya%20ingin%20bertanya%20tentang%20PPDB%20MAN%202%20Kota%20Cirebon" class="d-flex align-items-center text-decoration-none text-dark" target="_blank">
+                                <div class="p-2"><i class="fa-brands fa-whatsapp text-white btn p-2 bg-success"></i></div>
+                                <div class="p-2">085179636606 | Admin PPDB</div>
+                            </a>
 
                         </div>
                         <div class="col-md-7 mb-3">

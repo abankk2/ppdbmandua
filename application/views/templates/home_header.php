@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url('/'); ?>">
-                <img src="<?= base_url('assets/'); ?>img/logoppdb.png" alt="Bootstrap" width="250">
+                <img src="<?= base_url('assets/'); ?>img/logoppdb1.png" alt="Bootstrap" width="250">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

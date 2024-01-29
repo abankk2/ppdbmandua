@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('user/edit_ortu'); ?>" class="nav-link">
-                        <i class="fa-solid fa-address-book"></i> <span>Identitas Ibu</span>
+                        <i class="fa-solid fa-address-book"></i> <span>Identitas Ayah</span>
                     </a>
                 </li>
                 <li class="nav-item">

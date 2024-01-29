@@ -118,7 +118,7 @@ class M_Siswa extends CI_Model
         }
 
         $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT); // angka 5 menunjukkan jumlah digit angka 0
-        $kodejadi = "PPDB2023-" . $kodemax;    // hasilnya PPDB2023-0001 dst.
+        $kodejadi = "PPDBM2024-" . $kodemax;    // hasilnya PPDB2023-0001 dst.
         return $kodejadi;
     }
 
