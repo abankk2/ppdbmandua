@@ -143,35 +143,35 @@ class Admin extends CI_Controller
 
 
     // Aksi
-    // public function registration2()
-    // {
-    //     $this->form_validation->set_rules('name', 'Name', 'required|trim');
-    //     $this->form_validation->set_rules('email', 'NISN', 'required|trim|is_unique[user.email]|min_length[10]|max_length[10]', [
-    //         'is_unique' => 'Email ini Sudah Terdaftar!'
-    //     ]);
-    //     $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-    //         'matches' => 'Password dont match!',
-    //         'min_length' => 'Password too short!'
-    //     ]);
-    //     $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+    public function registration2()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('email', 'NISN', 'required|trim|is_unique[user.email]|min_length[10]|max_length[10]', [
+            'is_unique' => 'Email ini Sudah Terdaftar!'
+        ]);
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'matches' => 'Password dont match!',
+            'min_length' => 'Password too short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
 
-    //     $email = $this->input->post('email', true);
-    //     $data = [
-    //         'name' => htmlspecialchars($this->input->post('name', true)),
-    //         'email' => htmlspecialchars($email),
-    //         'image' => 'default.jpg',
-    //         'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-    //         'role_id' => 1,
-    //         'is_active' => 1,
-    //         'date_created' => time()
-    //     ];
+        $email = $this->input->post('email', true);
+        $data = [
+            'name' => htmlspecialchars($this->input->post('name', true)),
+            'email' => htmlspecialchars($email),
+            'image' => 'default.jpg',
+            'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+            'role_id' => 1,
+            'is_active' => 1,
+            'date_created' => time()
+        ];
 
-    //     $this->db->insert('user', $data);
+        $this->db->insert('user', $data);
 
-    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran Berhasil </div>');
-    //     redirect('admin/registrasi');
-    // }
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran Berhasil </div>');
+        redirect('admin/registrasi');
+    }
     public function registration()
     {
 
