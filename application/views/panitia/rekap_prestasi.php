@@ -40,6 +40,7 @@
                                 <th scope="col">Peringkat</th>
                                 <th scope="col" class="text-center">Tingkat</th>
                                 <th scope="col" class="text-center">Tahun</th>
+                                <th scope="col" class="text-center">Link Sertifikat</th>
 
                             </tr>
                         </thead>
@@ -55,6 +56,8 @@
                                     <td><?= $sis['tingkat']; ?></td>
                                     <td><?= $sis['peringkat']; ?></td>
                                     <td><?= $sis['tahun']; ?></td>
+                                    <td>https://drive.google.com/file/d/<?= $sis['oleh']; ?>/preview</td>
+
 
                                 </tr>
 

@@ -174,4 +174,12 @@ class M_Rekap extends CI_Model
         $this->db->where('detail_siswa.kunci', 2);
         return $this->db->get()->result();
     }
+
+    public function data()
+    {
+        $this->db->select('*');
+        $this->db->from('wawancara');
+        $this->db->order_by('id', 'asc');
+        return $this->db->get();
+    }
 }

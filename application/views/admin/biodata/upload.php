@@ -59,45 +59,105 @@
                 <h5 class="card-title">Khusus Jalur Prestasi</h5>
             </div>
             <div class="card-body">
-                <?= form_open_multipart('admin/aksi_upload'); ?>
-                <div class="row">
-                    <h5 class="mb-0">Upload Dokumen</h5>
-                    <small class="mb-3">Dokumen Upload file Sertifikat atau Surat Keterangan Prestasi dari Sekolah asl berbentuk PDF Max Size 1 Mb <br> Rname file Contoh : <b>NAMA_LENGKAP SERTIFIKAT_JUARA_1_OLIMPIADE_MATEMATIKA_TINGKAT_NASIONAL</b></small>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Dokumen Prestasi</label>
-                            <input class="form-control" name="file" type="file" id="formFile">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Nama Dokumen</label>
-                            <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control d-none" readonly>
-                            <input type="text" value="<?= $siswa['file']; ?>" class="form-control" readonly>
-                        </div>
-                    </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Tambah Prestasi
+                </button>
 
+
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">No</th>
+                                <th scope="col">Kegiatan</th>
+                                <th scope="col">Peringkat</th>
+                                <th scope="col">Tingkat</th>
+                                <th scope="col">Tahun</th>
+                                <th scope="col" class="text-center">Sertifikat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1; ?>
+                            <?php foreach ($prestasi as $pres) : ?>
+                                <tr>
+                                    <th scope="row" class="text-center"><?= $i; ?></th>
+                                    <td><?= $pres['kegiatan']; ?></td>
+                                    <td><?= $pres['peringkat']; ?></td>
+                                    <td><?= $pres['tingkat']; ?></td>
+                                    <td><?= $pres['tahun']; ?></td>
+                                    <td class="text-center">
+                                        <a class="badge bg-success" target="_blank" href="https://drive.google.com/file/d/<?= $pres['oleh']; ?>/preview">Lihat</a>
+                                    </td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-block btn-primary">Upload Dokumen</button>
-                </div>
+
 
             </div>
-            </form>
 
         </div>
 
-        <div class="card">
-            <div class="card-body">
-                <?php if ($siswa['file'] == NULL) { ?>
 
-                <?php } else { ?>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="<?= base_url('assets/dokumen/') . $siswa['file']; ?>" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                <?php } ?>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
+            <form method="post" action="<?= site_url('admin/submit_prestasi'); ?>" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="text" class="form-control d-none" name="siswa_id" value="<?= $siswa['nisn']; ?>">
+                    <input type="text" class="form-control d-none" name="siswa" value="<?= $siswa['nama_siswa']; ?>">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Kegiatan</label>
+                        <input type="text" class="form-control" name="kegiatan">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Peringkat</label>
+                        <input type="text" class="form-control" name="peringkat">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tingkat</label>
+                        <select class="form-select" name="tingkat">
+                            <option selected disabled></option>
+                            <option value="Sekolah">Sekolah</option>
+                            <option value="Desa">Desa</option>
+                            <option value="Kecamatan">Kecamatan</option>
+                            <option value="Kab/Kota">Kab/Kota</option>
+                            <option value="Provinsi">Provinsi</option>
+                            <option value="Nasional">Nasional</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tahun Perolehan</label>
+                        <input type="text" class="form-control" name="tahun">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload File</label>
+                        <input class="form-control" name="file" type="file" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-block btn-primary">Simpan</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

@@ -27,7 +27,8 @@
 
     <!-- =======  Data-Table  = Start  ========================== -->
     <div class="container-fluid">
-        <div class="row">
+        <a href="<?= base_url('admin/cetak'); ?>" class="btn btn-primary p-2">Kembali ke menu Cetak</a>
+        <div class="row mt-3">
             <div class="col-12">
                 <div class="data_table">
                     <table id="example" class="table table-striped table-bordered">

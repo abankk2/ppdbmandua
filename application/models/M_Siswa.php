@@ -253,6 +253,16 @@ class M_Siswa extends CI_Model
         return $this->db->get();
     }
 
+    public function prestasi2($kode)
+    {
+        $this->db->select('*');
+        $this->db->from('prestasi');
+        $this->db->join('user', 'user.email = prestasi.siswa_id', 'inner');
+        $this->db->where('user.email', $kode);
+        return $this->db->get();
+    }
+
+
     function keterampilan() //jm keterampilan
     {
         $query = $this->db->query('SELECT keterampilan1, COUNT(keterampilan1) AS jumlah FROM wawancara GROUP BY keterampilan1 ');

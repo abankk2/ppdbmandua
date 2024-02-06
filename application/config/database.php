@@ -76,9 +76,9 @@ $query_builder = true;
 $db['default'] = array(
     'dsn'    => '',
     'hostname' => 'localhost',
-    'username' => 'mans1481_root',
-    'password' => 'D4t4b4s3r00t',
-    'database' => 'mans1481_ppdb_tp_2024-2025',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'ppdbmandua',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => false,
@@ -94,5 +94,3 @@ $db['default'] = array(
     'failover' => array(),
     'save_queries' => true
 );
-
-// Tes DB

@@ -70,7 +70,9 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">NISN / Username</label>
-                                    <input type="text" name="nisn" value="<?= $siswa['nisn']; ?>" class="form-control">
+                                    <input type="text" name="nisn" readonly value="<?= $siswa['nisn']; ?>" class="form-control">
+                                    <small class="text-danger">NISN Tidak bisa diubah jika ada kesalahan silahkan di tuliskan di dokumen fisik siswa</small>
+
                                 </div>
                             </div>
                             <div class="col-md-3">

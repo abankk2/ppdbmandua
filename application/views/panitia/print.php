@@ -139,11 +139,11 @@
         <div class="col-4"></div>
         <div class="col-4">
             <p>Cirebon, <?= date('d F Y'); ?>
-                <br>Ketua PPDB 2023
+                <br>Ketua PPDB 2024
             </p>
             <br><br><br>
-            <p><b>H. M. SAEFUDIN, SH</b>
-                <br>NIP. 19660609 200604 1 002
+            <p><b>Elvia Holilah, SE, M.Si</b>
+                <br>NIP. 19680309 200701 2 020
             </p>
         </div>
     </div>

@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+require APPPATH . 'third_party/google/autoload.php';
 
+use Google\Client;
+use Google\Service\Drive;
 
 class User extends CI_Controller
 {
@@ -245,12 +248,24 @@ class User extends CI_Controller
 
         $kode                   = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['siswa']          = $this->M_Siswa->detail($kode['email'])->row_array();
+        $data['prestasi']       = $this->M_Siswa->prestasi2($kode['email'])->result_array();
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('user/biodata/upload', $data);
         $this->load->view('templates/footer');
     }
+
+
+
+
+
+
+
+
+
+
 
     public function kunci()
     {
@@ -594,34 +609,104 @@ class User extends CI_Controller
         redirect('user/info');
     }
 
-    public function aksi_upload() // Update CS
+    public function submit_prestasi()
     {
-        $nisn   = $this->input->post('nisn');
+        try {
+            $client = new Client();
+            putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials.json');
+            $client->useApplicationDefaultCredentials();
+            $client->addScope(Drive::DRIVE);
+            $driveService = new Drive($client);
 
-        $config['upload_path']          = './assets/dokumen/';
-        $config['allowed_types']        = 'pdf';
-        $config['max_size']             = 2000;
+            $uploadedFile = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            $mimeType = mime_content_type($uploadedFile);
+            $fileSize = $_FILES['file']['size']; // Ukuran file dalam byte
 
+            if ($fileExtension !== 'pdf' || $mimeType !== 'application/pdf') {
+                // File yang diunggah bukan file PDF
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">File yang diunggah harus berformat PDF</div>');
+                redirect('user/upload');
+            }
 
-        $this->load->library('upload', $config);
+            if ($fileSize > 10 * 1024 * 1024) {
+                // File terlalu besar (lebih dari 10 MB)
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Ukuran file maksimal 7 MB</div>');
+                redirect('user/upload');
+            }
 
-        if (!$this->upload->do_upload('file')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> File Berbentuk Pdf max 1 Mb</div>');
-            redirect('user/upload');
-        } else {
+            // Mengambil nilai dari form
+            $siswa_id           = $this->input->post('siswa_id');
+            $siswa              = $this->input->post('siswa');
+            $kegiatan           = $this->input->post('kegiatan');
+            $peringkat          = $this->input->post('peringkat');
+            $tingkat            = $this->input->post('tingkat');
+            $tahun              = $this->input->post('tahun');
+
+            $fileMetadata = new Drive\DriveFile(array(
+                'name'      => $fileName,
+                'parents'   => ['1fKoE12ybnPWzna07O0UmTR_6qs-BoGWY']
+            ));
+            $content = file_get_contents($uploadedFile);
+            $file = $driveService->files->create($fileMetadata, array(
+                'data'          => $content,
+                'mimeType'      => $mimeType,
+                'uploadType'    => 'multipart',
+                'fields'        => 'id' // Only request the 'id' field
+            ));
+
+            // Insert file information into your database
+            $this->load->database(); // Load the database library
             $data = array(
-                'file'              => $this->upload->data('file_name'),
-                'nisn'              => $nisn,
+                'oleh'              => $file->id,
+                'siswa_id'          => $siswa_id,
+                'siswa'             => $siswa,
+                'kegiatan'          => $kegiatan,
+                'peringkat'         => $peringkat,
+                'tingkat'           => $tingkat,
+                'tahun'             => $tahun,
 
             );
-
-            $this->db->where('nisn', $nisn);
-            $this->db->update('detail_siswa', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Dokumen Berhasil di Upload</div>');
+            $this->db->insert('prestasi', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil ditambahkan</div>');
             redirect('user/upload');
+        } catch (\Exception $e) {
+            echo "Error Message: " . $e->getMessage();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function bio_kunci() // Kunci Biodata
@@ -642,14 +727,6 @@ class User extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Biodata Berhasil di Kunci Silahkan Silahkan Cetak Kartu PPDB </div>');
         redirect('user/kunci');
     }
-
-
-
-
-
-
-
-
 
 
 

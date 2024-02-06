@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// Include librari PhpSpreadsheet
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Cell\DataType;
-use PhpOffice\PhpSpreadsheet\Worksheet\ColumnDimension;
+
+require APPPATH . 'third_party/google/autoload.php';
+
+use Google\Client;
+use Google\Service\Drive;
 
 class Admin extends CI_Controller
 {
@@ -256,188 +256,9 @@ class Admin extends CI_Controller
         redirect('admin/info');
     }
 
-    public function export()
-    {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        // Buat sebuah variabel untuk menampung pengaturan style dari header tabel
-        $style_col = [
-            'font'          => ['bold' => true], // Set font nya jadi bold
-            'alignment'     => [
-                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, // Set text jadi ditengah secara horizontal (center)
-                'vertical'  => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
-            ],
-            'borders'       => [
-                'top'       => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
-                'right'     => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
-                'bottom'    => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
-                'left'      => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
-            ],
-            'fill' => [
-                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
-                'startColor' => ['rgb' => '32CD32']
-            ]
-        ];
-        // Buat sebuah variabel untuk menampung pengaturan style dari isi tabel
-        $style_row = [
-            'alignment'     => [
-                'vertical'      => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
-            ],
-            'borders'       => [
-                'top'       => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border top dengan garis tipis
-                'right'     => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],  // Set border right dengan garis tipis
-                'bottom'    => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN], // Set border bottom dengan garis tipis
-                'left'      => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN] // Set border left dengan garis tipis
-            ]
-        ];
-        $sheet->setCellValue('A1', "DATA SISWA PPDB TAHUN 2023/2024"); // Set kolom A1 dengan tulisan "DATA SISWA"
-        $sheet->mergeCells('A1:E1'); // Set Merge Cell pada kolom A1 sampai E1
-        $sheet->getStyle('A1')->getFont()->setBold(true); // Set bold kolom A1
-        // Buat header tabel nya pada baris ke 3
-        $sheet->setCellValue('A3', "NO");
-        $sheet->setCellValue('B3', "NISN");
-        $sheet->setCellValue('C3', "NO DAFTAR");
-        $sheet->setCellValue('D3', "NAMA SISWA");
-        $sheet->setCellValue('E3', "NIK");
-        $sheet->setCellValue('F3', "TEMPAT LAHIR");
-        $sheet->setCellValue('G3', "TGL. LAHIR");
-        $sheet->setCellValue('H3', "L/P");
-        $sheet->setCellValue('I3', "ANAK KE");
-        $sheet->setCellValue('J3', "SAUDARA");
-        $sheet->setCellValue('K3', "AGAMA");
-        $sheet->setCellValue('L3', "CITA-CITA");
-        $sheet->setCellValue('M3', "HOBI");
-        $sheet->setCellValue('N3', "NO WHATSAPP");
-        $sheet->setCellValue('O3', "EMAIL");
-        $sheet->setCellValue('P3', "STATUS TINGGAL");
-        $sheet->setCellValue('Q3', "PROVINSI");
-        $sheet->setCellValue('R3', "KAB/KOTA");
-        $sheet->setCellValue('S3', "KECAMATAN");
-        $sheet->setCellValue('T3', "KEL/DESA");
-        $sheet->setCellValue('U3', "ALAMAT");
-        $sheet->setCellValue('V3', "KORDINAT");
-        $sheet->setCellValue('W3', "JARAK");
-        $sheet->setCellValue('X3', "WAKTU");
-        $sheet->setCellValue('Y3', "BIAYA SEKOLAH");
-        $sheet->setCellValue('Z3', "KEB. KHUSUS");
-        $sheet->setCellValue('AA3', "KEB. DISABILITAS");
-        $sheet->setCellValue('AB3', "TK");
-        $sheet->setCellValue('AC3', "PAUD");
-        $sheet->setCellValue('AD3', "HEPATITIS");
-        $sheet->setCellValue('AE3', "POLIO");
-        $sheet->setCellValue('AF3', "BCG");
-        $sheet->setCellValue('AG3', "CAMPAK");
-        $sheet->setCellValue('AH3', "DPT");
-        $sheet->setCellValue('AI3', "COVID");
-        $sheet->setCellValue('AJ3', "NO KIP");
-        $sheet->setCellValue('AK3', "NO KKS");
-        $sheet->setCellValue('AL3', "NO PKH");
-        $sheet->setCellValue('AM3', "NO KK");
-        $sheet->setCellValue('AN3', "KEPALA KELUARGA");
-        $sheet->setCellValue('AO3', "NPSN/NSM");
-        $sheet->setCellValue('AP3', "NAMA SEKOLAH");
-        $sheet->setCellValue('AQ3', "TAHUN LULUS");
-        $sheet->setCellValue('AR3', "PROVINSI SEKOLAH");
-        $sheet->setCellValue('AS3', "KAB/KOTA SEKOLAH");
-        $sheet->setCellValue('AT3', "KECAMATAN SEKOLAH");
-
-        // Apply style header yang telah kita buat tadi ke masing-masing kolom header
-
-        $col_start = 'A'; // Kolom pertama
-        $col_end = 'AT'; // Kolom terakhir
-        $row = 3; // Baris ke-3
-
-        $range = $col_start . $row . ':' . $col_end . $row; // range yang akan diberi style
-        $sheet->getStyle($range)->applyFromArray($style_col);
-
-        // Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
-        $siswa = $this->M_Siswa->view();
-
-        $no = 1; // Untuk penomoran tabel, di awal set dengan 1
-        $numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
-        foreach ($siswa as $data) { // Lakukan looping pada variabel siswa
-
-            // Date 
-            $date = date('d-m-Y', strtotime($data->tgl_lahir)); //tgl siswa
-
-            $sheet->setCellValue('A' . $numrow, $no);
-            $sheet->setCellValue('B' . $numrow, $data->nisn);
-            $sheet->setCellValue('C' . $numrow, $data->no_daftar);
-            $sheet->setCellValue('D' . $numrow, $data->nama_siswa);
-            $sheet->setCellValueExplicit('E' . $numrow, $data->nik, DataType::TYPE_STRING);
-            $sheet->setCellValue('F' . $numrow, $data->tempat_lahir);
-            $sheet->setCellValue('G' . $numrow, $date); //tgl siswa
-            $sheet->setCellValue('H' . $numrow, $data->jk);
-            $sheet->setCellValue('I' . $numrow, $data->anak_ke);
-            $sheet->setCellValue('J' . $numrow, $data->saudara);
-            $sheet->setCellValue('K' . $numrow, $data->agama);
-            $sheet->setCellValue('L' . $numrow, $data->cita);
-            $sheet->setCellValue('M' . $numrow, $data->hobi);
-            $sheet->setCellValueExplicit('N' . $numrow, $data->no_hp, DataType::TYPE_STRING);
-            $sheet->setCellValue('O' . $numrow, $data->emails);
-            $sheet->setCellValue('P' . $numrow, $data->status_tinggal_siswa);
-            $sheet->setCellValue('Q' . $numrow, $data->prov);
-            $sheet->setCellValue('R' . $numrow, $data->kab);
-            $sheet->setCellValue('S' . $numrow, $data->kec);
-            $sheet->setCellValue('T' . $numrow, $data->desa);
-            $sheet->setCellValue('U' . $numrow, $data->alamat_siswa);
-            $sheet->setCellValue('V' . $numrow, $data->kordinat);
-            $sheet->setCellValue('W' . $numrow, $data->jarak);
-            $sheet->setCellValue('X' . $numrow, $data->waktu);
-            $sheet->setCellValue('Y' . $numrow, $data->biaya_sekolah);
-            $sheet->setCellValue('Z' . $numrow, $data->keb_khusus);
-            $sheet->setCellValue('AA' . $numrow, $data->keb_disabilitas);
-            $sheet->setCellValue('AB' . $numrow, $data->tk);
-            $sheet->setCellValue('AC' . $numrow, $data->paud);
-            $sheet->setCellValue('AD' . $numrow, $data->hepatitis);
-            $sheet->setCellValue('AE' . $numrow, $data->polio);
-            $sheet->setCellValue('AF' . $numrow, $data->bcg);
-            $sheet->setCellValue('AG' . $numrow, $data->campak);
-            $sheet->setCellValue('AH' . $numrow, $data->dpt);
-            $sheet->setCellValue('AI' . $numrow, $data->covid);
-            $sheet->setCellValueExplicit('AJ' . $numrow, $data->no_kip, DataType::TYPE_STRING);
-            $sheet->setCellValueExplicit('AK' . $numrow, $data->no_kks, DataType::TYPE_STRING);
-            $sheet->setCellValueExplicit('AL' . $numrow, $data->no_pkh, DataType::TYPE_STRING);
-            $sheet->setCellValueExplicit('AM' . $numrow, $data->no_kk, DataType::TYPE_STRING);
-            $sheet->setCellValue('AN' . $numrow, $data->kepala_keluarga);
-            $sheet->setCellValueExplicit('AO' . $numrow, $data->npsn_sekolah, DataType::TYPE_STRING);
-            $sheet->setCellValue('AP' . $numrow, $data->asal_sekolah);
-            $sheet->setCellValue('AQ' . $numrow, $data->tahun_lulus);
-            $sheet->setCellValue('AR' . $numrow, $data->prov_sekolah);
-            $sheet->setCellValue('AS' . $numrow, $data->kab_sekolah);
-            $sheet->setCellValue('AT' . $numrow, $data->kec_sekolah);
-
-            // $sheet->setCellValueExplicit('E' . $numrow, $data->no_kk, DataType::TYPE_STRING);
 
 
-            // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
-            for ($i = 'A'; $i != 'AU'; $i++) {
-                $sheet->getStyle($i . $numrow)->applyFromArray($style_row);
-            }
 
-
-            $no++; // Tambah 1 setiap kali looping
-            $numrow++; // Tambah 1 setiap kali looping
-        }
-
-        // Set width kolom
-        for ($col = 'A'; $col !== 'AU'; $col++) {
-            $sheet->getColumnDimension($col)->setAutoSize(true);
-        }
-
-        // Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
-        $sheet->getDefaultRowDimension()->setRowHeight(-1);
-        // Set orientasi kertas jadi LANDSCAPE
-        $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
-        // Set judul file excel nya
-        $sheet->setTitle("Laporan Data Siswa");
-        // Proses file excel
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="Data Siswa.xlsx"'); // Set nama file excel nya
-        header('Cache-Control: max-age=0');
-        $writer = new Xlsx($spreadsheet);
-        $writer->save('php://output');
-    }
 
     public function pdf()
     {
@@ -616,6 +437,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['siswa']          = $this->M_Siswa->Dsiswa($nisn)->row_array();
+        $data['prestasi']       = $this->M_Siswa->prestasi2($nisn)->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -927,34 +749,75 @@ class Admin extends CI_Controller
         redirect('admin/info/' . $nisn);
     }
 
-    public function aksi_upload() // Update CS
+
+    public function submit_prestasi()
     {
-        $nisn   = $this->input->post('nisn');
 
-        $config['upload_path']          = './assets/dokumen/';
-        $config['allowed_types']        = 'pdf';
-        $config['max_size']             = 2000;
+        $siswa_id           = $this->input->post('siswa_id');
+        try {
+            $client = new Client();
+            putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials.json');
+            $client->useApplicationDefaultCredentials();
+            $client->addScope(Drive::DRIVE);
+            $driveService = new Drive($client);
 
+            $uploadedFile = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            $mimeType = mime_content_type($uploadedFile);
+            $fileSize = $_FILES['file']['size']; // Ukuran file dalam byte
 
-        $this->load->library('upload', $config);
+            if ($fileExtension !== 'pdf' || $mimeType !== 'application/pdf') {
+                // File yang diunggah bukan file PDF
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">File yang diunggah harus berformat PDF</div>');
+                redirect('admin/upload/' . $siswa_id);
+            }
 
-        if (!$this->upload->do_upload('file')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> File Berbentuk Pdf max 1 Mb</div>');
-            redirect('admin/upload');
-        } else {
+            if ($fileSize > 10 * 1024 * 1024) {
+                // File terlalu besar (lebih dari 10 MB)
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Ukuran file maksimal 7 MB</div>');
+                redirect('admin/upload/' . $siswa_id);
+            }
+
+            // Mengambil nilai dari form
+            $siswa              = $this->input->post('siswa');
+            $kegiatan           = $this->input->post('kegiatan');
+            $peringkat          = $this->input->post('peringkat');
+            $tingkat            = $this->input->post('tingkat');
+            $tahun              = $this->input->post('tahun');
+
+            $fileMetadata = new Drive\DriveFile(array(
+                'name'      => $fileName,
+                'parents'   => ['1fKoE12ybnPWzna07O0UmTR_6qs-BoGWY']
+            ));
+            $content = file_get_contents($uploadedFile);
+            $file = $driveService->files->create($fileMetadata, array(
+                'data'          => $content,
+                'mimeType'      => $mimeType,
+                'uploadType'    => 'multipart',
+                'fields'        => 'id' // Only request the 'id' field
+            ));
+
+            // Insert file information into your database
+            $this->load->database(); // Load the database library
             $data = array(
-                'file'              => $this->upload->data('file_name'),
-                'nisn'              => $nisn,
+                'oleh'              => $file->id,
+                'siswa_id'          => $siswa_id,
+                'siswa'             => $siswa,
+                'kegiatan'          => $kegiatan,
+                'peringkat'         => $peringkat,
+                'tingkat'           => $tingkat,
+                'tahun'             => $tahun,
 
             );
-
-            $this->db->where('nisn', $nisn);
-            $this->db->update('detail_siswa', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Dokumen Berhasil di Upload</div>');
-            redirect('admin/upload/' . $nisn);
+            $this->db->insert('prestasi', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil ditambahkan</div>');
+            redirect('admin/upload/' . $siswa_id);
+        } catch (\Exception $e) {
+            echo "Error Message: " . $e->getMessage();
         }
     }
+
 
     public function Bkunci() // Update Data Biodata
     {
