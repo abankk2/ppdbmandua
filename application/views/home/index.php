@@ -234,7 +234,7 @@
             <div class="col-md-4 mb-5">
                 <div class="shadow card">
                     <h3 class="card-header2 p-3 text-center">Quota Pendaftar</h3>
-                    <h6 class="display-6 text-center" style="font-weight: bold;">288</h6>
+                    <h6 class="display-6 text-center" style="font-weight: bold;">280</h6>
                 </div>
             </div>
 
