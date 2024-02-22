@@ -23,6 +23,8 @@ class Admin extends CI_Controller
         $data['rank_sekolah'] = $this->M_Siswa->rank_sekolah()->result_array();
         $data['admin'] = $this->M_Siswa->jm_admin();
         $data['siswa'] = $this->M_Siswa->jm_daftar();
+        $data['laki'] = $this->M_Siswa->jm_l();
+        $data['perempuan'] = $this->M_Siswa->jm_p();
         $data['sekolah'] = $this->M_Siswa->jml_sekolah();
 
         $this->load->view('templates/header', $data);
@@ -835,6 +837,40 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Edit Kunci Berhasil di simpan</div>');
         redirect('admin/siswa');
     }
+
+    public function Jalur() // Update Data Biodata
+    {
+        $nisn               = $this->input->post('nisn');
+        $jalur              = $this->input->post('jalur');
+
+        $data = array(
+            'nisn'          => $nisn,
+            'jalur'         => $jalur,
+        );
+
+        $this->db->where('nisn', $nisn);
+        $this->db->update('detail_siswa', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Edit Jalur Pendaftaran Berhasil di simpan</div>');
+        redirect('admin/siswa');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function HpsSiswa($nisn)

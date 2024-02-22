@@ -104,10 +104,9 @@
                                 <label class="form-label">Tahun Lulus</label>
                                 <select class="form-select" name="tahun_lulus" required>
                                     <option value="<?= $siswa['tahun_lulus']; ?>" selected><?= $siswa['tahun_lulus']; ?></option>
+                                    <option value="2024">2024</option>
                                     <option value="2023">2023</option>
                                     <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
                                 </select>
                             </div>
                         </div>

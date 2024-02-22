@@ -238,15 +238,17 @@
             <button type="button" class="btn btn-primary btn-sm mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Tambah Prestasi
             </button>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="bg-dark text-white">
+
+            <div class="table-responsive mt-3">
+                <table class="table">
+                    <thead>
                         <tr>
                             <th scope="col" class="text-center">No</th>
                             <th scope="col">Kegiatan</th>
                             <th scope="col">Peringkat</th>
                             <th scope="col">Tingkat</th>
                             <th scope="col">Tahun</th>
+                            <th scope="col" class="text-center">Sertifikat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -259,6 +261,9 @@
                                 <td><?= $pres['peringkat']; ?></td>
                                 <td><?= $pres['tingkat']; ?></td>
                                 <td><?= $pres['tahun']; ?></td>
+                                <td class="text-center">
+                                    <a class="badge bg-success" target="_blank" href="https://drive.google.com/file/d/<?= $pres['oleh']; ?>/preview">Lihat</a>
+                                </td>
                             </tr>
                             <?php $i++; ?>
                         <?php endforeach; ?>
@@ -272,11 +277,17 @@
 <br><br><br><br><br><br><br><br>
 
 
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="<?= base_url('panitia/prestasi'); ?>">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form method="post" action="<?= site_url('panitia/submit_prestasi'); ?>" enctype="multipart/form-data">
                 <div class="modal-body">
                     <input type="text" class="form-control d-none" name="siswa_id" value="<?= $siswa['nisn']; ?>">
                     <input type="text" class="form-control d-none" name="siswa" value="<?= $siswa['nama_siswa']; ?>">
@@ -301,17 +312,53 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahun</label>
+                        <label class="form-label">Tahun Perolehan</label>
                         <input type="text" class="form-control" name="tahun">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload File</label>
+                        <input class="form-control" name="file" type="file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-block btn-primary">Simpan</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
     $(document).ready(function() {

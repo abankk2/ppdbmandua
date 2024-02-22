@@ -2,6 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
+require APPPATH . 'third_party/google/autoload.php';
+
+use Google\Client;
+use Google\Service\Drive;
+
 class Panitia extends CI_Controller
 {
     public function __construct()
@@ -185,30 +190,75 @@ class Panitia extends CI_Controller
         redirect('panitia/input/' . $id_siswa);
     }
 
-    public function prestasi()
+
+    public function submit_prestasi()
     {
+
         $siswa_id           = $this->input->post('siswa_id');
-        $siswa              = $this->input->post('siswa');
-        $kegiatan           = $this->input->post('kegiatan');
-        $peringkat          = $this->input->post('peringkat');
-        $tingkat            = $this->input->post('tingkat');
-        $tahun              = $this->input->post('tahun');
+        try {
+            $client = new Client();
+            putenv('GOOGLE_APPLICATION_CREDENTIALS=./credentials.json');
+            $client->useApplicationDefaultCredentials();
+            $client->addScope(Drive::DRIVE);
+            $driveService = new Drive($client);
 
+            $uploadedFile = $_FILES['file']['tmp_name'];
+            $fileName = $_FILES['file']['name'];
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            $mimeType = mime_content_type($uploadedFile);
+            $fileSize = $_FILES['file']['size']; // Ukuran file dalam byte
 
-        $data = [
-            'siswa_id'      => $siswa_id,
-            'siswa'         => $siswa,
-            'kegiatan'      => $kegiatan,
-            'peringkat'     => $peringkat,
-            'tingkat'       => $tingkat,
-            'tahun'         => $tahun,
+            if ($fileExtension !== 'pdf' || $mimeType !== 'application/pdf') {
+                // File yang diunggah bukan file PDF
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">File yang diunggah harus berformat PDF</div>');
+                redirect('panitia/input/' . $siswa_id);
+            }
 
-        ];
-        $this->db->insert('prestasi', $data);
+            if ($fileSize > 10 * 1024 * 1024) {
+                // File terlalu besar (lebih dari 10 MB)
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Ukuran file maksimal 7 MB</div>');
+                redirect('panitia/input/' . $siswa_id);
+            }
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil di Tambahkan</div>');
-        redirect('panitia/input/' . $siswa_id);
+            // Mengambil nilai dari form
+            $siswa              = $this->input->post('siswa');
+            $kegiatan           = $this->input->post('kegiatan');
+            $peringkat          = $this->input->post('peringkat');
+            $tingkat            = $this->input->post('tingkat');
+            $tahun              = $this->input->post('tahun');
+
+            $fileMetadata = new Drive\DriveFile(array(
+                'name'      => $fileName,
+                'parents'   => ['1fKoE12ybnPWzna07O0UmTR_6qs-BoGWY']
+            ));
+            $content = file_get_contents($uploadedFile);
+            $file = $driveService->files->create($fileMetadata, array(
+                'data'          => $content,
+                'mimeType'      => $mimeType,
+                'uploadType'    => 'multipart',
+                'fields'        => 'id' // Only request the 'id' field
+            ));
+
+            // Insert file information into your database
+            $this->load->database(); // Load the database library
+            $data = array(
+                'oleh'              => $file->id,
+                'siswa_id'          => $siswa_id,
+                'siswa'             => $siswa,
+                'kegiatan'          => $kegiatan,
+                'peringkat'         => $peringkat,
+                'tingkat'           => $tingkat,
+                'tahun'             => $tahun,
+
+            );
+            $this->db->insert('prestasi', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Prestasi Berhasil ditambahkan</div>');
+            redirect('panitia/input/' . $siswa_id);
+        } catch (\Exception $e) {
+            echo "Error Message: " . $e->getMessage();
+        }
     }
+
 
     public function print()
     {

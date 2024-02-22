@@ -57,6 +57,32 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card p-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col" class="text-center">Jumlah</th>
+                        <th scope="col" class="text-center">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Laki - Laki</td>
+                        <td class="text-center"><?= $laki; ?></td>
+                        <td rowspan="2" class="text-center"><?= $laki + $perempuan; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Perempuan</td>
+                        <td class="text-center"><?= $perempuan; ?></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card p-3">
             <table class="table">
                 <thead class="bg-dark text-white">
                     <tr>

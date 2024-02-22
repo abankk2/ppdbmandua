@@ -71,6 +71,34 @@ class M_Siswa extends CI_Model
         }
     }
 
+    public function jm_l() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->where('jk', 1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function jm_p() //Hitung Jumlah Admin
+    {
+        $this->db->select('*');
+        $this->db->from('detail_siswa');
+        $this->db->where('jk', 2);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function cari_siswa($keyword) //Cari 
     {
         $this->db->select('*');

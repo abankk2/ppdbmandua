@@ -43,4 +43,31 @@
 
         </div>
     </div>
+
+    <div class="col-md-6">
+        <div class="card shadow p-3">
+            <form method="post" action="<?= base_url('admin/Jalur'); ?>">
+                <div class="row">
+                    <div class="col-md">
+                        <h5 class="mb-1">Jalur Pendaftaran</h5>
+                        <select class="form-select" name="jalur" required>
+                            <?php if ($siswa['jalur'] == 1) { ?>
+                                <option selected value="<?= $siswa['jalur']; ?>">Prestasi</option>
+                            <?php } else if ($siswa['jalur'] == 2) { ?>
+                                <option selected value="<?= $siswa['jalur']; ?>">Leguler</option>
+                            <?php } ?>
+                            <option disabled>===</option>
+                            <option value="1">Prestasi</option>
+                            <option value="2">Leguler</option>
+                        </select>
+                        <input name="nisn" value="<?= $siswa['nisn']; ?>" class="d-none">
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn btn-block btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>
