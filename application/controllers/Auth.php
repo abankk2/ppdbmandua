@@ -84,6 +84,95 @@ class Auth extends CI_Controller
         $this->load->view('auth/blocked');
     }
 
+    public function daftar()
+    {
+        $data['title'] = 'Cek NPSN';
+        $data['title'] = 'Cek NPSN';
+
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/daftar');
+        $this->load->view('templates/auth_footer');
+    }
+
+    function get_autocomplete()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->M_Rekap->search_blog($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row)
+                    $arr_result[] = array(
+                        'label'         => $row->id_skolah,
+                        'description'   => $row->nama_sekolah,
+                    );
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
+    public function submit_npsn()
+    {
+        $npsn = $this->input->post('title');
+        $school = $this->M_Rekap->get_school_by_npsn($npsn);
+
+        if ($school) {
+            redirect('auth/form_siswa/' . $npsn);
+        } else {
+            redirect('auth/daftar_sekolah');
+        }
+    }
+
+    public function daftar_sekolah()
+    {
+        $data['title'] = 'Cek NPSN';
+
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/daftar_sekolah');
+        $this->load->view('templates/auth_footer');
+    }
+
+    public function form_siswa($npsn)
+    {
+        $data['title'] = 'Form SIswa';
+
+        $data['sekolah']  = $this->M_Rekap->Sekolah($npsn)->row_array();
+
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/form_siswa',  $data);
+        $this->load->view('templates/auth_footer');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function forgotPassword()
     {
@@ -226,13 +315,6 @@ class Auth extends CI_Controller
         echo json_encode($data);
     }
 
-    // public function registration()
-    // {
-    //     $data['title'] = 'WPU User Registration';
-    //     $this->load->view('templates/auth_header', $data);
-    //     $this->load->view('auth/registration2', $data);
-    //     $this->load->view('templates/auth_footer');
-    // }
 
     public function registration()
     {

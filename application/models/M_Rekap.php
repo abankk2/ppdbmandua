@@ -182,4 +182,26 @@ class M_Rekap extends CI_Model
         $this->db->order_by('id', 'asc');
         return $this->db->get();
     }
+
+    function search_blog($title)
+    {
+        $this->db->like('id_skolah', $title, 'both');
+        $this->db->order_by('id_skolah', 'ASC');
+        $this->db->limit(10);
+        return $this->db->get('sekolah')->result();
+    }
+
+    function get_school_by_npsn($npsn)
+    {
+        $this->db->where('id_skolah', $npsn);
+        $query = $this->db->get('sekolah');
+        return $query->row_array();
+    }
+
+
+    public function Sekolah($npsn = NULL)
+    {
+        $query = $this->db->get_where('sekolah', array('id_skolah' => $npsn));
+        return $query;
+    }
 }

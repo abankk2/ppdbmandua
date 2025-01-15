@@ -194,10 +194,21 @@
                     </div>
 
                 </div>
+                <div class="row mb-3">
+                    <h5>6. Email Pengumuman Kelulusan</h5>
+                    <div class="col-md-6">
+                        <h6>EMAIL</h6>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" value="<?= $siswa['emails']; ?>">
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-block btn-primary">Simpan</button>
             </div>
         </form>
     </div>
+
+    <!-- Batas Colom -->
     <div class="col-md-6">
         <h5>Update Keterampilan</h5>
         <div class="table-responsive card p-3">
