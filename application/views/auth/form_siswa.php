@@ -1,1 +1,0 @@
-<?= $sekolah['id_skolah']; ?>

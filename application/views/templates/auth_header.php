@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style.css">
     <script src='https://kit.fontawesome.com/76a945766d.js' crossorigin='anonymous'></script>
 
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+
+        body {
+            font-family: "Tilt Neon", cursive;
+        }
+    </style>
+
 </head>
 
 <body>
