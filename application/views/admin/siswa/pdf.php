@@ -56,7 +56,7 @@
 
 <body>
     <img src="<?= base_url('assets/'); ?>img/kop.png" alt="">
-    <h2>Daftar Siswa PPDB MAN 2 Kota Cirebon <br>Tahun 2024/2025</h2>
+    <h2>Daftar Siswa PPDB MAN 2 Kota Cirebon <br>Tahun 2025/2026</h2>
     <table>
         <thead>
             <tr>
@@ -95,8 +95,8 @@
             <br>Ketua PPDB 2024
         </p>
         <br><br><br>
-        <p><b>Elvia Holilah, SE, M.Si</b>
-            <br>NIP. 19680309 200701 2 020
+        <p><b>Faizal Aktsar, S.Pd.I</b>
+            <br>NIP. 19751007 200501 1 003
         </p>
     </div>
 

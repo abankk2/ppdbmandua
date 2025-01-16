@@ -11,7 +11,7 @@
             <?= $this->session->flashdata('message'); ?>
             <div class="card mt-3">
                 <div class="card-body">
-                    <form method="post" action="<?= base_url('daftar/registration'); ?>">
+                    <form method="post" action="<?= base_url('admin/regis_siswa'); ?>">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="mb-3">

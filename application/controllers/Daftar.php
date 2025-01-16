@@ -9,15 +9,6 @@ class Daftar extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
-    {
-        $data['title'] = 'Form Siswa';
-
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('daftar/form_siswa');
-        $this->load->view('templates/auth_footer');
-    }
-
     function get_autocomplete()
     {
         if (isset($_GET['term'])) {
@@ -35,18 +26,6 @@ class Daftar extends CI_Controller
         }
     }
 
-    public function submit_npsn()
-    {
-        $npsn = $this->input->post('title');
-        $school = $this->M_Rekap->get_school_by_npsn($npsn);
-
-        if ($school) {
-            redirect('auth/form_siswa/' . $npsn);
-        } else {
-            redirect('auth/daftar_sekolah');
-        }
-    }
-
     public function daftar_sekolah()
     {
         $data['title'] = 'Cek NPSN';
@@ -56,21 +35,69 @@ class Daftar extends CI_Controller
         $this->load->view('templates/auth_footer');
     }
 
+    public function tb_sekolah1()
+    {
+        $nsm                = $this->input->post('nsm');
+        $id_skolah          = $this->input->post('id_skolah');
+        $nama_sekolah       = $this->input->post('nama_sekolah');
+        $status             = $this->input->post('status');
+
+        $data = [
+            'nsm'               => $nsm,
+            'id_skolah'         => $id_skolah,
+            'nama_sekolah'      => $nama_sekolah,
+            'status'            => $status,
+
+        ];
+        $this->db->insert('sekolah_baru', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Sekolah Berhasil di Tambahkan</div>');
+        redirect('daftar');
+    }
+
+    public function tb_sekolah()
+    {
+        $this->form_validation->set_rules('id_skolah', 'NPSN/NSM', 'required|trim|is_unique[sekolah_baru.id_skolah]', [
+            'is_unique' => 'NPSN/NSM ini Sudah Terdaftar!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> NPSN/NSM Sudah Terdaftar SIlahkan Lanjutkan Pendaftaran !!!
+            </div>');
+            redirect('daftar/registration');
+        } else {
+
+            $nsm                = $this->input->post('nsm');
+            $id_skolah          = $this->input->post('id_skolah');
+            $nama_sekolah       = $this->input->post('nama_sekolah');
+            $status             = $this->input->post('status');
+
+            $data = [
+                'nsm'               => $nsm,
+                'id_skolah'         => $id_skolah,
+                'nama_sekolah'      => $nama_sekolah,
+                'status'            => $status,
+
+            ];
+            $this->db->insert('sekolah_baru', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Sekolah Berhasil di Tambahkan</div>');
+            redirect('daftar/registration');
+        }
+    }
+
 
 
     public function registration()
     {
-
-        $get_prov = $this->db->select('*')->from('wilayah_provinsi')->get();
-        $data['provinsi'] = $get_prov->result();
 
         if ($this->session->userdata('email')) {
             redirect('user');
         }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('id_skolah', 'NPSN', 'required|trim');
-        $this->form_validation->set_rules('jalur', 'Jalur Masuk', 'required|trim');
+        // $this->form_validation->set_rules('id_skolah', 'NPSN', 'required|trim');
+        // $this->form_validation->set_rules('jalur', 'Jalur Masuk', 'required|trim');
         $this->form_validation->set_rules('email', 'NISN', 'required|trim|is_unique[user.email]|min_length[10]|max_length[10]', [
             'is_unique' => 'NISN ini Sudah Terdaftar!'
         ]);
@@ -81,9 +108,9 @@ class Daftar extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'WPU User Registration';
+            $data['title'] = 'Form Pendaftaran';
             $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/registration', $data);
+            $this->load->view('daftar/form_siswa');
             $this->load->view('templates/auth_footer');
         } else {
             $email = $this->input->post('email', true);
@@ -102,14 +129,12 @@ class Daftar extends CI_Controller
             $data2 = [
                 'nama_siswa'        => htmlspecialchars($this->input->post('name', true)),
                 'nisn'              => htmlspecialchars($email),
-                'asal_sekolah'      => $this->input->post('nama_sekolah'),
-                'npsn_sekolah'      => htmlspecialchars($this->input->post('id_skolah', true)),
+                'asal_sekolah'      => $this->input->post('description'),
+                'nsm'               => $this->input->post('nsm'),
+                'jalur'             => $this->input->post('jalur'),
+                'npsn_sekolah'      => $this->input->post('title'),
                 'jk'                => $this->input->post('jk'),
-                'prov_sekolah'      => $this->input->post('prov_sekolah'),
-                'kab_sekolah'       => $this->input->post('kab_sekolah'),
-                'kec_sekolah'       => $this->input->post('kec_sekolah'),
                 'no_hp'             => $this->input->post('no_hp'),
-                'jalur'             => htmlspecialchars($this->input->post('jalur', true)),
                 'kunci'             => 0,
                 'date_created'      => time(),
                 'no_daftar'         => $this->M_Siswa->buat_kode(),

@@ -13,8 +13,8 @@
                             <div class="slidd">
                                 <h2 class="mb-3">Selamat Datang Di Web PPDB MAN 2 Kota Cirebon</h2>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Aplikasi Penerimaan Peserta didik baru Tahun Pelajaran 2024/2025
-                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Pendaftaran Siswa dan Siswi Baru Tahun 2024/2025 ini telah dibuka. <br> Silahkan Segera Daftar dan lengkapi Formulir
+                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Aplikasi Penerimaan Peserta didik baru Tahun Pelajaran 2025/2026
+                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Pendaftaran Siswa dan Siswi Baru Tahun 2025/2026 ini telah dibuka. <br> Silahkan Segera Daftar dan lengkapi Formulir
                                     </li>
                                 </ul>
                                 <a href="#alur" class="btn btn-outline-warning mt-3 px-5" style="border-radius: 2em;"> Lihat Alur Pendaftaran</a>
@@ -23,7 +23,7 @@
                         <div class="carousel-item" data-bs-interval="2000">
                             <div class="slidd">
                                 <h2 class="mb-3">Syarat Pendaftaran Peserta Didik Baru</h2>
-                                <h5>Tahun Pelajaran 2024/2025 </h5>
+                                <h5>Tahun Pelajaran 2025/2026 </h5>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Surat Keterangan Lulus </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Ijazah Jenjang Sebelumnya </li>
@@ -37,12 +37,12 @@
                         <div class="carousel-item">
                             <div class="slidd">
                                 <h2 class="mb-3">Alur Pendaftaran Peserta Didik Baru</h2>
-                                <h5>Tahun Pelajaran 2024/2025</h5>
+                                <h5>Tahun Pelajaran 2025/2026</h5>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Daftar Akun </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Lengkapi Biodata </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Upload Berkas </li>
-                                    <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Pembayaran </li>
+                                    <!-- <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Pembayaran </li> -->
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Download Berkas</li>
 
                                 </ul>
@@ -75,7 +75,7 @@
                             <button class="btn btn-sm mt-3 btn-block w-100 text-white" type="submit" style="border-radius: 2em; background-color:green">L O G I N</button>
 
 
-                            <div class="text-center mt-3">Belum Punya Akun? Daftar <a href="<?= base_url('auth/registration'); ?>" class="text-decoration-none">disini</a></div>
+                            <div class="text-center mt-3">Belum Punya Akun? Daftar <a href="<?= base_url('daftar/registration'); ?>" class="text-decoration-none">disini</a></div>
                         </form>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                                     <div class="accordion-body">
                                         <p> Calon Siswa mendaftar di web pendaftaran.</p>
                                         <div class="d-grid gap-2">
-                                            <a href="<?= base_url('auth/registration'); ?>" class="btn hijau">Daftar Sekarang</a>
+                                            <a href="<?= base_url('daftar/registration'); ?>" class="btn hijau">Daftar Sekarang</a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,27 +176,27 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>05 Februari s.d 14 Juni 2024</th>
+                                        <th>05 Februari s.d 14 Juni 2025</th>
                                         <td>Pendaftaran Online</td>
                                     </tr>
                                     <tr>
-                                        <th>19 - 24 Juni 2024</th>
+                                        <th>19 - 24 Juni 2025</th>
                                         <td>Penyerahan Berkas dan Wawancara Calon Peserta Didik Baru</td>
                                     </tr>
                                     <tr>
-                                        <th>26 Juni 2024</th>
+                                        <th>26 Juni 2025</th>
                                         <td>Seleksi Tulis (Skolastik & Literasi)</td>
                                     </tr>
                                     <tr>
-                                        <th>28 Juni 2024</th>
+                                        <th>28 Juni 2025</th>
                                         <td>Pengumuman Penerimaan</td>
                                     </tr>
                                     <tr>
-                                        <th>01 s.d 03 Juli 2024</th>
+                                        <th>01 s.d 03 Juli 2025</th>
                                         <td>Lapor Diri & Pembagian Kelas (Melengkapi Administrasi Pendaftaran)</td>
                                     </tr>
                                     <tr>
-                                        <th>08 s.d 10 Juli 2024</th>
+                                        <th>08 s.d 10 Juli 2025</th>
                                         <td>MATSAMA</td>
                                     </tr>
                                 </tbody>
@@ -217,7 +217,7 @@
         <div class="row">
             <div class="text-center text-white mb-3">
                 <h3 class="mb-1">Data Pendaftar</h3>
-                <h4>Peserta Didik Baru MAN 2 Kota Cirebon Tahun 2024/2025</h4>
+                <h4>Peserta Didik Baru MAN 2 Kota Cirebon Tahun 2025/2026</h4>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="shadow card">

@@ -58,7 +58,7 @@
 
 <body>
     <img src="<?= base_url('assets/'); ?>img/kop.png" alt="">
-    <h4>Daftar Rekap Wawancara Siswa PPDB MAN 2 Kota Cirebon <br>Tahun 2024/2025</h4>
+    <h4>Daftar Rekap Wawancara Siswa PPDB MAN 2 Kota Cirebon <br>Tahun 2025/2026</h4>
     <table>
         <thead>
             <tr>
@@ -129,7 +129,7 @@
     <div class="row mt-3">
         <div class="col-4">
             <p>
-                <br>Petugas PPDB 2023
+                <br>Petugas PPDB 2025
             </p>
             <br><br><br>
             <p><b><?= $user['name']; ?></b>
@@ -142,8 +142,8 @@
                 <br>Ketua PPDB 2024
             </p>
             <br><br><br>
-            <p><b>Elvia Holilah, SE, M.Si</b>
-                <br>NIP. 19680309 200701 2 020
+            <p><b>Faizal Aktsar, S.Pd.I</b>
+                <br>NIP. 19751007 200501 1 003
             </p>
         </div>
     </div>

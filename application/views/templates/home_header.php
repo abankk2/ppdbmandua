@@ -35,7 +35,7 @@
 
                 </ul>
                 <form class="d-flex" role="search">
-                    <a class="btn btn-outline-success" href="<?= base_url('auth/registration'); ?>" style="border-radius: 2em; padding-left:30px; padding-right:30px">Pendaftaran</a>
+                    <a class="btn btn-outline-success" href="<?= base_url('daftar/registration'); ?>" style="border-radius: 2em; padding-left:30px; padding-right:30px">Pendaftaran</a>
                 </form>
             </div>
         </div>

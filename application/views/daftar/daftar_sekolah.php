@@ -6,34 +6,41 @@
                 <h4>Pendaftaran Nama Sekolah</h4>
                 <small class="text-danger">Jika tidak mengetahui NPSN SMP dan Paket B <a href="https://referensi.data.kemdikbud.go.id/pendidikan/dikdas/020000/1" target="_blank" class="badge rounded-pill bg-primary">disini</a></small><br>
                 <small class="text-danger">Untuk MTS <a href="http://infopublik-emis.kemenag.go.id/?ta=2024%2F2025+Genap" target="_blank" class="badge rounded-pill bg-primary">disini</a></small><br>
-                <small class="text-danger">Untuk Pondok Pesantren Modern <a href="https://emis.kemenag.go.id/pontren/statistik/pontren?secure=pQ5q0ZPfI2uFz1onu8szJWJC6DhhY%2BdRkt83ueTPfG4%3D" target="_blank" class="badge rounded-pill bg-primary">disini</a></small>
+                <small class="text-danger">Untuk Pondok Pesantren <a href="https://emis.kemenag.go.id/pontren/statistik/pontren?secure=pQ5q0ZPfI2uFz1onu8szJWJC6DhhY%2BdRkt83ueTPfG4%3D" target="_blank" class="badge rounded-pill bg-primary">disini</a></small>
             </div>
-            <div class="card">
-                <div class="card-body text-center">
-                    <div class="mb-3">
-                        <label class="form-label">NAMA SEKOLAH/PONDOK PESANTREN</label>
-                        <input type="text" class="form-control" name="nama_sekolah" required>
-                        <div id="passwordHelpBlock" class="form-text">
-                            Contoh : Untuk SMP <b class="text-success">SMPN 1 SABANG</b> Untuk MTS <b class="text-success">MTSN 2 MERAUKE</b> Untuk Pondok Pesantren <b class="text-success">PON-PES DARUSSALAM</b>
+            <form action="<?= site_url('daftar/tb_sekolah'); ?>" method="POST">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <label class="form-label">NAMA SEKOLAH/PONDOK PESANTREN</label>
+                            <input type="text" class="form-control" name="nama_sekolah" required>
+                            <div id="passwordHelpBlock" class="form-text">
+                                Contoh : Untuk SMP <b class="text-success">SMPN 1 SABANG</b> Untuk MTS <b class="text-success">MTSN 2 MERAUKE</b> Untuk Pondok Pesantren <b class="text-success">PON-PES DARUSSALAM</b>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">NPSN</label>
-                        <input type="text" class="form-control" name="id_skolah" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">NOMOR STATISTIK MADRASAH</label>
-                        <input type="text" class="form-control" name="nama_sekolah" required>
-                        <div id="passwordHelpBlock" class="form-text">
-                            Khusus Untuk MTS <b class="text-danger">SMP dan PONTREN isikan angka</b>
+                        <div class="mb-3">
+                            <label class="form-label">NPSN</label>
+                            <input type="text" class="form-control" name="id_skolah" required>
                         </div>
-                    </div>
-
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Kirim</button>
+                        <div class="mb-3">
+                            <label class="form-label">NOMOR STATISTIK MADRASAH</label>
+                            <input type="text" class="form-control" name="nsm" required>
+                            <div id="passwordHelpBlock" class="form-text">
+                                Khusus Untuk MTS <b class="text-danger">SMP dan PONTREN isikan angka</b>
+                            </div>
+                        </div>
+                        <label class="form-label">STATUS</label>
+                        <select class="form-select" name="status" aria-label="Default select example">
+                            <option selected disabled></option>
+                            <option value="NEGERI">NEGERI</option>
+                            <option value="SWASTA">SWASTA</option>
+                        </select>
+                        <div class="d-grid gap-2 mt-3">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

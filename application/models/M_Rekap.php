@@ -183,13 +183,38 @@ class M_Rekap extends CI_Model
         return $this->db->get();
     }
 
+    // function search_blog($title)
+    // {
+    //     $this->db->like('id_skolah', $title, 'both');
+    //     $this->db->order_by('id_skolah', 'ASC');
+    //     $this->db->limit(10);
+    //     return $this->db->get('sekolah')->result();
+    // }
+
     function search_blog($title)
     {
+        // Query pertama ke tabel 'sekolah'
+        $this->db->select('id_skolah, nama_sekolah, nsm, status');
+        $this->db->from('sekolah');
         $this->db->like('id_skolah', $title, 'both');
         $this->db->order_by('id_skolah', 'ASC');
         $this->db->limit(10);
-        return $this->db->get('sekolah')->result();
+        $query1 = $this->db->get();
+
+        // Query kedua ke tabel 'sekolah_baru'
+        $this->db->select('id_skolah, nama_sekolah, nsm, status');
+        $this->db->from('sekolah_baru');
+        $this->db->like('id_skolah', $title, 'both');
+        $this->db->order_by('id_skolah', 'ASC');
+        $this->db->limit(10);
+        $query2 = $this->db->get();
+
+        // Menggabungkan hasil dari kedua query
+        $result = array_merge($query1->result(), $query2->result());
+
+        return $result;
     }
+
 
     function get_school_by_npsn($npsn)
     {
