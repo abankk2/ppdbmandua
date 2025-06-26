@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/home.css">
 
     <style>
+        .qr {
+            display: none;
+        }
+
         @media print {
 
             button,
@@ -16,6 +20,12 @@
             .bb,
             .text-end {
                 display: none !important;
+            }
+
+            .qr {
+                display: block !important;
+                text-align: center;
+                margin-top: 20px;
             }
 
             body {
@@ -46,31 +56,47 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">NISN</th>
-                                    <td>: <?= $siswa->nisn ?></td>
+                                    <td>: <?= $hasil['NISN'] ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">No PPDB</th>
-                                    <td>: <?= $siswa->ppdb ?></td>
+                                    <td>: <?= $hasil['PPDB'] ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Nama</th>
-                                    <td>: <?= $siswa->nama ?></td>
+                                    <td>: <?= $hasil['Nama Siswa'] ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Sekolah Asal</th>
-                                    <td>: <?= $siswa->asal ?></td>
+                                    <td>: <?= $hasil['Asal Sekolah'] ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jadwal Lapor Diri</th>
+                                    <td>: <?= $hasil['tgl'] ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jam</th>
+                                    <td>: <?= $hasil['jam'] ?> WIB</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ruangan</th>
+                                    <td>: <?= $hasil['ruangan'] ?></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <p class="text-center">
-                        Silakan datang ke MAN 2 Kota Cirebon pada tanggal <b>1 Juli 2025, pukul 08.00 s.d. 14.00 WIB</b>.
+                        Silakan datang <b>Sesuai Jadwal yang sudah di tentukan</b> menghindari Antrian Panjang.
                         Harap membawa tanda bukti kelulusan seleksi untuk keperluan lapor diri dan <b>Wajib di Dampingi Orang Tua atau Wali</b>.
                     </p>
 
                     <div class="text-center bb mb-3">
-                        Tanda bukti kelulusan dapat diunduh melalui tautan berikut:
+                        Tanda bukti kelulusan dapat diunduh melalui tautan berikut: <br>
                         <button class="btn btn-sm mt-3 btn-block w-50 text-white" type="submit" style="border-radius: 2em; background-color:green" onclick="window.print()">Download</button>
+                    </div>
+
+                    <div class="qr text-center">
+                        <img src="<?= $hasil['QR'] ?>" alt="QR Code" width="150">
                     </div>
 
                 </div>

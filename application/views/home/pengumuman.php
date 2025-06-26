@@ -5,7 +5,7 @@
                 <h1 class="text-center text-white">PENGUMUMAN HASIL SELEKSI</h1>
                 <h4 class="text-center text-white mb-3">PPDB MAN 2 KOTA CIREBON TAHUN PELAJARAN 2025/2026</h4>
                 <div class="card p-3">
-                    <form action="<?= base_url('pengumuman/cari') ?>" method="post">
+                    <form action="" method="post">
                         <div class="my-3">
                             <input type="number" name="nisn" class="form-control" id="exampleFormControlInput1" placeholder="NISN">
                         </div>
