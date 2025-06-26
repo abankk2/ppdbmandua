@@ -42,9 +42,7 @@
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span>Daftar Akun </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Lengkapi Biodata </li>
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Upload Berkas </li>
-                                    <!-- <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Pembayaran </li> -->
                                     <li><span class="fa-li"><i class="fa-solid fa-check-square"></i></span> Download Berkas</li>
-
                                 </ul>
                             </div>
 
@@ -52,6 +50,7 @@
                     </div>
 
                 </div>
+
             </div>
 
             <div class="col-md-4 mb-3">
